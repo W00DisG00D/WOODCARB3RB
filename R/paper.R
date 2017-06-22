@@ -28,7 +28,7 @@ calcUSApaper <- function(years = yrs,
  #
   USA$`Recovered Fibre Pulp Exports Quantity` <- sapply(years, function(year) {
     if (year > 1997 && year < 2014) {
-      return(usaFiberPulp[[year-1997, "Exports.Quantity"]])
+      return(usafp[[year-1997, "Exports.Quantity"]])
     }
     else{
       0
@@ -149,10 +149,10 @@ calcUSApaper <- function(years = yrs,
           return(0)
       }
       if (year < 2014) {
-          return(0.90718 * usaFiberPulp[[year-1997, "Exports.Quantity"]])#recov exports qty
+          return(0.90718 * usafp[[year-1997, "Exports.Quantity"]])#recov exports qty
       }
       if (year < 2021) {
-          return(0.90718 * usaFiberPulp[[2007-1997, "Exports.Quantity"]]) #2007 value
+          return(0.90718 * usafp[[2007-1997, "Exports.Quantity"]]) #2007 value
       }
   })
 
@@ -164,7 +164,7 @@ calcUSApaper <- function(years = yrs,
       return(0.90718 * USA[USA$Years == year, 'Recovered Fibre Pulp Exports Quantity'])#recov exports qty
     }
     if (year < 2021) {
-      return(0.90718 * usaFiberPulp[[2007-1997, "Exports.Quantity"]]) #2007 value
+      return(0.90718 * usafp[[2007-1997, "Exports.Quantity"]]) #2007 value
     }
   })
 

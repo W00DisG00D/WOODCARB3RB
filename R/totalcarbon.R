@@ -39,9 +39,9 @@
 swpcarbontotal <- function(Yrs = 1990:2015, decaydistribution = c("Exponential", "K=2", "K=10"),
                            onlytotal=TRUE, lumberpre = TRUE, approach = c("Production",
                                                                           "Stock Change"),
-                           halflives = halfLives, fsp = fracstrpanels,
-                           fnsp = fracnonstrpanels,
-                           fsawn = fracsawnwood,
+                           halflives = hl, fsp_function = fsp,
+                           fnsp = fnonsp,
+                           fsawn = fsw,
                            swpdata){
 
   type <- match.arg(decaydistribution)
@@ -77,10 +77,10 @@ swpcarbontotal <- function(Yrs = 1990:2015, decaydistribution = c("Exponential",
 
   }
 
-  Var2_totalC_SWP[,"LumberPre1900"] <- lumberpre1900[Yrs - minyr + 1,"Carbon.Lumberwood"]
+  Var2_totalC_SWP[,"lp1900"] <- lp1900[Yrs - minyr + 1,"Carbon.Lumberwood"]
   Var2_totalC_SWP[,"Total Carbon"] <- rowSums(Var2_totalC_SWP[,-1])
   if(onlytotal == TRUE && lumberpre == FALSE){
-    return(Var2_totalC_SWP$`Total Carbon` - Var2_totalC_SWP$LumberPre1900)
+    return(Var2_totalC_SWP$`Total Carbon` - Var2_totalC_SWP$lp1900)
   }
   else if (onlytotal == TRUE){
     return(Var2_totalC_SWP$`Total Carbon`)

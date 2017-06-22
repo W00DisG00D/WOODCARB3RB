@@ -460,9 +460,9 @@ calculateswpdata <- function(Years = yrs) {
 #' for purposes of error analysis
 #' @return a data frame of carbon placed in use for various end uses
 calcplacediu <- function(Years = 1900:2020, approach = c("Production",
-    "Stock Change"), total = TRUE, fsp = fracstrpanels,
-                                   fnsp = fracnonstrpanels,
-                                   fsawn = fracsawnwood, swpdata) {
+    "Stock Change"), total = TRUE, fsp = fsp_1,
+                                   fnsp = fnonsp,
+                                   fsawn = fsw, swpdata) {
     approachtype <- match.arg(approach)
     if (!missing(swpdata))
     {

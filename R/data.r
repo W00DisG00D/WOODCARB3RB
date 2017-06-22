@@ -31,8 +31,8 @@
 #' \item{PerCapita}{Per Capita Use, in Board ft.}
 #' }
 #' @source USFS Estimations and Bureau of Census Data
-#' @keywords hair1958
-"hair1958"
+#' @keywords piet_all
+"piet_all"
 
 
 
@@ -91,8 +91,8 @@
 #' \item{FuelWood.ApparentConsumption}{Apparent Consumption of Fuelwood}
 #' }
 #' @source US Department of Commerce and Agriculture and USFS Estimations
-#' @keywords hair1963
-"hair1963"
+#' @keywords piet_irw
+"piet_irw"
 
 
 #' United States imports and exports of plywood, by softwoods and hardwoods, 1935-62 (with estimates of 1927-34)
@@ -113,7 +113,7 @@
 #' \item{HW.Exports}{Hardwood Exports}
 #' }
 #' @source US Department of Commerce, Bureau of the Census
-"hair1963t20"
+"ie_pw"
 
 
 
@@ -133,8 +133,8 @@
 #' \item{Exports.UtilityCommercialContainer}{Exports of utility, commerical and container Veneer Products}
 #' }
 #' @source US Department of Commerce, Bureau of the Census
-#' @keywords hair1963t21
-"hair1963t21"
+#' @keywords ie_veneer
+"ie_veneer"
 
 
 
@@ -163,8 +163,8 @@
 #' \item{PerCapConsump.HW}{Hardwood Per Capita Consumption, in Board ft.}
 #' }
 #' @source None Listed (need to find)
-#' @keywords howard28
-"howard28"
+#' @keywords pietc_l2
+"pietc_l2"
 
 
 
@@ -195,8 +195,8 @@
 #' @source
 #' US Dept. of Commerce, Bureau of Census, American Plywood Association
 #' The Engineered Wood Association, US Dept. of Agriculture, Foreign Agriculture Service
-#' @keywords howard37
-"howard37"
+#' @keywords pietc_pw2
+"pietc_pw2"
 
 
 
@@ -224,8 +224,8 @@
 #' @source
 #' American Plywood Association, US Dept. of Agriculture
 #' Foreign Agricultural Service
-#' @keywords howard38
-"howard38"
+#' @keywords pietc_sp
+"pietc_sp"
 
 
 
@@ -252,7 +252,7 @@
 #' \item{RagsOther.Exports.Estimated}{Rags and Other: Estimated Exports, in Thousand Tons}
 #' }
 #' @source American Paper Institute, American Forest & Paper Association: Statistics of Paper, Paperboard & Wood Pulp
-"howard46"
+"pietc_pbfm"
 
 
 
@@ -278,7 +278,7 @@
 #' }
 #' @source 1972-Present, American Forest and Paper Association, 1999 Annual Statistical Summary Recovered
 #' Paper Utilization, p.81 (6). 1965-1971, American Forest and Paper Assocation (2,4,5).
-"howard47"
+"pietc_pbrp"
 
 
 
@@ -307,7 +307,7 @@
 #'  1977, 1982, 1990, 1995, 1998, 1999 annual Statistics reports (4).
 #'  1965-1967, 1970, 1973, 1977-1978, 1986-1988 & 1997 revised.
 #'  1966, 1968, 1972, 1975, 1985-1987 & 1996-1997 revised.
-"howard49"
+"pietc_wp2"
 
 
 
@@ -347,7 +347,7 @@
 #' }
 #' @source
 #' U.S. Department of Agriculture, Forest Service(16, 69); Data may not add to totals because of rounding; Data have been revised.
-"howard5"
+"pietc_t2"
 
 #' Particleboard and medium-density fiberboard production, imports,
 #'
@@ -368,7 +368,7 @@
 #' @source
 #' National Particleboard Association (20); U.S. International Trade Commission (69);
 #' U.S. Department of Agriculture (32).  Data may not add to totals because of rounding.
-"howard53"
+"pietc_parbfb2"
 
 #' Lumber production, imports, exports, and consumption, by softwoods and hardwoods, 1950-87
 #'
@@ -403,7 +403,7 @@
 #' U.S. Department of Commerce. Bureau of the Census (43.51.52)
 #' U.S. Department of Agriculture, Forest Service; National Forest Products Association (16).
 #' Data for selected years 1899.1949 in "The demand and price situation for forest products", 1964, table 7 (31)
-"ulrich29"
+"pietc_l"
 
 
 
@@ -434,7 +434,7 @@
 #' }
 #' U.S. Department of Commerce, Bureauot Census (40,50.51,52)
 #' American Plywood Association (5).
-"ulrich36"
+"pietc_pw"
 
 
 
@@ -474,7 +474,7 @@
 #' @source
 #' Based on data published by the U.S. Departments of Commerce and Agriculture.
 #' Data for 1900-49 in "The demand and price situation for forest products 1964", table 2 (31),
-"ulrich4"
+"pietc_t"
 
 
 
@@ -514,7 +514,7 @@
 #' }
 #' Based on data published by the U.S. Departments of Commerce and Agriculture.
 #' Data for 1900-49 in The demand and price situation for forest products 1964, table 2 (31),
-"ulrich5"
+"pietc_swt"
 
 
 
@@ -537,7 +537,7 @@
 #' U.S. Department of Commerce, Bureau of the Census (48,51, 52);
 #' American Paper Institute (3, 4); American Hardboard Association.
 #' Data from Ince,2000, Industrial Wood Productivity in the United States, 1900-1998.
-"ulrich54"
+"pietc_hb"
 
 
 
@@ -574,7 +574,7 @@
 #' \item{UnNamed1}{Unnamed}
 #' }
 #' @source Based on data published by the U.S. Departments of Commerce and Agriculture.
-"ulrich6"
+"pietc_hwt"
 
 
 
@@ -654,7 +654,7 @@
 #' Insulating board production data are derived using earlier data from Commerce Department MA26A reports (in square feet of product output) to convert tonnage reported in AF&PA and earlier API reports (Statistics of Paper, Paperboard & Woodpulp).
 #'
 #' Fuelwood data are Forest Service estimates (Skog and others, FPL).
-"ince1"
+"p_wfw"
 
 
 
@@ -672,7 +672,7 @@
 #' \item{Insulboard.PerCapita.Consumption}{Per Capita Consumption in Pounds}
 #' }
 #' @source USFS Estimations and Bureau of Census Data
-"howard55"
+"pietc_hw2"
 
 
 
@@ -690,7 +690,7 @@
 #' \item{Hardboard.PerCapita.Consumption}{Per Capita Hardboard Consumption in Square feet}
 #' }
 #' @source USFS Estimations and Bureau of Census Data
-"howard56"
+"pietc_ib2"
 
 
 
@@ -727,7 +727,7 @@
 #' \item{FuelWood.ProdAndConsumption}{Fuelwood production and consumption}
 #' }
 #' @source USFS Estimations and Bureau of Census Data
-"howard6"
+"pietc_swt2"
 
 
 
@@ -764,7 +764,7 @@
 #' \item{FuelWood.ProdAndConsumption}{Fuelwood production and consumption}
 #' }
 #' @source USFS Estimations and Bureau of Census Data
-"howard7"
+"pietc_hwt2"
 
 
 
@@ -784,7 +784,7 @@
 #' \item{Consump.PerCapita}{Consumption Per Capita, square feet}
 #' }
 #' @source U.S. Department of Commerce, Bureau of the Census
-"ulrich52"
+"pietc_parbfb"
 
 
 #' Insulating board production, imports, exports, and consumption, 1950-87
@@ -801,7 +801,7 @@
 #' \item{InsulatingBoard.Consump.PerCapita}{Insulating Board consumption per capita, in square feet}
 #' }
 #' @source U.S. Department of Commerce, Bureau of the Census
-"ulrich53"
+"pietc_ib"
 
 
 #' Half lives for each end use.
@@ -825,7 +825,7 @@
 #' \item{Other.Industrial.Tot}{Half lives for Uses For Other Industrial Products}
 #' }
 #' @source USFS data
-"halfLives"
+"hl"
 
 
 
@@ -846,7 +846,7 @@
 #' }
 #' @source Estimated using best available data and historical patterns. Some data
 #' is original but no source in spreadsheet.
-"apiFiberpulp"
+"c_pb"
 
 
 
@@ -875,7 +875,7 @@
 #' @source 1869 -  1962 U.  S.  Bureau of the Census
 #' 1963 - Pulp Producers Division, A.  P.  I.
 #' Imports,  Exports,  Consumption -  Bureau of the Census
-"apiTotalWoodPulp"
+"twp"
 
 
 
@@ -887,7 +887,7 @@
 #' \item{Carbon.Lumberwood}{Carbon from lumber wood in single and multifamily houses in od tons wood fiber}
 #' }
 #' @source 'ftp://ftp2.fs.fed.us/incoming/fpl/Skog/[Woodcarb II special lumber July 5 2007 Base Case.xls]SW Calc'!$V3878
-"lumberpre1900"
+"lp1900"
 
 
 
@@ -912,7 +912,7 @@
 #' \item{Other.Industrial.Tot}{Fraction of sawnwood production in Uses For Other Industrial Products}
 #' }
 #' @source Check spreadsheet - values entered in
-"fracsawnwood"
+"fsw"
 
 
 
@@ -937,7 +937,7 @@
 #' \item{Other.Industrial.Tot}{Fraction of structural panel production in Uses For Other Industrial Products}
 #' }
 #' @source Check spreadsheet - values entered in
-"fracstrpanels"
+"fsp_1"
 
 
 #' Fractions of Non-Structural Panel production used in various end uses
@@ -961,7 +961,7 @@
 #' \item{Other.Industrial.Tot}{Fraction of non-structural panel production in Uses For Other Industrial Products}
 #' }
 #' @source Check spreadsheet - values entered in
-"fracnonstrpanels"
+"fnonsp"
 
 
 
@@ -986,7 +986,7 @@
 #' \item{Other.Industrial.Tot}{Fraction of wood lost in other industrial products}
 #' }
 #' @source Check spreadsheet - values entered in
-"lossIU"
+"liu"
 
 
 
@@ -997,10 +997,10 @@
 #' @format A data frame with 151 observations of 1 variable:
 #' \describe{
 #' \item{Years}{Years}
-#' \item{PaperToLandfills}{Percent of paper that goes to landfills}
+#' \item{plf_percent}{Percent of paper that goes to landfills}
 #' }
 #' @source Linked site, check spreadsheet
-"paperToLandFills"
+"plf_percent"
 
 
 
@@ -1018,7 +1018,7 @@
 #' }
 #'
 #' @source from AF&PA Paper, paperboard & wood pulp, A Monthly statistical summary
-"usaFiberPulp"
+"usafp"
 
 
 
@@ -1030,11 +1030,11 @@
 #'
 #' \describe{
 #' \item{Years}{Years}
-#' \item{WoodToDumps}{Percentage of wood that goes to dumps}
+#' \item{wd_percent}{Percentage of wood that goes to dumps}
 #' }
 #'
 #' @source Linked spreadsheet (check this)
-"woodToDumps"
+"wd_percent"
 
 
 
@@ -1045,10 +1045,10 @@
 #' @format A data frame with 151 observations of 1 variable:
 #' \describe{
 #' \item{Years}{Years}
-#' \item{WoodToLandFills}{Percentage of wood going to landfills}
+#' \item{wlf_percent}{Percentage of wood going to landfills}
 #' }
 #' @source Linked spreadsheet (check this)
-"woodToLandFills"
+"wlf_percent"
 
 
 
@@ -1078,7 +1078,7 @@
 #' \item{Misc}{This is unnamed column in Ince_Table3}
 #' }
 #' @source Ince tables
-"InceTable3"
+"pt_pu"
 
 
 

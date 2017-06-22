@@ -6,9 +6,9 @@ library(xlsx)
 #rownames(convertData) <- c("Assumptions", "Moisture Content", "Non-wood Content")
 #use_data(convertData, overwrite = TRUE)
 
-hair1958 <- read.xlsx("./inst/extdata/CopyOfData/hair1958.xlsx",1,header=FALSE,
+piet_all <- read.xlsx("./inst/extdata/CopyOfData/piet_all.xlsx",1,header=FALSE,
                        startRow=15,endRow=72,colIndex=1:24)
-colnames(hair1958) <- c("Years", "Prod.Tot",
+colnames(piet_all) <- c("Years", "Prod.Tot",
                         "Prod.SW",
                         "Prod.HW",
                         "Imports.Tot", "Imports.SW", "Imports.HW", "Imports.Mixed",
@@ -19,11 +19,11 @@ colnames(hair1958) <- c("Years", "Prod.Tot",
                         "Exports.SW.PercOfTot", "Exports.HW.PercOfTot", "Exports.Estimated.SW",
                         "Exports.Estimated.HW",
                         "NewSupply","PerCapita")
-use_data(hair1958, overwrite = TRUE)
+use_data(piet_all, overwrite = TRUE)
 
-hair1963 <- read.xlsx("./inst/extdata/CopyOfData/hair1963tab2.xlsx", 1, header = FALSE,
+piet_irw <- read.xlsx("./inst/extdata/CopyOfData/piet_irw.xlsx", 1, header = FALSE,
                       startRow=6)
-colnames(hair1963) <- c("Years","Dom.Prod.Tot", "ApparentConsumption", "IndRW.Dom.Prod",
+colnames(piet_irw) <- c("Years","Dom.Prod.Tot", "ApparentConsumption", "IndRW.Dom.Prod",
                         "IndRW.Imports","IndRW.Prod.SW", "IndRW.Prod.HW", "IndRW.LogChipImports.SW",
                         "IndRW.LogChipExports.SW", "IndRW.LogChipImports.HW",
                         "IndRW.LogChipExports.HW", "IndRW.SW.PctOfProd", "IndRW.Exports.SW.PctOfProd",
@@ -38,78 +38,78 @@ colnames(hair1963) <- c("Years","Dom.Prod.Tot", "ApparentConsumption", "IndRW.Do
                         "IndRW.VeneerLogs.Dom.Prod", "IndRW.VeneerLogs.NetImports", "IndRW.VeneerLogs.ApparentConsumption",
                         "IndRW.PulpWood.Dom.Prod", "IndRW.PulpWood.NetImports", "IndRW.PulpWood.ApparentConsumption",
                         "IndRW.Other.ApparentConsumption", "FuelWood.ApparentConsumption")
-colnames(hair1963) <- gsub("IndRW.", "", colnames(hair1963))
-use_data(hair1963, overwrite = TRUE)
+colnames(piet_irw) <- gsub("IndRW.", "", colnames(piet_irw))
+use_data(piet_irw, overwrite = TRUE)
 
-hair1963t20 <- read.xlsx("./inst/extdata/CopyOfData/hair1963t20.xlsx",1,header=FALSE,
+ie_pw <- read.xlsx("./inst/extdata/CopyOfData/ie_pw.xlsx",1,header=FALSE,
                          startRow = 6)
-colnames(hair1963t20) <- c("Years", "Imports.Tot", "SW.Imports",
+colnames(ie_pw) <- c("Years", "Imports.Tot", "SW.Imports",
                            "HW.Imports.Tot", "HW.Imports.Birch", "HW.Imports.Other",
                            "Exports.Tot", "SW.Exports", "HW.Exports")
-use_data(hair1963t20, overwrite = TRUE)
+use_data(ie_pw, overwrite = TRUE)
 
-hair1963t21 <- read.xlsx("./inst/extdata/CopyOfData/hair1963t21.xlsx",1,header=FALSE,
+ie_veneer <- read.xlsx("./inst/extdata/CopyOfData/ie_veneer.xlsx",1,header=FALSE,
                          startRow = 5,endRow = 41)
-colnames(hair1963t21) <- c("Years", "Imports.Tot", "Imports.BirchMaple", "Imports.Other",
+colnames(ie_veneer) <- c("Years", "Imports.Tot", "Imports.BirchMaple", "Imports.Other",
                            "Exports.Tot", "Exports.Fancy.Face.Figured.Special",
                            "Exports.UtilityCommercialContainer")
-use_data(hair1963t21, overwrite = TRUE)
+use_data(ie_veneer, overwrite = TRUE)
 
-howard28 <- read.xlsx("./inst/extdata/CopyOfData/howard28.xls",1,header=FALSE,
+pietc_l2 <- read.xlsx("./inst/extdata/CopyOfData/pietc_l2.xls",1,header=FALSE,
                       startRow = 10)
-colnames(howard28) <- c("Years", "Prod.Tot", "Prod.SW","Prod.HW",
+colnames(pietc_l2) <- c("Years", "Prod.Tot", "Prod.SW","Prod.HW",
                         "Imports.Tot", "Imports.SW", "Imports.HW",
                         "Exports.Tot", "Exports.SW", "Exports.HW",
                         "Consump.Tot", "Consump.SW", "Consump.HW",
                         "PerCapConsump.Tot", "PerCapConsump.SW", "PerCapConsump.HW")
-use_data(howard28, overwrite = TRUE)
+use_data(pietc_l2, overwrite = TRUE)
 
-howard37 <- read.xlsx("./inst/extdata/CopyOfData/howard37.xlsx",1,header=FALSE,
+pietc_pw2 <- read.xlsx("./inst/extdata/CopyOfData/pietc_pw2.xlsx",1,header=FALSE,
                       startRow = 10)
-colnames(howard37) <- c("Years","Prod.Tot", "Prod.SW","Prod.HW",
+colnames(pietc_pw2) <- c("Years","Prod.Tot", "Prod.SW","Prod.HW",
                         "Imports.Tot", "Imports.SW", "Imports.HW",
                         "Exports.Tot", "Exports.SW", "Exports.HW",
                         "Consump.Tot", "Consump.SW", "Consump.HW",
                         "PerCapConsump.Tot", "PerCapConsump.SW", "PerCapConsump.HW")
-use_data(howard37, overwrite = TRUE)
+use_data(pietc_pw2, overwrite = TRUE)
 
-howard38 <- read.xlsx("./inst/extdata/CopyOfData/howard38.xlsx",1,header=FALSE,
+pietc_sp <- read.xlsx("./inst/extdata/CopyOfData/pietc_sp.xlsx",1,header=FALSE,
                       startRow = 8)
-colnames(howard38) <- c("Years", "Prod.Tot", "Prod.SWPlywood","Prod.OSP",
+colnames(pietc_sp) <- c("Years", "Prod.Tot", "Prod.SWPlywood","Prod.OSP",
                         "Imports.Tot", "Imports.SWPlywood", "Imports.OSP",
                         "Exports.Tot", "Exports.SWPlywood", "Exports.OSP",
                         "Consump.Tot", "Consump.SWPlywood", "Consump.OSP")
-use_data(howard38, overwrite = TRUE)
+use_data(pietc_sp, overwrite = TRUE)
 
-howard46 <- read.xlsx("./inst/extdata/CopyOfData/howard46.xlsx",1,header=FALSE,
+pietc_pbfm <- read.xlsx("./inst/extdata/CopyOfData/pietc_pbfm.xlsx",1,header=FALSE,
                       startRow = 8)
-colnames(howard46) <- c("Years", "Prod.PaperBoard",
+colnames(pietc_pbfm) <- c("Years", "Prod.PaperBoard",
                         "Consump.Tot", "Consump.WoodPulp", "Consump.RecPaper", "Consump.Other",
                         "Consump.PerTonProd.Tot","Consump.PerTonProd.WoodPulp", "Consump.PerTonProd.RecPaper", "Consump.PerTonProd.Other",
                         "RagsOther.RecPaperUtiRatePerc",
                         "RagsOther.Prod.Estimated", "RagsOther.Imports.Estimated", "RagsOther.Exports.Estimated")
-use_data(howard46, overwrite = TRUE)
+use_data(pietc_pbfm, overwrite = TRUE)
 
-howard47 <- read.xlsx("./inst/extdata/CopyOfData/howard47.xlsx",1,header=FALSE,
+pietc_pbrp <- read.xlsx("./inst/extdata/CopyOfData/pietc_pbrp.xlsx",1,header=FALSE,
                       startRow = 9)
-colnames(howard47) <- c("Years", "PaperBoardNewSupply",
+colnames(pietc_pbrp) <- c("Years", "PaperBoardNewSupply",
                         "RecPap.ConsumedatPaperBoardMills", "RecPap.MoldedPulpInsulationandOther",
                         "RecPap.Exports", "RecPap.Imports", "RecPap.TotRecovered",
                         "RecPap.RecoveryRate", "NoName", "Ratio.ExportstoProduction",
                         "Ratio.ImportstoProduction")
-use_data(howard47, overwrite = TRUE)
+use_data(pietc_pbrp, overwrite = TRUE)
 
-howard49 <- read.xlsx("./inst/extdata/CopyOfData/howard49.xlsx",1,header=FALSE,
+pietc_wp2 <- read.xlsx("./inst/extdata/CopyOfData/pietc_wp2.xlsx",1,header=FALSE,
                       startRow = 8)
-colnames(howard49) <- c("Years", paste("Woodpulp.",c("Production",
+colnames(pietc_wp2) <- c("Years", paste("Woodpulp.",c("Production",
                         "Imports", "Imports.PercConsump",
                         "Exports", "Exports.PercProd",
                         "Consump.Tot", "Consump.PerCap(pounds)"), sep=""))
-use_data(howard49, overwrite = TRUE)
+use_data(pietc_wp2, overwrite = TRUE)
 
-howard5 <- read.xlsx("./inst/extdata/CopyOfData/howard5.xlsx",1,header=FALSE,
+pietc_t2 <- read.xlsx("./inst/extdata/CopyOfData/pietc_t2.xlsx",1,header=FALSE,
                      startRow = 10)
-colnames(howard5) <- c("Years", "AllProducts.Prod", "AllProducts.Consump",
+colnames(pietc_t2) <- c("Years", "AllProducts.Prod", "AllProducts.Consump",
                        "Prod.Tot", "Imports.Tot", "Exports.Tot", "Consump.Tot",
                        "Lumber.Prod", "Lumber.Imports", "Lumber.Exports", "Lumber.Consump",
                        "PlywoodVeneer.Prod", "PlywoodVeneer.Imports", "PlywoodVeneer.Exports", "PlywoodVeneer.Consump",
@@ -118,85 +118,85 @@ colnames(howard5) <- c("Years", "AllProducts.Prod", "AllProducts.Consump",
                        "Logs.Imports", "Logs.Exports",
                        "PulpwoodChip.Imports", "PulpwoodChip.Exports",
                        "FuelwoodProdandConsump")
-use_data(howard5, overwrite = TRUE)
+use_data(pietc_t2, overwrite = TRUE)
 
-howard53 <- read.xlsx("./inst/extdata/CopyOfData/howard53.xlsx",1,header=FALSE,
+pietc_parbfb2 <- read.xlsx("./inst/extdata/CopyOfData/pietc_parbfb2.xlsx",1,header=FALSE,
                       startRow=10)
-colnames(howard53) <- c("Years", paste("Particle_MDF.", c("Prod.Tot", "Prod.ParticleBoard", "Prod.MediumDensityFiberboard",
+colnames(pietc_parbfb2) <- c("Years", paste("Particle_MDF.", c("Prod.Tot", "Prod.ParticleBoard", "Prod.MediumDensityFiberboard",
                         "Imports", "Exports",
                         "Consump.Tot", "Consump.PerCap(Sq ft)"), sep=""))
-use_data(howard53, overwrite = TRUE)
+use_data(pietc_parbfb2, overwrite = TRUE)
 
-ulrich29 <- read.xlsx("./inst/extdata/CopyOfData/ulrich29.xlsx",1,header=FALSE,
+pietc_l <- read.xlsx("./inst/extdata/CopyOfData/pietc_l.xlsx",1,header=FALSE,
                       startRow = 11, endRow = 39, colIndex = c(1:4, 6:8, 10:12, 14:16, 18:20))
-colnames(ulrich29) <- c("Years", "Prod.Tot", "Prod.SW", "Prod.HW",
+colnames(pietc_l) <- c("Years", "Prod.Tot", "Prod.SW", "Prod.HW",
                         "Imports.Tot", "Imports.SW", "Imports.HW",
                         "Exports.Tot", "Exports.SW", "Exports.HW",
                         "Consump.Tot", "Consump.SW", "Consump.HW",
                         "PerCapitaConsump.Tot", "PerCapitaConsump.SW", "PerCapitaConsump.HW")
-use_data(ulrich29, overwrite = TRUE)
+use_data(pietc_l, overwrite = TRUE)
 
-ulrich36 <- read.xlsx("./inst/extdata/CopyOfData/ulrich36.xlsx",1,header=FALSE,
+pietc_pw <- read.xlsx("./inst/extdata/CopyOfData/pietc_pw.xlsx",1,header=FALSE,
                       startRow=11, endRow = 49, colIndex = c(1:4, 6:8, 10:12, 14:16, 18:20))
-colnames(ulrich36) <- c("Years", "Prod.Tot", "Prod.SW", "Prod.HW",
+colnames(pietc_pw) <- c("Years", "Prod.Tot", "Prod.SW", "Prod.HW",
                         "Imports.Tot", "Imports.SW", "Imports.HW",
                         "Exports.Tot", "Exports.SW", "Exports.HW",
                         "Consump.Tot", "Consump.SW", "Consump.HW",
                         "PerCapitaConsump.Tot", "PerCapitaConsump.SW", "PerCapitaConsump.HW")
-use_data(ulrich36, overwrite = TRUE)
+use_data(pietc_pw, overwrite = TRUE)
 
-ulrich4 <- read.xlsx("./inst/extdata/CopyOfData/ulrich4.xlsx",1,header=FALSE,
+pietc_t <- read.xlsx("./inst/extdata/CopyOfData/pietc_t.xlsx",1,header=FALSE,
                      startRow=11, endRow = 49, colIndex = c(1:3, 5:8, 10:13, 15:18, 20:23, 25:30))
-colnames(ulrich4) <- c("Years", "AllProducts.Prod", "AllProducts.Consump",
+colnames(pietc_t) <- c("Years", "AllProducts.Prod", "AllProducts.Consump",
                        "Tot.Prod", "Tot.Imports", "Tot.Exports", "Tot.Consump",
                        "Lumber.Prod", "Lumber.Imports", "Lumber.Exports", "Lumber.Consump",
                        "PlywoodVeneer.Prod", "PlywoodVeneer.Imports", "PlywoodVeneer.Exports", "PlywoodVeneer.Consump",
                        "PulpProducts.Prod", "PulpProducts.Imports", "PulpProducts.Exports", "PulpProducts.Consump",
                        "OtherIndProducts.ProdandConsump", "Logs.Imports", "Logs.Exports", "PulpwoodChip.Exports",
                        "Fuelwood.ProdandConsump", "LogChipExports.PercofProduction")
-use_data(ulrich4, overwrite = TRUE)
+use_data(pietc_t, overwrite = TRUE)
 
-ulrich5 <- read.xlsx("./inst/extdata/CopyOfData/ulrich5.xlsx",1,header=FALSE,
+pietc_swt <- read.xlsx("./inst/extdata/CopyOfData/pietc_swt.xlsx",1,header=FALSE,
                      startRow=11, endRow = 49, colIndex = c(1:3, 5:8, 10:13, 15:18, 20:29))
-colnames(ulrich5) <- c("Years","AllProducts.Prod", "AllProducts.Consump",
+colnames(pietc_swt) <- c("Years","AllProducts.Prod", "AllProducts.Consump",
                        "Tot.Prod", "Tot.Imports", "Tot.Exports", "Tot.Consump",
                        "Lumber.Prod", "Lumber.Imports", "Lumber.Exports", "Lumber.Consump",
                        "PlywoodVeneer.Prod", "PlywoodVeneer.Imports", "PlywoodVeneer.Exports", "PlywoodVeneer.Consump",
                        "PulpProducts.Prod", "PulpProducts.Imports", "PulpProducts.Exports", "PulpProducts.Consump",
                        "OtherIndProducts.ProdandConsump", "Logs.Imports", "Logs.Exports", "PulpwoodChip.Exports",
                        "Fuelwood.ProdandConsump", "LogChipExports.PercofProduction")
-use_data(ulrich5, overwrite = TRUE)
+use_data(pietc_swt, overwrite = TRUE)
 
 ######LOSS when placed IU based on EU and yr
-lossIU <- read.xlsx("./inst/extdata/CopyOfData/lossWhenPlacedIU.xlsx",1,header=FALSE,
+pietc_liu <- read.xlsx("./inst/extdata/CopyOfData/lossWhenPlacedIU.xlsx",1,header=FALSE,
                     colIndex = c(1,2,3,5,6,7,8,10,11,12,14,15,16,17)+1,
                     startRow = 9)
-colnames(lossIU)<-c("House.SingFam","House.Multifam","House.MobHom",
+colnames(pietc_liu)<-c("House.SingFam","House.Multifam","House.MobHom",
                     "Res.Upkeep","New.Nonres.AllRR","New.Nonres.Rties","New.Nonres.Rcar.Repair",
                     "Manu.HouseFurniture","Manu.CommFurniture","Manu.OtherProducts",
                     "Shipping.Tot","Other.Uses.Tot", "Other.Industrial.Tot")
-#lossIU <- lossIU[,1]
-use_data(lossIU, overwrite = TRUE)
+#pietc_liu <- pietc_liu[,1]
+use_data(pietc_liu, overwrite = TRUE)
 
-lumberpre1900 <- read.xlsx("./inst/extdata/CopyOfData/lumberpre1900.xlsx",1,header=FALSE,
+lp1900 <- read.xlsx("./inst/extdata/CopyOfData/lp1900.xlsx",1,header=FALSE,
                            startRow = 2)
-colnames(lumberpre1900)<-c("Years", "Carbon.Lumberwood")
-use_data(lumberpre1900, overwrite = TRUE)
+colnames(lp1900)<-c("Years", "Carbon.Lumberwood")
+use_data(lp1900, overwrite = TRUE)
 
-woodToLandFills <- read.xlsx("./inst/extdata/CopyOfData/woodToLandFills.xlsx", 1, header=F,
+wlf_percent <- read.xlsx("./inst/extdata/CopyOfData/wlf_percent.xlsx", 1, header=F,
                              startRow=2)
-colnames(woodToLandFills) <-c("Years", "WoodToLandFills")
-use_data(woodToLandFills, overwrite = TRUE)
+colnames(wlf_percent) <-c("Years", "wlf_percent")
+use_data(wlf_percent, overwrite = TRUE)
 
-woodToDumps <- read.xlsx("./inst/extdata/CopyOfData/woodToDumps.xlsx", 1, header=F,
+wd_percent <- read.xlsx("./inst/extdata/CopyOfData/wd_percent.xlsx", 1, header=F,
                          startRow=2)
-colnames(woodToDumps) <-c("Years", "WoodToDumps")
-use_data(woodToDumps, overwrite = TRUE)
+colnames(wd_percent) <-c("Years", "wd_percent")
+use_data(wd_percent, overwrite = TRUE)
 
-paperToLandFills <- read.xlsx("./inst/extdata/CopyOfData/paperToLandFills.xlsx",1,header=F,
+plf_percent <- read.xlsx("./inst/extdata/CopyOfData/plf_percent.xlsx",1,header=F,
                               startRow=2)
-colnames(paperToLandFills) <-c("Years", "PaperToLandfills")
-use_data(paperToLandFills, overwrite = TRUE)
+colnames(plf_percent) <-c("Years", "plf_percent")
+use_data(plf_percent, overwrite = TRUE)
 ########
 #imports1file<-read.xlsx("./inst/extdata/CopyOfData/imports1.xlsx",1,header=FALSE)
 #colnames(imports1file) <-c("SW.PLY","OSB.Waferboard","HW.PLY.veneer",
@@ -205,13 +205,13 @@ use_data(paperToLandFills, overwrite = TRUE)
 #use_data(imports1file, overwrite = TRUE)
 
 ########halflives for various end uses for yrs 1900-2050
-halfLives <- read.xlsx("./inst/extdata/CopyOfData/halfLives.xlsx", 1,header=FALSE,
+hl <- read.xlsx("./inst/extdata/CopyOfData/hl.xlsx", 1,header=FALSE,
                        startRow = 11,colIndex = c(1:3, 5:8,10:12,14:16)+1 )
-colnames(halfLives)<-c("House.SingFam","House.Multifam","House.MobHom",
+colnames(hl)<-c("House.SingFam","House.Multifam","House.MobHom",
                        "Res.Upkeep","New.Nonres.AllRR","New.Nonres.Rties","New.Nonres.Rcar.Repair",
                        "Manu.HouseFurniture","Manu.CommFurniture","Manu.OtherProducts",
                        "Shipping.Tot","Other.Uses.Tot", "Other.Industrial.Tot")
-use_data(halfLives, overwrite = TRUE)
+use_data(hl, overwrite = TRUE)
 
 ########PAPER
 IncePaper <- read.xlsx("./inst/extdata/CopyOfData/Ince_Paper.xlsx",1,header=FALSE,
@@ -220,56 +220,56 @@ colnames(IncePaper) <- c("Years", "Paper.Board.Prod","Paper.Board.Imports","Pape
                          "Population", "Paper.Board.ConsumptionPerCapita")
 use_data(IncePaper, overwrite = TRUE)
 
-apiFiberpulp <- read.xlsx("./inst/extdata/CopyOfData/api1975Fiberpulp.xlsx",1,header=FALSE,
+c_pb <- read.xlsx("./inst/extdata/CopyOfData/c_pb.xlsx",1,header=FALSE,
                           startRow = 6, colIndex = c(1,2,4,6,8,10))
-colnames(apiFiberpulp) <- c("Years", "Wood.Pulp.Consumption","Waste.Paper.Consumption", "Rags.Consumption",
+colnames(c_pb) <- c("Years", "Wood.Pulp.Consumption","Waste.Paper.Consumption", "Rags.Consumption",
                             "Other.Consumption","Total.Consumption")
-use_data(apiFiberpulp, overwrite = TRUE)
+use_data(c_pb, overwrite = TRUE)
 
-apiTotalWoodPulp <- read.xlsx("./inst/extdata/CopyOfData/apiTotalWoodPulp.xlsx",1,header=FALSE,
+twp <- read.xlsx("./inst/extdata/CopyOfData/twp.xlsx",1,header=FALSE,
                               startRow = 8, endRow = 84, colIndex = c(1:6, 8:10, 12:14))
-colnames(apiTotalWoodPulp)<-c("Years", "Woodpulp.Prod","Woodpulp.Imports","Woodpulp.Exports",
+colnames(twp)<-c("Years", "Woodpulp.Prod","Woodpulp.Imports","Woodpulp.Exports",
                               "Woodpulp.NewSupply", "Consump.Paper.Board",
                               "WastePaper.Estimated.Prod","WastePaper.Estimated.Imports",
                               "WastePaper.Estimated.Exports",
                               "Rags.Estimated.Prod",
                               "Rags.Estimated.Imports",
                               "Rags.Estimated.Exports")
-use_data(apiTotalWoodPulp, overwrite = TRUE)
+use_data(twp, overwrite = TRUE)
 #####################
-usaFiberPulp <- read.xlsx("./inst/extdata/CopyOfData/usaFiberPulpCG.xlsx",1,header=FALSE,
+usafp <- read.xlsx("./inst/extdata/CopyOfData/usafp.xlsx",1,header=FALSE,
                           startRow = 6, colIndex=c(2:5))
-colnames(usaFiberPulp)<-c("Years", "Prod.Quantity","Imports.Quantity","Exports.Quantity")
-use_data(usaFiberPulp, overwrite = TRUE)
+colnames(usafp)<-c("Years", "Prod.Quantity","Imports.Quantity","Exports.Quantity")
+use_data(usafp, overwrite = TRUE)
 
-ince1 <- read.xlsx("./inst/extdata/CopyOfData/ince1.xlsx",1,header=FALSE,
+p_wfw <- read.xlsx("./inst/extdata/CopyOfData/p_wfw.xlsx",1,header=FALSE,
                    startRow = 4,endRow=154)
-colnames(ince1)<-c("Years", "SW.Ply","OSB.Wafer.board","Lam.Ven.Lumb", "HW.Ply.Ven",
+colnames(p_wfw)<-c("Years", "SW.Ply","OSB.Wafer.board","Lam.Ven.Lumb", "HW.Ply.Ven",
                    "SW.Lumb","HW.Lumb","Lumb.Pallet.Plant",
                    "PartBoard.Prod","Hardboard.Prod",
                    "MDF.Prod","Pulp.Paper.Board","Other.Products",
                    "InsulatingBoard","Fuelwood","Fuelwood.Tons","Log.Chip.Exports",
                    "RW.Dom.Prod","Estimated.Tot.Dom.Timber")
-use_data(ince1, overwrite = TRUE)
+use_data(p_wfw, overwrite = TRUE)
 
 
-howard55 <- read.xlsx("./inst/extdata/CopyOfData/howard55.xlsx",1,header=FALSE,
+pietc_hw2 <- read.xlsx("./inst/extdata/CopyOfData/pietc_hw2.xlsx",1,header=FALSE,
                       startRow = 7)
-colnames(howard55) <- c("Years", paste("Insulboard.", c("Production","Imports","Exports",
+colnames(pietc_hw2) <- c("Years", paste("Insulboard.", c("Production","Imports","Exports",
                       "Total.Consumption","PerCapita.Consumption"), sep = ""))
-use_data(howard55, overwrite=TRUE)
+use_data(pietc_hw2, overwrite=TRUE)
 
-howard56 <- read.xlsx("./inst/extdata/CopyOfData/howard56.xlsx",1,header=FALSE,
+pietc_ib2 <- read.xlsx("./inst/extdata/CopyOfData/pietc_ib2.xlsx",1,header=FALSE,
                       startRow = 9)
-colnames(howard56)<- c("Years", paste("Hardboard.", c("Production","Imports","Exports",
+colnames(pietc_ib2)<- c("Years", paste("Hardboard.", c("Production","Imports","Exports",
                             "Total.Consumption","PerCapita.Consumption"), sep=""))
-use_data(howard56, overwrite=TRUE)
+use_data(pietc_ib2, overwrite=TRUE)
 
-howard6 <- read.xlsx("./inst/extdata/CopyOfData/howard6.xlsx",1,header=FALSE,
+pietc_swt2 <- read.xlsx("./inst/extdata/CopyOfData/pietc_swt2.xlsx",1,header=FALSE,
                 startRow = 10, endRow = 65, colIndex = 1:26)
 
-#howard6[is.na(howard6)] <- 0
-colnames(howard6) <- c("Years", "AllProduction.Prod","AllProduct.Consump",
+#pietc_swt2[is.na(pietc_swt2)] <- 0
+colnames(pietc_swt2) <- c("Years", "AllProduction.Prod","AllProduct.Consump",
                      "Ind.RW.Tot.Prod","Ind.RW.Tot.Imports","Ind.RW.Tot.Exports","Ind.RW.Tot.Consump",
                      "Ind.RW.Lum.Prod","Ind.RW.Lum.Imports","Ind.RW.Lum.Exports","Ind.RW.Lum.Consump",
                      "Ind.RW.PlyandVen.Prod","Ind.RW.PlyandVen.Imports","Ind.RW.PlyandVen.Exports","Ind.RW.PlyandVen.Consump",
@@ -278,12 +278,12 @@ colnames(howard6) <- c("Years", "AllProduction.Prod","AllProduct.Consump",
                      "Ind.RW.Logs.Imports","Ind.RW.Logs.Exports",
                      "Ind.RW.Pulpchip.Imports","Ind.RW.Pulpchip.Exports",
                      "FuelWood.ProdAndConsumption")
-use_data(howard6, overwrite=TRUE)
+use_data(pietc_swt2, overwrite=TRUE)
 
-howard7<-read.xlsx("./inst/extdata/CopyOfData/howard7.xlsx",1,header=FALSE,
+pietc_hwt2<-read.xlsx("./inst/extdata/CopyOfData/pietc_hwt2.xlsx",1,header=FALSE,
                    startRow = 10, colIndex = 1:25)
-howard7[is.na(howard7)] <- 0
-colnames(howard7)<-c("Years", "AllProduction.Prod","AllProduct.Consump",
+pietc_hwt2[is.na(pietc_hwt2)] <- 0
+colnames(pietc_hwt2)<-c("Years", "AllProduction.Prod","AllProduct.Consump",
                       "Ind.RW.Tot.Prod","Ind.RW.Tot.Imports","Ind.RW.Tot.Exports","Ind.RW.Tot.Consump",
                       "Ind.RW.Lum.Prod","Ind.RW.Lum.Imports","Ind.RW.Lum.Exports","Ind.RW.Lum.Consump",
                       "Ind.RW.PlyandVen.Prod","Ind.RW.PlyandVen.Imports","Ind.RW.PlyandVen.Exports","Ind.RW.PlyandVen.Consump",
@@ -292,34 +292,34 @@ colnames(howard7)<-c("Years", "AllProduction.Prod","AllProduct.Consump",
                       "Ind.RW.Logs.Imports","Ind.RW.Logs.Exports",
                       "Ind.RW.Pulpchip.Imports","Ind.RW.Pulpchip.Exports",
                       "FuelWood.ProdAndConsumption")
-use_data(howard7, overwrite=TRUE)
+use_data(pietc_hwt2, overwrite=TRUE)
 
-ulrich52<-read.xlsx("./inst/extdata/CopyOfData/ulrich52.xlsx",1,header=FALSE,
+pietc_parbfb<-read.xlsx("./inst/extdata/CopyOfData/pietc_parbfb.xlsx",1,header=FALSE,
                     startRow = 11, endRow = 48)
-colnames(ulrich52) <- c("Years", "Prod.tot","Prod.Part.Board","Prod.Med.Fiberboard",
+colnames(pietc_parbfb) <- c("Years", "Prod.tot","Prod.Part.Board","Prod.Med.Fiberboard",
                       "Imports","Exports","Consump.Tot","Consump.PerCapita")
-use_data(ulrich52, overwrite=TRUE)
+use_data(pietc_parbfb, overwrite=TRUE)
 
 
-ulrich53<-read.xlsx("./inst/extdata/CopyOfData/ulrich53.xlsx",1,header=FALSE,
+pietc_ib<-read.xlsx("./inst/extdata/CopyOfData/pietc_ib.xlsx",1,header=FALSE,
                     startRow = 8, endRow = 70)
-colnames(ulrich53) <- c("Years", "InsulatingBoard.Prod","InsulatingBoard.Import",
+colnames(pietc_ib) <- c("Years", "InsulatingBoard.Prod","InsulatingBoard.Import",
                       "InsulatingBoard.Exports",
                       "InsulatingBoard.Consump.Tot",
                       "InsulatingBoard.Consump.PerCapita")
-use_data(ulrich53, overwrite=TRUE)
+use_data(pietc_ib, overwrite=TRUE)
 
-ulrich54<-read.xlsx("./inst/extdata/CopyOfData/ulrich54.xlsx",1,header=FALSE,
+pietc_hb<-read.xlsx("./inst/extdata/CopyOfData/pietc_hb.xlsx",1,header=FALSE,
                     startRow = 7, endRow = 78)
-colnames(ulrich54)<-c("Years", "Hardboard.Prod","Hardboard.Import",
+colnames(pietc_hb)<-c("Years", "Hardboard.Prod","Hardboard.Import",
                       "Hardboard.Exports",
                       "Hardboard.Consump.Tot",
                       "Hardboard.Consump.PerCapita")
-use_data(ulrich54, overwrite=TRUE)
+use_data(pietc_hb, overwrite=TRUE)
 
-ulrich6 <- read.xlsx("./inst/extdata/CopyOfData/ulrich6.xlsx",1,header=FALSE,
+pietc_hwt <- read.xlsx("./inst/extdata/CopyOfData/pietc_hwt.xlsx",1,header=FALSE,
                    startRow = 11, endRow = 48, colIndex = c(1:3, 5:8, 10:13, 15:18, 20:24, 26:30))
-colnames(ulrich6)<-c("Years", "AllProduction.Prod","AllProduct.Consump",
+colnames(pietc_hwt)<-c("Years", "AllProduction.Prod","AllProduct.Consump",
                      "Ind.RW.Tot.Prod","Ind.RW.Tot.Imports","Ind.RW.Tot.Exports","Ind.RW.Tot.Consump",
                      "Ind.RW.Lum.Prod","Ind.RW.Lum.Imports","Ind.RW.Lum.Exports","Ind.RW.Lum.Consump",
                      "Ind.RW.PlyandVen.Prod","Ind.RW.PlyandVen.Imports","Ind.RW.PlyandVen.Exports","Ind.RW.PlyandVen.Consump",
@@ -328,61 +328,61 @@ colnames(ulrich6)<-c("Years", "AllProduction.Prod","AllProduct.Consump",
 
                      "Ind.RW.Logs.Imports","Ind.RW.Logs.Exports",
                      "FuelWood.ProdAndConsumption","UnNamed1")
-use_data(ulrich6, overwrite=TRUE)
+use_data(pietc_hwt, overwrite=TRUE)
 
 
-fracsawnwood<-read.xlsx("./inst/extdata/CopyOfData/fracsawnwood.xlsx",1,header=FALSE,
+fsw<-read.xlsx("./inst/extdata/CopyOfData/fsw.xlsx",1,header=FALSE,
                         startRow = 12, colIndex = 1:17)
-fracsawnwood <- fracsawnwood[-c(1, 5, 10, 14)]
-colnames(fracsawnwood)<-c("House.SingFam","House.Multifam","House.MobHom",
+fsw <- fsw[-c(1, 5, 10, 14)]
+colnames(fsw)<-c("House.SingFam","House.Multifam","House.MobHom",
                           "Res.Upkeep","New.Nonres.AllRR","New.Nonres.Rties","New.Nonres.Rcar.Repair",
                           "Manu.HouseFurniture","Manu.CommFurniture","Manu.OtherProducts",
                           "Shipping.Tot","Other.Uses.Tot", "Other.Industrial.Tot")
-#fracsawnwood[is.na(fracsawnwood)] <- 0
+#fsw[is.na(fsw)] <- 0
 
-use_data(fracsawnwood, overwrite=TRUE)
+use_data(fsw, overwrite=TRUE)
 
 
-fracnonstrpanels <- read.xlsx("./inst/extdata/CopyOfData/fracnonstrpanels.xlsx", 1,
+fnonsp <- read.xlsx("./inst/extdata/CopyOfData/fnonsp.xlsx", 1,
                               header = FALSE, startRow = 11, colIndex = 1:17)
-fracnonstrpanels <- fracnonstrpanels[,2:17]
-colnames(fracnonstrpanels)<-c("House.SingFam","House.Multifam","House.MobHom","House.Tot",
+fnonsp <- fnonsp[,2:17]
+colnames(fnonsp)<-c("House.SingFam","House.Multifam","House.MobHom","House.Tot",
                               "Res.Upkeep","New.Nonres.AllRR","New.Nonres.Rties","New.Nonres.Rcar.Repair",
                               "New.Nonres.tot",
                               "Manu.HouseFurniture","Manu.CommFurniture","Manu.OtherProducts",
                               "Manu.Tot",
                               "Shipping.Tot","Other.Uses.Tot", "Other.Industrial.Tot")
-fracnonstrpanels <- fracnonstrpanels[,-c(4, 9, 13)]
-use_data(fracnonstrpanels, overwrite = TRUE)
+fnonsp <- fnonsp[,-c(4, 9, 13)]
+use_data(fnonsp, overwrite = TRUE)
 
 
-fracstrpanels <- read.xlsx("./inst/extdata/CopyOfData/fracstrpanels.xlsx", 1,
+fsp_1 <- read.xlsx("./inst/extdata/CopyOfData/fsp_1.xlsx", 1,
                            header = FALSE, startRow = 10, colIndex = 1:17)
-fracstrpanels <- fracstrpanels[,2:17]
-colnames(fracstrpanels)<-c("House.SingFam","House.Multifam","House.MobHom","House.Tot",
+fsp_1 <- fsp_1[,2:17]
+colnames(fsp_1)<-c("House.SingFam","House.Multifam","House.MobHom","House.Tot",
                            "Res.Upkeep","New.Nonres.AllRR","New.Nonres.Rties","New.Nonres.Rcar.Repair",
                            "New.Nonres.tot",
                            "Manu.HouseFurniture","Manu.CommFurniture","Manu.OtherProducts",
                            "Manu.Tot",
                            "Shipping.Tot","Other.Uses.Tot", "Other.Industrial.Tot")
-fracstrpanels <- fracstrpanels[,-c(4, 9, 13)]
-use_data(fracstrpanels, overwrite = TRUE)
+fsp_1 <- fsp_1[,-c(4, 9, 13)]
+use_data(fsp_1, overwrite = TRUE)
 
-InceTable3 <- read.xlsx("./inst/extdata/CopyOfData/Ince_Table3.xlsx", 1, header = FALSE, colClasses = "character")
-InceTable3 <- InceTable3[,1:16]
-for(i in 1:ncol(InceTable3)){
-  InceTable3[,i] <- as.character(InceTable3[,i])
-
-}
-InceTable3[(InceTable3 == "N.A.") == T] <- NA
-for(i in 1:ncol(InceTable3)){
-  InceTable3[,i] <- suppressWarnings(as.numeric(InceTable3[,i]))
+pt_pu <- read.xlsx("./inst/extdata/CopyOfData/pt_pu.xlsx", 1, header = FALSE, colClasses = "character")
+pt_pu <- pt_pu[,1:16]
+for(i in 1:ncol(pt_pu)){
+  pt_pu[,i] <- as.character(pt_pu[,i])
 
 }
-colnames(InceTable3) <- c("Years", "Total.Industrial.Wood.Product.Production", paste("Roundwood.Equivalents.of.Production.",c("Hardwoods", "Softwoods",paste("Totals",c(".millionftcubed", ".thousand.short.tons",".thousand.metric.tons"),sep="")),sep=""),
+pt_pu[(pt_pu == "N.A.") == T] <- NA
+for(i in 1:ncol(pt_pu)){
+  pt_pu[,i] <- suppressWarnings(as.numeric(pt_pu[,i]))
+
+}
+colnames(pt_pu) <- c("Years", "Total.Industrial.Wood.Product.Production", paste("Roundwood.Equivalents.of.Production.",c("Hardwoods", "Softwoods",paste("Totals",c(".millionftcubed", ".thousand.short.tons",".thousand.metric.tons"),sep="")),sep=""),
                           "Industrial.Wood.Productivity.lbs.ftsquared", "Industrial.Wood.Productivity",
                           "Recovered.Paper.Utilization.Rate(AF&PA)",
                           "U.S.Population","Per.Capita.Industrial.Wood.Product.Production",
                           "HW.Agrifiber", "HW.Roundwood",
                           "U.S.Timber.Harvest", "Misc")
-use_data(InceTable3, overwrite = TRUE)
+use_data(pt_pu, overwrite = TRUE)
