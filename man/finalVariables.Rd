@@ -5,11 +5,11 @@
 \title{Calculates the 7 HWP Variables.}
 \usage{
 finalVariables(Years = 1990:2015, decaydistribution = c("Exponential",
-  "K=2", "K=10"), halflives = halfLives, paperHL = 2.53087281800454,
-  approach = NULL, fsp = fracstrpanels, fnsp = fracnonstrpanels,
-  fsawn = fracsawnwood, woodToCarbon = 4.535925e-07,
-  paperToCarbon = 3.9008955e-07, swpSwdsNondegradable = 0.77,
-  paperSwdsNondegradable = 0.44, swpLandfillDecay = 0.0300063714528115,
+  "K=2", "K=10"), halflives = hl, paperHL = 2.53087281800454,
+  approach = NULL, fsp = fsp_1, fnsp = fnonsp, fsawn = fsw,
+  woodToCarbon = 4.535925e-07, paperToCarbon = 3.9008955e-07,
+  swpSwdsNondegradable = 0.77, paperSwdsNondegradable = 0.44,
+  swpLandfillDecay = 0.0300063714528115,
   paperLandfillDecay = 0.0478032538317204,
   swpDumpDecay = 0.0420089200339361, paperDumpDecay = 0.0840178400678722,
   swpdata)
@@ -26,10 +26,6 @@ one of 13 end uses and half life values for 1900 until the maximum year of inter
 
 \item{approach}{approach to calculate corresponding final variables for.
 If null, all final variables are calculated and returned.}
-
-\item{fsp}{Fraction of structural panel products that go to each end use.
-Default can be substituted with data with a column for each end use and row for years
-from 1900 to latest year of interest.}
 
 \item{fnsp}{Fraction of non-structural panel products that go to each end use.
 Default can be substituted with data with a column for each end use and row for years
@@ -61,6 +57,10 @@ are not subject to decay.}
 
 \item{swpdata}{Optional argument to provide swp production and trade time series
 for purposes of error analysis}
+
+\item{fsp_1}{Fraction of structural panel products that go to each end use.
+Default can be substituted with data with a column for each end use and row for years
+from 1900 to latest year of interest.}
 }
 \value{
 If an approach is specified then only the variables needed for that
@@ -97,6 +97,6 @@ domestic harvest (from products in use and products in SWDS)
 }
 \examples{
 finalVariables(Years = 1950:2000)
-finalVariables(halflives = halfLives * 1.25)
+finalVariables(halflives = hl * 1.25)
 }
 

@@ -15,8 +15,8 @@ returnData(years = 1950:2015)
 \item{years}{years to return data for}
 }
 \value{
-data frame of intermediate calculations corresponding to appropriate table
-in Excel spreadsheet.
+data frame of intermediate calculations corresponding to those in
+Woodcarb2.
 }
 \description{
 Get import, export, production data for all product types.

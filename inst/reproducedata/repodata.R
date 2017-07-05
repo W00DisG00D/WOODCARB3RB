@@ -368,7 +368,8 @@ colnames(fsp_1)<-c("House.SingFam","House.Multifam","House.MobHom","House.Tot",
 fsp_1 <- fsp_1[,-c(4, 9, 13)]
 use_data(fsp_1, overwrite = TRUE)
 
-pt_pu <- read.xlsx("./inst/extdata/CopyOfData/pt_pu.xlsx", 1, header = FALSE, colClasses = "character")
+pt_pu <- read.xlsx("./inst/extdata/CopyOfData/pt_pu.xlsx", 1, header = FALSE, colClasses = "character",
+                   startRow = 5)
 pt_pu <- pt_pu[,1:16]
 for(i in 1:ncol(pt_pu)){
   pt_pu[,i] <- as.character(pt_pu[,i])

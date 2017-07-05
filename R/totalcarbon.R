@@ -18,7 +18,7 @@
 #' For stock change approach, the data returned corresponds to the `SWCalc$H4389` column in WOODCARB II.
 #' @param halflives data frame of half lives for end uses. Default half lives are used but
 #' a data frame with 13 columns with half lives for the appropriate years can be used.
-#' @param fsp Fraction of structural panel products that go to each end use.
+#' @param fsp_function Fraction of structural panel products that go to each end use.
 #' Default can be substituted with data with a column for each end use and row for years
 #' from 1900 to latest year of interest.
 #' @param fnsp Fraction of non-structural panel products that go to each end use.
@@ -39,7 +39,7 @@
 swpcarbontotal <- function(Yrs = 1990:2015, decaydistribution = c("Exponential", "K=2", "K=10"),
                            onlytotal=TRUE, lumberpre = TRUE, approach = c("Production",
                                                                           "Stock Change"),
-                           halflives = hl, fsp_function = fsp,
+                           halflives = hl, fsp_function = fsp_1,
                            fnsp = fnonsp,
                            fsawn = fsw,
                            swpdata){
@@ -52,7 +52,7 @@ swpcarbontotal <- function(Yrs = 1990:2015, decaydistribution = c("Exponential",
     swpdata <- calculateswpdata()
   }
 
-  placeIU <- calcplacediu(total = FALSE, approach = approachtype, fsp = fsp,
+  placeIU <- calcplacediu(total = FALSE, approach = approachtype, fsp = fsp_function,
                           fnsp = fnsp,
                           fsawn = fsawn, swpdata = swpdata)
 
@@ -72,7 +72,7 @@ swpcarbontotal <- function(Yrs = 1990:2015, decaydistribution = c("Exponential",
         decays <- decay_array[3, eu, yearrange, year - minyr + 1]
       }
       Var2_totalC_SWP[Var2_totalC_SWP$Year == year, paste("EU",eu,sep="")] <- sum(placeIU[yearrange,eu+1]*decays
-                                                                                  * (1 - lossIU[yearrange,eu]))
+                                                                                  * (1 - pietc_liu[yearrange,eu]))
     }
 
   }

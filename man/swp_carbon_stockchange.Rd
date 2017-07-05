@@ -8,9 +8,9 @@ For production approach, values correspond to `Calculation$BY` in the spreadshee
 For stock change approach, values correspond to `Calculation$H` in the spreadsheet.}
 \usage{
 swp_carbon_stockchange(years, approach = c("Production", "Stock Change"),
-  decaydistribution = c("Exponential", "K=2", "K=10"),
-  halflives = halfLives, fsp = fracstrpanels, fnsp = fracnonstrpanels,
-  fsawn = fracsawnwood, swpdata, woodToCarbon = 4.535925e-07)
+  decaydistribution = c("Exponential", "K=2", "K=10"), halflives = hl,
+  fsp = fsp_1, fnsp = fnonsp, fsawn = fsw, swpdata,
+  woodToCarbon = 4.535925e-07)
 }
 \arguments{
 \item{years}{years to return carbon totals for}
@@ -21,10 +21,6 @@ swp_carbon_stockchange(years, approach = c("Production", "Stock Change"),
 
 \item{halflives}{data frame of half lives to use. Must have a column associated with each
 one of 13 end uses and half life values for 1900 until the maximum year of interest.}
-
-\item{fsp}{Fraction of structural panel products that go to each end use.
-Default can be substituted with data with a column for each end use and row for years
-from 1900 to latest year of interest.}
 
 \item{fnsp}{Fraction of non-structural panel products that go to each end use.
 Default can be substituted with data with a column for each end use and row for years
@@ -39,6 +35,10 @@ for purposes of error analysis}
 
 \item{woodToCarbon}{Conversion factor to convert oven-dry tons of solid wood to
 Tg of Carbon.}
+
+\item{fsp_1}{Fraction of structural panel products that go to each end use.
+Default can be substituted with data with a column for each end use and row for years
+from 1900 to latest year of interest.}
 }
 \value{
 A vector of swp carbon stock changes for `years`

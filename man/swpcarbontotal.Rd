@@ -6,8 +6,8 @@
 \usage{
 swpcarbontotal(Yrs = 1990:2015, decaydistribution = c("Exponential", "K=2",
   "K=10"), onlytotal = TRUE, lumberpre = TRUE, approach = c("Production",
-  "Stock Change"), halflives = halfLives, fsp = fracstrpanels,
-  fnsp = fracnonstrpanels, fsawn = fracsawnwood, swpdata)
+  "Stock Change"), halflives = hl, fsp_function = fsp_1, fnsp = fnonsp,
+  fsawn = fsw, swpdata)
 }
 \arguments{
 \item{Yrs}{years to calculate totals for.}
@@ -28,10 +28,6 @@ For stock change approach, the data returned corresponds to the `SWCalc$H4389` c
 \item{halflives}{data frame of half lives for end uses. Default half lives are used but
 a data frame with 13 columns with half lives for the appropriate years can be used.}
 
-\item{fsp}{Fraction of structural panel products that go to each end use.
-Default can be substituted with data with a column for each end use and row for years
-from 1900 to latest year of interest.}
-
 \item{fnsp}{Fraction of non-structural panel products that go to each end use.
 Default can be substituted with data with a column for each end use and row for years
 from 1900 to latest year of interest.}
@@ -42,6 +38,10 @@ from 1900 to latest year of interest.}
 
 \item{swpdata}{Optional argument to provide swp production and trade time series
 for purposes of error analysis}
+
+\item{fsp_1}{Fraction of structural panel products that go to each end use.
+Default can be substituted with data with a column for each end use and row for years
+from 1900 to latest year of interest.}
 }
 \value{
 Output is either a matrix with 13 columns or 1 column based on the onlytotal argument

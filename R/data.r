@@ -986,7 +986,7 @@
 #' \item{Other.Industrial.Tot}{Fraction of wood lost in other industrial products}
 #' }
 #' @source Check spreadsheet - values entered in
-"liu"
+"pietc_liu"
 
 
 
