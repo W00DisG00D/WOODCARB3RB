@@ -31,6 +31,10 @@ one of 13 end uses and half life values for 1900 until the maximum year of inter
 
 \item{paperHL}{half life value for paper}
 
+\item{fsp}{Fraction of structural panel products that go to each end use.
+Default can be substituted with data with a column for each end use and row for years
+from 1900 to latest year of interest.}
+
 \item{fnsp}{Fraction of non-structural panel products that go to each end use.
 Default can be substituted with data with a column for each end use and row for years
 from 1900 to latest year of interest.}
@@ -61,10 +65,6 @@ are not subject to decay.}
 \item{swpDumpDecay}{Decay rate of solid-wood products in dumps as a half-life in years.}
 
 \item{paperDumpDecay}{Decay rate of paper products in dumps as a half-life in years.}
-
-\item{fsp_1}{Fraction of structural panel products that go to each end use.
-Default can be substituted with data with a column for each end use and row for years
-from 1900 to latest year of interest.}
 }
 \value{
 A vector of carbon contributions for all Years. Plot returned is optional

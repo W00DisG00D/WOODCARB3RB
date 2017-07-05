@@ -14,6 +14,10 @@ calcplacediu(Years = 1900:2020, approach = c("Production", "Stock Change"),
 
 \item{total}{Whether to return total placed in use or seperate it by end uses.}
 
+\item{fsp}{Fraction of structural panel products that go to each end use.
+Default can be substituted with data with a column for each end use and row for years
+from 1900 to latest year of interest.}
+
 \item{fnsp}{Fraction of non-structural panel products that go to each end use.
 Default can be substituted with data with a column for each end use and row for years
 from 1900 to latest year of interest.}
@@ -24,10 +28,6 @@ from 1900 to latest year of interest.}
 
 \item{swpdata}{Optional argument to provide swp production and trade time series
 for purposes of error analysis}
-
-\item{fsp_1}{Fraction of structural panel products that go to each end use.
-Default can be substituted with data with a column for each end use and row for years
-from 1900 to latest year of interest.}
 }
 \value{
 a data frame of carbon placed in use for various end uses

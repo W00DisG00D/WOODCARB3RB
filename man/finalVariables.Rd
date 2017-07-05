@@ -27,6 +27,10 @@ one of 13 end uses and half life values for 1900 until the maximum year of inter
 \item{approach}{approach to calculate corresponding final variables for.
 If null, all final variables are calculated and returned.}
 
+\item{fsp}{Fraction of structural panel products that go to each end use.
+Default can be substituted with data with a column for each end use and row for years
+from 1900 to latest year of interest.}
+
 \item{fnsp}{Fraction of non-structural panel products that go to each end use.
 Default can be substituted with data with a column for each end use and row for years
 from 1900 to latest year of interest.}
@@ -57,10 +61,6 @@ are not subject to decay.}
 
 \item{swpdata}{Optional argument to provide swp production and trade time series
 for purposes of error analysis}
-
-\item{fsp_1}{Fraction of structural panel products that go to each end use.
-Default can be substituted with data with a column for each end use and row for years
-from 1900 to latest year of interest.}
 }
 \value{
 If an approach is specified then only the variables needed for that
