@@ -5,8 +5,7 @@
 \title{Total carbon placed in use in od tons of wood fiber}
 \usage{
 calcplacediu(Years = 1900:2020, approach = c("Production", "Stock Change"),
-  total = TRUE, fsp = fracstrpanels, fnsp = fracnonstrpanels,
-  fsawn = fracsawnwood, swpdata)
+  total = TRUE, fsp = fsp_1, fnsp = fnonsp, fsawn = fsw, swpdata)
 }
 \arguments{
 \item{Years}{years to calculate carbon placed in use for}

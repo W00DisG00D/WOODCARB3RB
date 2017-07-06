@@ -65,7 +65,7 @@ finalCarbonContribution <- function(Years = 1990:2015, approach = c("Production"
                                                                    "Total Contribution"),
                                     decaydistribution = c("Exponential",
                                                   "K=2", "K=10"), plot = FALSE,
-                                    halflives = hl, paperHL = 2.53087281800454, fsp = fsp,
+                                    halflives = hl, paperHL = 2.53087281800454, fsp = fsp_1,
                                     fnsp = fnonsp,
                                     fsawn = fsw,
                                     swpdata,
@@ -79,7 +79,7 @@ finalCarbonContribution <- function(Years = 1990:2015, approach = c("Production"
   approachtype <- match.arg(approach)
   decay<- match.arg(decaydistribution)
 
-  fvs <- finalVariables(Years, decay, halflives, paperHL = paperHL, approach = approachtype, fsp = fsp,
+  fvs <- finalVariables(Years, decay, halflives, paperHL = paperHL, approach = approachtype, fsp = fsp_1,
                         fnsp = fnsp,
                         fsawn = fsawn, woodToCarbon = woodToCarbon, paperToCarbon = paperToCarbon,
                         swpSwdsNondegradable = swpSwdsNondegradable, paperSwdsNondegradable = paperSwdsNondegradable,
@@ -183,7 +183,7 @@ finalCarbonContribution <- function(Years = 1990:2015, approach = c("Production"
 finalVariables <- function(Years = 1990:2015,
                            decaydistribution = c("Exponential", "K=2", "K=10"),
                            halflives = hl, paperHL = 2.53087281800454, approach = NULL,
-                           fsp = fsp,
+                           fsp = fsp_1,
                            fnsp = fnonsp,
                            fsawn = fsw, woodToCarbon = 4.535925e-07, paperToCarbon = 3.9008955e-07,
                            swpSwdsNondegradable = 0.77, paperSwdsNondegradable = 0.44,
@@ -208,7 +208,7 @@ finalVariables <- function(Years = 1990:2015,
   Var1A <- function(){
     (swp_carbon_stockchange(Years, approach = "Stock Change",
                             decaydistribution = decay,
-                            halflives = hl, fsp = fsp,
+                            halflives = hl, fsp = fsp_1,
                             fnsp = fnsp,
                             fsawn = fsawn, swpdata = swpdata) +
        paper_carbon_stockchange(Years,
@@ -220,7 +220,7 @@ finalVariables <- function(Years = 1990:2015,
   Var2A <- function(){
     (swp_carbon_stockchange(Years, approach = "Production",
                             decaydistribution = decay,
-                            halflives = hl, fsp = fsp,
+                            halflives = hl, fsp = fsp_1,
                             fnsp = fnsp,
                             fsawn = fsawn, swpdata = swpdata) +
        paper_carbon_stockchange(Years,
@@ -310,7 +310,7 @@ finalVariables <- function(Years = 1990:2015,
 swp_carbon_stockchange <- function(years, approach = c("Production", "Stock Change"),
                                    decaydistribution = c("Exponential",
                                                          "K=2", "K=10"),
-                                   halflives = hl, fsp = fsp,
+                                   halflives = hl, fsp = fsp_1,
                                    fnsp = fnonsp,
                                    fsawn = fsw, swpdata,
                                    woodToCarbon = 4.535925e-07){
@@ -320,7 +320,7 @@ swp_carbon_stockchange <- function(years, approach = c("Production", "Stock Chan
   yearss <- (min(years)-1):max(years)
 
   totals <- data.frame(yearss, carbon = swpcarbontotal(Yrs = yearss, approach = approach, decaydistribution = decay,
-                           halflives = hl, fsp = fsp,
+                           halflives = hl, fsp = fsp_1,
                            fnsp = fnsp,
                            fsawn = fsawn, swpdata = swpdata))
   totals[2:length(yearss),"diffs"] <- diff(totals$carbon)

@@ -8,9 +8,9 @@ For production approach, values correspond to `Calculation$BY` in the spreadshee
 For stock change approach, values correspond to `Calculation$H` in the spreadsheet.}
 \usage{
 swp_carbon_stockchange(years, approach = c("Production", "Stock Change"),
-  decaydistribution = c("Exponential", "K=2", "K=10"),
-  halflives = halfLives, fsp = fracstrpanels, fnsp = fracnonstrpanels,
-  fsawn = fracsawnwood, swpdata, woodToCarbon = 4.535925e-07)
+  decaydistribution = c("Exponential", "K=2", "K=10"), halflives = hl,
+  fsp = fsp_1, fnsp = fnonsp, fsawn = fsw, swpdata,
+  woodToCarbon = 4.535925e-07)
 }
 \arguments{
 \item{years}{years to return carbon totals for}

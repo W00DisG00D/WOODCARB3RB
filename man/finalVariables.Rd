@@ -5,11 +5,11 @@
 \title{Calculates the 7 HWP Variables.}
 \usage{
 finalVariables(Years = 1990:2015, decaydistribution = c("Exponential",
-  "K=2", "K=10"), halflives = halfLives, paperHL = 2.53087281800454,
-  approach = NULL, fsp = fracstrpanels, fnsp = fracnonstrpanels,
-  fsawn = fracsawnwood, woodToCarbon = 4.535925e-07,
-  paperToCarbon = 3.9008955e-07, swpSwdsNondegradable = 0.77,
-  paperSwdsNondegradable = 0.44, swpLandfillDecay = 0.0300063714528115,
+  "K=2", "K=10"), halflives = hl, paperHL = 2.53087281800454,
+  approach = NULL, fsp = fsp_1, fnsp = fnonsp, fsawn = fsw,
+  woodToCarbon = 4.535925e-07, paperToCarbon = 3.9008955e-07,
+  swpSwdsNondegradable = 0.77, paperSwdsNondegradable = 0.44,
+  swpLandfillDecay = 0.0300063714528115,
   paperLandfillDecay = 0.0478032538317204,
   swpDumpDecay = 0.0420089200339361, paperDumpDecay = 0.0840178400678722,
   swpdata)
@@ -97,6 +97,6 @@ domestic harvest (from products in use and products in SWDS)
 }
 \examples{
 finalVariables(Years = 1950:2000)
-finalVariables(halflives = halfLives * 1.25)
+finalVariables(halflives = hl * 1.25)
 }
 
