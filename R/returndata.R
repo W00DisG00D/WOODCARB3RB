@@ -24,6 +24,7 @@ for (i in seq(names)){
 
 
 #' Get import, export, production data for all product types.
+#' 
 #' Aggregates all intermediate calculations necessary for final calculations.
 #' Returns data and intermediate calculations corresponding
 #' to sheets in Woodcarb2. Includes relevant SWP and paper production and
@@ -32,15 +33,16 @@ for (i in seq(names)){
 #'
 #' @param years years to return data for
 #'
-#' @return data frame of intermediate calculations corresponding to those in
+#' @return Data frame of intermediate calculations corresponding to those in
 #' Woodcarb2.
 #' @export
 returnData<- function(years = 1950:2015){
 
-    usa <- calculateswpdata(years)
-    usapaper <- calcUSApaper(years)
-    usadumps <- calculatedumpcarbonproduction(years)
+    #usa <- calculateswpdata(years)
+    #usapaper <- calcUSApaper(years)
+    #usadumps <- calculatedumpcarbonproduction(years)
     usadumps2 <- calculatedumpcarbonstockchange(years)
+    return(usadumps2)
     return(Reduce(function(x, y) merge(x, y, all=TRUE), list(usa, usapaper, usadumps, usadumps2)))
 }
 

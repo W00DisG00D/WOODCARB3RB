@@ -2,12 +2,7 @@
 % Please edit documentation in R/returndata.R
 \name{returnData}
 \alias{returnData}
-\title{Get import, export, production data for all product types.
-Aggregates all intermediate calculations necessary for final calculations.
-Returns data and intermediate calculations corresponding
-to sheets in Woodcarb2. Includes relevant SWP and paper production and
-trade time series for calculating final carbon contributions for
-various approaches.}
+\title{Get import, export, production data for all product types.}
 \usage{
 returnData(years = 1950:2015)
 }
@@ -19,7 +14,6 @@ data frame of intermediate calculations corresponding to those in
 Woodcarb2.
 }
 \description{
-Get import, export, production data for all product types.
 Aggregates all intermediate calculations necessary for final calculations.
 Returns data and intermediate calculations corresponding
 to sheets in Woodcarb2. Includes relevant SWP and paper production and

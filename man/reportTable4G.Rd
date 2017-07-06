@@ -6,18 +6,18 @@
 Computes IPCC tables for reporting.
 Corresponds to Table 4.G s1 and Table 4.G s2}
 \usage{
-reportTable4G(year = 2013, table = c("s1", "s2"))
+reportTable4G(year = 2013, table = c("all", "s1", "s2"))
 }
 \arguments{
 \item{year}{years to calculate values for.}
 
-\item{table}{table to calculate}
+\item{table}{table to calculate
+If table is s1 then returns table corresponding to HWP in use from domestic harvest.
+If table is s2 then returns HWP activity data which includes data for different types of
+wood and paper products.}
 }
 \value{
 HWP Activity Data table that includes relevant data for reporting.
-If table is s1 then returns table corresponding to HWP in use from domestic harvest.
-If table is s2 then returns HWP activity data which includes data for different types of
-wood and paper products.
 }
 \description{
 Sectoral background data for land-use, land-use change and forestry.

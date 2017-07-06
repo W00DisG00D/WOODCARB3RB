@@ -63,33 +63,39 @@ calculatedumpcarbonstockchange <- function(years, totalcarbonstockchange = FALSE
         }
     })
 
-    CalcUSA$ParamResults_Q <- wd_percent[ys - (minyr - 1), "wd_percent"]
+    #percent of swp to dumps 
+    CalcUSA$SWPtoDumps <- wd_percent[ys - (minyr - 1), "wd_percent"]
 
-    CalcUSA$Dumps_C <- PRM57 * CalcUSA$TotalCarbonOutputStockChange *
-        woodToCarbon * CalcUSA$ParamResults_Q
+    #Input to degradable stock (dumps only)
+    CalcUSA$Input_DegradableStock <- PRM57 * CalcUSA$TotalCarbonOutputStockChange * woodToCarbon * CalcUSA$SWPtoDumps
 
-
+    #Degradable Stock (dumps only)
     for (year in ys) {
         if (year == 1900)
-            CalcUSA$Dumps_D[1] <- (1/(1 + swpDumpDecay)) * CalcUSA$Dumps_C[year -
-                (minyr - 1)] else CalcUSA$Dumps_D[year - (minyr - 1)] <- (1/(1 + swpDumpDecay)) *
-                    (CalcUSA$Dumps_D[year - minyr] + CalcUSA$Dumps_C[year - (minyr - 1)])
+        {
+            CalcUSA$DegradableStock[1] <- (1/(1 + swpDumpDecay)) * CalcUSA$Input_DegradableStock[year - (minyr - 1)]
+        }
+        else {
+            CalcUSA$DegradableStock[year - (minyr - 1)] <- (1/(1 + swpDumpDecay)) *
+                (CalcUSA$DegradableStock[year - minyr] + CalcUSA$Input_DegradableStock[year - (minyr - 1)])
+        } 
     }
-
-    CalcUSA$Q <- wlf_percent[ys - (minyr - 1), "wlf_percent"] * PRJ96 * CalcUSA$TotalCarbonOutputStockChange *
-        woodToCarbon
+    
+    #SWP to Landfills (Tg C) 
+    CalcUSA$SWP_Landfills  <- wlf_percent[ys - (minyr - 1), "wlf_percent"] * PRJ96 * CalcUSA$TotalCarbonOutputStockChange *
+        woodToCarbon 
 
     for (year in ys) {
         if (year == minyr) {
-            CalcUSA$Dumps_F[year - (minyr - 1)] <- CalcUSA$Dumps_D[year -
+            CalcUSA$Dumps_F[year - (minyr - 1)] <- CalcUSA$DegradableStock[year -
                 (minyr - 1)]
         } else {
-            CalcUSA$Dumps_F[year - (minyr - 1)] <- CalcUSA$Dumps_D[year -
-                (minyr - 1)] - CalcUSA$Dumps_D[year - minyr]
+            CalcUSA$Dumps_F[year - (minyr - 1)] <- CalcUSA$DegradableStock[year -
+                (minyr - 1)] - CalcUSA$DegradableStock[year - minyr]
         }
     }
 
-    CalcUSA$X <- PRM45 * CalcUSA$Q
+    CalcUSA$X <- PRM45 * CalcUSA$SWP_Landfills 
 
     for (year in ys) {
         if (year == minyr) {
@@ -110,7 +116,7 @@ calculatedumpcarbonstockchange <- function(years, totalcarbonstockchange = FALSE
         return(CalcUSA$Y[year - (minyr - 1)] - CalcUSA$Y[year - minyr])
     })
 
-    CalcUSA$V <- swpSwdsNondegradable * CalcUSA$Q
+    CalcUSA$V <- swpSwdsNondegradable * CalcUSA$SWP_Landfills 
 
     CalcUSA$D <- paperToCarbon * usa$`Percent of Wood Pulp For Paper` * usa$`Paper+Paperboard Consumption`
 
@@ -280,9 +286,9 @@ calculatedumpcarbonproduction <- function(years, totalcarbonstockchange = FALSE,
         }
     })
 
-    CalcUSA$ParamResults_Q <- wd_percent[ys - (minyr - 1), "wd_percent"]
+    CalcUSA$SWPtoDumps <- wd_percent[ys - (minyr - 1), "wd_percent"]
 
-    CalcUSA$Dumps_S <- PRM57 * CalcUSA$CB * CalcUSA$ParamResults_Q
+    CalcUSA$Dumps_S <- PRM57 * CalcUSA$CB * CalcUSA$SWPtoDumps
 
     ### P+R 'O200' column, wlf_percent is data linked to another site,
     ### not sure how it's calculated.
@@ -325,7 +331,7 @@ calculatedumpcarbonproduction <- function(years, totalcarbonstockchange = FALSE,
             minyr] + CalcUSA$CM[year - (minyr - 1)])
     }
 
-    CalcUSA$Dumps_N <- PRM57 * CalcUSA$TotalCarbonOutput * woodToCarbon * CalcUSA$ParamResults_Q
+    CalcUSA$Dumps_N <- PRM57 * CalcUSA$TotalCarbonOutput * woodToCarbon * CalcUSA$SWPtoDumps
 
     for (year in ys) {
         if (year == minyr)

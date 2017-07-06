@@ -4,17 +4,17 @@
 #'
 #' @param year years to calculate values for.
 #' @param table table to calculate
-#' @return HWP Activity Data table that includes relevant data for reporting.
 #' If table is s1 then returns table corresponding to HWP in use from domestic harvest.
 #' If table is s2 then returns HWP activity data which includes data for different types of
 #' wood and paper products.
+#' @return HWP Activity Data table that includes relevant data for reporting.
 #' @export
 #'
 #' @examples
 #' reportTable4G(table = "s2")
-reportTable4G <- function(year = 2013, table=c("s1", "s2")){
-
-  #read in necessary data
+reportTable4G <- function(year = 2013, table=c("all", "s1", "s2")){
+    
+    #read in necessary data
     usa <- calculateswpdata(year)
     usapaper <- calcUSApaper(year)
     usadumps <- calculatedumpcarbonproduction(year)
@@ -43,26 +43,36 @@ reportTable4G <- function(year = 2013, table=c("s1", "s2")){
         return(s22)
     }
 
-
-    TotalHWP_DomesticHarvest <- data.frame(Years = year)
-    GHGsourceAndSinkCategories <- data.frame(Years = c(year, year))
-
-    totalSWhwpgain <- -1*(usadumps$BX + swp_carbon_stockchange(year)) * 1000
-    totalSWhwploss <- usadumps$BX*1000
-    TotalHWP_DomesticHarvest$Gains <- totalSWhwpgain
-    TotalHWP_DomesticHarvest$Losses <- totalSWhwploss
-    rownames(TotalHWP_DomesticHarvest) <- c("Solidwood from domestic harvest")
-
-    hwpSWDSgain <- -1 * (usadumps$CH + usadumps$Dumps_N)*1000
-    paperSWDSgain <- -1 * (usadumps$CI + usadumps$Dumps_S) * 1000
-    hwpSWDSloss <- (PRM50 * usadumps$CN + PRM60 * usadumps$Dumps_O) * 1000
-    paperSWDSloss <- (PRM51 * usadumps$CV + PRM61 * usadumps$Dumps_T)*1000
-
-
-    GHGsourceAndSinkCategories$Gains <- c(hwpSWDSgain, paperSWDSgain)
-    GHGsourceAndSinkCategories$Losses <- c(hwpSWDSloss, paperSWDSloss)
-    GHGsourceAndSinkCategories$HalfLives <- c(PRP50, PRP51)
-    rownames(GHGsourceAndSinkCategories) <- c("Solidwood in SWDS", "Paper in SWDS")
-
-    return(list(TotalHWP_DomesticHarvest, GHGsourceAndSinkCategories))
+    #Calculating table s2 
+    if (table == "s2")
+    {
+      TotalHWP_DomesticHarvest <- data.frame(Years = year)
+      GHGsourceAndSinkCategories <- data.frame(Years = c(year, year))
+      
+      totalSWhwpgain <- -1*(usadumps$BX + swp_carbon_stockchange(year)) * 1000
+      totalSWhwploss <- usadumps$BX*1000
+      TotalHWP_DomesticHarvest$Gains <- totalSWhwpgain
+      TotalHWP_DomesticHarvest$Losses <- totalSWhwploss
+      rownames(TotalHWP_DomesticHarvest) <- c("Solidwood from domestic harvest")
+      
+      hwpSWDSgain <- -1 * (usadumps$CH + usadumps$Dumps_N)*1000
+      paperSWDSgain <- -1 * (usadumps$CI + usadumps$Dumps_S) * 1000
+      hwpSWDSloss <- (PRM50 * usadumps$CN + PRM60 * usadumps$Dumps_O) * 1000
+      paperSWDSloss <- (PRM51 * usadumps$CV + PRM61 * usadumps$Dumps_T)*1000
+      
+      
+      GHGsourceAndSinkCategories$Gains <- c(hwpSWDSgain, paperSWDSgain)
+      GHGsourceAndSinkCategories$Losses <- c(hwpSWDSloss, paperSWDSloss)
+      GHGsourceAndSinkCategories$HalfLives <- c(PRP50, PRP51)
+      rownames(GHGsourceAndSinkCategories) <- c("Solidwood in SWDS", "Paper in SWDS")
+      
+      return(list(TotalHWP_DomesticHarvest, GHGsourceAndSinkCategories))
+    }
+    
+    if (table == "all")
+    {
+        s1 = reportTable4G(table = "s1") 
+        s2 = reportTable4G(table = "s2") 
+        return(list(s1, s2))
+    }
 }
