@@ -67,17 +67,17 @@ calculatedumpcarbonstockchange <- function(years, totalcarbonstockchange = FALSE
     CalcUSA$SWPtoDumps <- wd_percent[ys - (minyr - 1), "wd_percent"]
 
     #Input to degradable stock (dumps only)
-    CalcUSA$Input_DegradableStock <- PRM57 * CalcUSA$TotalCarbonOutputStockChange * woodToCarbon * CalcUSA$SWPtoDumps
+    CalcUSA$Input_DegradableStock_Dumps <- PRM57 * CalcUSA$TotalCarbonOutputStockChange * woodToCarbon * CalcUSA$SWPtoDumps
 
     #Degradable Stock (dumps only)
     for (year in ys) {
         if (year == 1900)
         {
-            CalcUSA$DegradableStock[1] <- (1/(1 + swpDumpDecay)) * CalcUSA$Input_DegradableStock[year - (minyr - 1)]
+            CalcUSA$DegradableStock_Dumps[1] <- (1/(1 + swpDumpDecay)) * CalcUSA$Input_DegradableStock_Dumps[year - (minyr - 1)]
         }
         else {
-            CalcUSA$DegradableStock[year - (minyr - 1)] <- (1/(1 + swpDumpDecay)) *
-                (CalcUSA$DegradableStock[year - minyr] + CalcUSA$Input_DegradableStock[year - (minyr - 1)])
+            CalcUSA$DegradableStock_Dumps[year - (minyr - 1)] <- (1/(1 + swpDumpDecay)) *
+                (CalcUSA$DegradableStock_Dumps[year - minyr] + CalcUSA$Input_DegradableStock_Dumps[year - (minyr - 1)])
         } 
     }
     
@@ -85,25 +85,27 @@ calculatedumpcarbonstockchange <- function(years, totalcarbonstockchange = FALSE
     CalcUSA$SWP_Landfills  <- wlf_percent[ys - (minyr - 1), "wlf_percent"] * PRJ96 * CalcUSA$TotalCarbonOutputStockChange *
         woodToCarbon 
 
+    #SWP C stock change (dumps only) 
     for (year in ys) {
         if (year == minyr) {
-            CalcUSA$Dumps_F[year - (minyr - 1)] <- CalcUSA$DegradableStock[year -
+            CalcUSA$StockChange_Dumps [year - (minyr - 1)] <- CalcUSA$DegradableStock_Dumps[year -
                 (minyr - 1)]
         } else {
-            CalcUSA$Dumps_F[year - (minyr - 1)] <- CalcUSA$DegradableStock[year -
-                (minyr - 1)] - CalcUSA$DegradableStock[year - minyr]
+            CalcUSA$StockChange_Dumps [year - (minyr - 1)] <- CalcUSA$DegradableStock_Dumps[year -
+                (minyr - 1)] - CalcUSA$DegradableStock_Dumps[year - minyr]
         }
     }
 
-    CalcUSA$X <- PRM45 * CalcUSA$SWP_Landfills 
+    #Input to Degradable Stock (landfills only) 
+    CalcUSA$Input_DegradableStock_Landfills <- PRM45 * CalcUSA$SWP_Landfills 
 
     for (year in ys) {
         if (year == minyr) {
-          CalcUSA$Y[year - (minyr - 1)] <- (1/(1 + swpLandfillDecay)) * CalcUSA$X[year -
+          CalcUSA$Y[year - (minyr - 1)] <- (1/(1 + swpLandfillDecay)) * CalcUSA$Input_DegradableStock_Landfills[year -
                                                                  (minyr - 1)]
         } else {
           CalcUSA$Y[year - (minyr - 1)] <- (1/(1 + swpLandfillDecay)) * (CalcUSA$Y[year -
-                                                                  (minyr)] + CalcUSA$X[year - (minyr - 1)])
+                                                                  (minyr)] + CalcUSA$Input_DegradableStock_Landfills[year - (minyr - 1)])
 
         }
     }
@@ -190,7 +192,7 @@ calculatedumpcarbonstockchange <- function(years, totalcarbonstockchange = FALSE
         }
     })
 
-    CalcUSA$Total_swpstock_change_LD <- CalcUSA$AA + CalcUSA$V + CalcUSA$Dumps_F
+    CalcUSA$Total_swpstock_change_LD <- CalcUSA$AA + CalcUSA$V + CalcUSA$StockChange_Dumps 
 
     CalcUSA$Total_paper_stock_change_LD <- CalcUSA$AG + CalcUSA$AL + CalcUSA$Dumps_K
 
