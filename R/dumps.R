@@ -63,107 +63,123 @@ calculatedumpcarbonstockchange <- function(years, totalcarbonstockchange = FALSE
         }
     })
 
-    CalcUSA$ParamResults_Q <- wd_percent[ys - (minyr - 1), "wd_percent"]
+    #percent of swp to dumps 
+    CalcUSA$SWPtoDumps <- wd_percent[ys - (minyr - 1), "wd_percent"]
 
-    CalcUSA$Dumps_C <- PRM57 * CalcUSA$TotalCarbonOutputStockChange *
-        woodToCarbon * CalcUSA$ParamResults_Q
+    #Input to degradable stock (dumps only) for swp using the stock change approach 
+    CalcUSA$Input_DegradableStock_Dumps_SWP_StockChangeApproach <- PRM57 * CalcUSA$TotalCarbonOutputStockChange * woodToCarbon * CalcUSA$SWPtoDumps
 
-
+    #Degradable Stock (dumps only) for swp using the stock change approach 
     for (year in ys) {
         if (year == 1900)
-            CalcUSA$Dumps_D[1] <- (1/(1 + swpDumpDecay)) * CalcUSA$Dumps_C[year -
-                (minyr - 1)] else CalcUSA$Dumps_D[year - (minyr - 1)] <- (1/(1 + swpDumpDecay)) *
-                    (CalcUSA$Dumps_D[year - minyr] + CalcUSA$Dumps_C[year - (minyr - 1)])
+        {
+            CalcUSA$DegradableStock_Dumps_SWP_StockChangeApproach[1] <- (1/(1 + swpDumpDecay)) * CalcUSA$Input_DegradableStock_Dumps_SWP_StockChangeApproach[year - (minyr - 1)]
+        }
+        else {
+            CalcUSA$DegradableStock_Dumps_SWP_StockChangeApproach[year - (minyr - 1)] <- (1/(1 + swpDumpDecay)) *
+                (CalcUSA$DegradableStock_Dumps_SWP_StockChangeApproach[year - minyr] + CalcUSA$Input_DegradableStock_Dumps_SWP_StockChangeApproach[year - (minyr - 1)])
+        } 
     }
+    
+    #SWP to Landfills (Tg C) 
+    CalcUSA$SWP_Landfills  <- wlf_percent[ys - (minyr - 1), "wlf_percent"] * PRJ96 * CalcUSA$TotalCarbonOutputStockChange *
+        woodToCarbon 
 
-    CalcUSA$Q <- wlf_percent[ys - (minyr - 1), "wlf_percent"] * PRJ96 * CalcUSA$TotalCarbonOutputStockChange *
-        woodToCarbon
-
+    #SWP C stock change (dumps only) using the stock change approach 
     for (year in ys) {
         if (year == minyr) {
-            CalcUSA$Dumps_F[year - (minyr - 1)] <- CalcUSA$Dumps_D[year -
+            CalcUSA$StockChange_Dumps_SWP_StockChangeApproach [year - (minyr - 1)] <- CalcUSA$DegradableStock_Dumps_SWP_StockChangeApproach[year -
                 (minyr - 1)]
         } else {
-            CalcUSA$Dumps_F[year - (minyr - 1)] <- CalcUSA$Dumps_D[year -
-                (minyr - 1)] - CalcUSA$Dumps_D[year - minyr]
+            CalcUSA$StockChange_Dumps_SWP_StockChangeApproach [year - (minyr - 1)] <- CalcUSA$DegradableStock_Dumps_SWP_StockChangeApproach[year -
+                (minyr - 1)] - CalcUSA$DegradableStock_Dumps_SWP_StockChangeApproach[year - minyr]
         }
     }
 
-    CalcUSA$X <- PRM45 * CalcUSA$Q
+    #Input to Degradable Stock (landfills only) 
+    CalcUSA$Input_DegradableStock_Landfills <- PRM45 * CalcUSA$SWP_Landfills 
 
+    #Degradable stock (landfills)
     for (year in ys) {
         if (year == minyr) {
-          CalcUSA$Y[year - (minyr - 1)] <- (1/(1 + swpLandfillDecay)) * CalcUSA$X[year -
+          CalcUSA$DegradableStock_Landfills[year - (minyr - 1)] <- (1/(1 + swpLandfillDecay)) * CalcUSA$Input_DegradableStock_Landfills[year -
                                                                  (minyr - 1)]
         } else {
-          CalcUSA$Y[year - (minyr - 1)] <- (1/(1 + swpLandfillDecay)) * (CalcUSA$Y[year -
-                                                                  (minyr)] + CalcUSA$X[year - (minyr - 1)])
+          CalcUSA$DegradableStock_Landfills[year - (minyr - 1)] <- (1/(1 + swpLandfillDecay)) * (CalcUSA$DegradableStock_Landfills[year -
+                                                                  (minyr)] + CalcUSA$Input_DegradableStock_Landfills[year - (minyr - 1)])
 
         }
     }
 
-
-    CalcUSA$AA <- sapply(ys, function(year) {
+    #Stock change degradable (landfills only)
+    CalcUSA$DegradableStockChange_Landfills <- sapply(ys, function(year) {
         if (year == minyr) {
-            return(CalcUSA$Y[year - (minyr - 1)])
+            return(CalcUSA$DegradableStock_Landfills[year - (minyr - 1)])
         }
-        return(CalcUSA$Y[year - (minyr - 1)] - CalcUSA$Y[year - minyr])
+        return(CalcUSA$DegradableStock_Landfills[year - (minyr - 1)] - CalcUSA$DegradableStock_Landfills[year - minyr])
     })
 
-    CalcUSA$V <- swpSwdsNondegradable * CalcUSA$Q
+    #Input to permanent stock from SWP
+    CalcUSA$Input_PermanentStock_SWP  <- swpSwdsNondegradable * CalcUSA$SWP_Landfills 
 
-    CalcUSA$D <- paperToCarbon * usa$`Percent of Wood Pulp For Paper` * usa$`Paper+Paperboard Consumption`
+    #C input flow - paper products 
+    CalcUSA$CarbonInputFlow_Paper <- paperToCarbon * usa$`Percent of Wood Pulp For Paper` * usa$`Paper+Paperboard Consumption`
 
+    #Carbon stock in paper products 
     for (year in ys) {
         if (year == minyr) {
-            CalcUSA$J[year - (minyr - 1)] <- (exp(-log(2)/PRP10)) *
-                (CalcUSA$D[year - (minyr - 1)])
+            CalcUSA$CarbonStock_Paper[year - (minyr - 1)] <- (exp(-log(2)/PRP10)) *
+                (CalcUSA$CarbonInputFlow_Paper[year - (minyr - 1)])
         } else {
-            CalcUSA$J[year - (minyr - 1)] <- (exp(-log(2)/PRP10)) *
-                (CalcUSA$D[year - (minyr - 1)] + CalcUSA$J[year - minyr])
+            CalcUSA$CarbonStock_Paper[year - (minyr - 1)] <- (exp(-log(2)/PRP10)) *
+                (CalcUSA$CarbonInputFlow_Paper[year - (minyr - 1)] + CalcUSA$CarbonStock_Paper[year - minyr])
         }
     }
 
+    #Carbon output from paper products 
     for (year in ys) {
         if (year == minyr) {
-            CalcUSA$K[year - (minyr - 1)] <- CalcUSA$D[year - (minyr -
-                1)] - CalcUSA$J[year - (minyr - 1)]
+            CalcUSA$CarbonOutput_Paper[year - (minyr - 1)] <- CalcUSA$CarbonInputFlow_Paper[year - (minyr -
+                1)] - CalcUSA$CarbonStock_Paper[year - (minyr - 1)]
         } else {
-            CalcUSA$K[year - (minyr - 1)] <- CalcUSA$J[year - (minyr)] +
-                CalcUSA$D[year - (minyr - 1)] - CalcUSA$J[year - (minyr -
+            CalcUSA$CarbonOutput_Paper[year - (minyr - 1)] <- CalcUSA$CarbonStock_Paper[year - (minyr)] +
+                CalcUSA$CarbonInputFlow_Paper[year - (minyr - 1)] - CalcUSA$CarbonStock_Paper[year - (minyr -
                 1)]
         }
     }
 
 
-    CalcUSA$Dumps_H <- PRM57 * CalcUSA$K * wd_percent[ys - (minyr -
+    CalcUSA$InputDegradableStock_Dumps_Paper_StockChangeApproach <- PRM57 * CalcUSA$CarbonOutput_Paper * wd_percent[ys - (minyr -
         1), "wd_percent"]
 
+    #Degradable stock (dumps only) for paper products using the stock change approach 
     for (y in ys) {
         if (y == minyr) {
-            CalcUSA$Dumps_I[y - (minyr - 1)] <- (1/(1 + paperDumpDecay)) * CalcUSA$Dumps_H[y - (minyr - 1)]
+            CalcUSA$DegradableStock_Dumps_Paper_StockChangeApproach[y - (minyr - 1)] <- (1/(1 + paperDumpDecay)) * CalcUSA$InputDegradableStock_Dumps_Paper_StockChangeApproach[y - (minyr - 1)]
         } else {
-            CalcUSA$Dumps_I[y - (minyr - 1)] <- (1/(1 + paperDumpDecay)) * (CalcUSA$Dumps_I[y -minyr] +
-                                                                     CalcUSA$Dumps_H[y - (minyr - 1)])
+            CalcUSA$DegradableStock_Dumps_Paper_StockChangeApproach[y - (minyr - 1)] <- (1/(1 + paperDumpDecay)) * (CalcUSA$DegradableStock_Dumps_Paper_StockChangeApproach[y -minyr] +
+                                                                     CalcUSA$InputDegradableStock_Dumps_Paper_StockChangeApproach[y - (minyr - 1)])
         }
     }
 
-    CalcUSA$R <- PRI96 * CalcUSA$K * plf_percent[ys - (minyr - 1), "plf_percent"]
+    #Carbon input flow to landfills form paper products 
+    CalcUSA$CarbonInputFlow_Landfills_Paper <- PRI96 * CalcUSA$CarbonOutput_Paper * plf_percent[ys - (minyr - 1), "plf_percent"]
 
-    CalcUSA$AG <- paperSwdsNondegradable * CalcUSA$R
+    #Input to permanent stock from paper products 
+    CalcUSA$Input_PermanentStock_Paper <- paperSwdsNondegradable * CalcUSA$CarbonInputFlow_Landfills_Paper
 
     for (y in ys) {
         if (y == minyr) {
-            CalcUSA$Dumps_K[y - (minyr - 1)] <- CalcUSA$Dumps_I[y -
+            CalcUSA$Dumps_K[y - (minyr - 1)] <- CalcUSA$DegradableStock_Dumps_Paper_StockChangeApproach[y -
                 (minyr - 1)]
         } else {
-            CalcUSA$Dumps_K[y - (minyr - 1)] <- CalcUSA$Dumps_I[y -
-                (minyr - 1)] - CalcUSA$Dumps_I[y - (minyr)]
+            CalcUSA$Dumps_K[y - (minyr - 1)] <- CalcUSA$DegradableStock_Dumps_Paper_StockChangeApproach[y -
+                (minyr - 1)] - CalcUSA$DegradableStock_Dumps_Paper_StockChangeApproach[y - (minyr)]
         }
     }
 
 
-    CalcUSA$AI <- PRM46 * CalcUSA$R
+    CalcUSA$AI <- PRM46 * CalcUSA$CarbonInputFlow_Landfills_Paper
 
     for (y in ys) {
         if (y == minyr) {
@@ -184,9 +200,9 @@ calculatedumpcarbonstockchange <- function(years, totalcarbonstockchange = FALSE
         }
     })
 
-    CalcUSA$Total_swpstock_change_LD <- CalcUSA$AA + CalcUSA$V + CalcUSA$Dumps_F
+    CalcUSA$Total_swpstock_change_LD <- CalcUSA$DegradableStockChange_Landfills + CalcUSA$Input_PermanentStock_SWP  + CalcUSA$StockChange_Dumps_SWP_StockChangeApproach 
 
-    CalcUSA$Total_paper_stock_change_LD <- CalcUSA$AG + CalcUSA$AL + CalcUSA$Dumps_K
+    CalcUSA$Total_paper_stock_change_LD <- CalcUSA$Input_PermanentStock_Paper + CalcUSA$AL + CalcUSA$Dumps_K
 
     CalcUSA$Var1b_STOCKCHANGE_TOTAL <- (CalcUSA$Total_swpstock_change_LD +
         CalcUSA$Total_paper_stock_change_LD)
@@ -280,9 +296,9 @@ calculatedumpcarbonproduction <- function(years, totalcarbonstockchange = FALSE,
         }
     })
 
-    CalcUSA$ParamResults_Q <- wd_percent[ys - (minyr - 1), "wd_percent"]
+    CalcUSA$SWPtoDumps <- wd_percent[ys - (minyr - 1), "wd_percent"]
 
-    CalcUSA$Dumps_S <- PRM57 * CalcUSA$CB * CalcUSA$ParamResults_Q
+    CalcUSA$Dumps_S <- PRM57 * CalcUSA$CB * CalcUSA$SWPtoDumps
 
     ### P+R 'O200' column, wlf_percent is data linked to another site,
     ### not sure how it's calculated.
@@ -325,7 +341,7 @@ calculatedumpcarbonproduction <- function(years, totalcarbonstockchange = FALSE,
             minyr] + CalcUSA$CM[year - (minyr - 1)])
     }
 
-    CalcUSA$Dumps_N <- PRM57 * CalcUSA$TotalCarbonOutput * woodToCarbon * CalcUSA$ParamResults_Q
+    CalcUSA$Dumps_N <- PRM57 * CalcUSA$TotalCarbonOutput * woodToCarbon * CalcUSA$SWPtoDumps
 
     for (year in ys) {
         if (year == minyr)
