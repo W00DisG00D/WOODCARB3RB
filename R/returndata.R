@@ -38,9 +38,11 @@ for (i in seq(names)){
 #' @export
 returnData<- function(years = 1950:2015){
 
+
     usa <- calculateswpdata(years)
     usapaper <- calcUSApaper(years)
     usadumps <- calculatedumpcarbonproduction(years)
+
     usadumps2 <- calculatedumpcarbonstockchange(years)
     
     return(Reduce(function(x, y) merge(x, y, all=TRUE), list(usa, usapaper, usadumps, usadumps2)))
