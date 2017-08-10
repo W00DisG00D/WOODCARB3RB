@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Total carbon placed in use in od tons of wood fiber — calcplacediu • WOODCARB3R</title>
+<title>United States imports and exports of plywood, by softwoods and hardwoods, 1935-62 (with estimates of 1927-34) — ie_pw • WOODCARB3R</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -77,54 +77,44 @@
       <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Total carbon placed in use in od tons of wood fiber</h1>
+    <h1>United States imports and exports of plywood, by softwoods and hardwoods, 1935-62 (with estimates of 1927-34)</h1>
     </div>
 
     
-    <p>Corresponds to B3147 column in SW Calc P and SW Calc spreadsheet for Production and Stock Change
-approach respectively.</p>
+    <p>Dataset containing import and export statistics for plywood products.
+All units are in Thousand Sq Ft. All vectors are numeric.</p>
     
 
-    <pre><span class='fu'>calcplacediu</span>(<span class='kw'>Years</span> <span class='kw'>=</span> <span class='fl'>1900</span>:<span class='fl'>2020</span>, <span class='kw'>approach</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='st'>"Production"</span>, <span class='st'>"Stock Change"</span>),
-  <span class='kw'>total</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>fsp</span> <span class='kw'>=</span> <span class='no'>fsp_1</span>, <span class='kw'>fnsp</span> <span class='kw'>=</span> <span class='no'>fnonsp</span>, <span class='kw'>fsawn</span> <span class='kw'>=</span> <span class='no'>fsw</span>, <span class='no'>swpdata</span>)</pre>
-    
-    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
-    <dl class="dl-horizontal">
-      <dt>Years</dt>
-      <dd>years to calculate carbon placed in use for</dd>
-      <dt>approach</dt>
-      <dd>The approach type to use. Fractions dont change but inflow does</dd>
-      <dt>total</dt>
-      <dd>Whether to return total placed in use or seperate it by end uses.</dd>
-      <dt>fsp</dt>
-      <dd>Fraction of structural panel products that go to each end use.
-Default can be substituted with data with a column for each end use and row for years
-from 1900 to latest year of interest.</dd>
-      <dt>fnsp</dt>
-      <dd>Fraction of non-structural panel products that go to each end use.
-Default can be substituted with data with a column for each end use and row for years
-from 1900 to latest year of interest.</dd>
-      <dt>fsawn</dt>
-      <dd>Fraction of sawnwood products that go to each end use.
-Default can be substituted with data with a column for each end use and row for years
-from 1900 to latest year of interest.</dd>
-      <dt>swpdata</dt>
-      <dd>Optional argument to provide swp production and trade time series
-for purposes of error analysis</dd>
-    </dl>
-    
-    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
+    <pre><span class='no'>ie_pw</span></pre>
+        
+    <h2 class="hasAnchor" id="format"><a class="anchor" href="#format"></a>Format</h2>
 
-    <p>a data frame of carbon placed in use for various end uses</p>
+    <p>A data frame with 36 observations on 8 variables:
+<dl class='dl-horizontal'>
+<dt>Years</dt><dd>Years</dd>
+<dt>Imports.Tot</dt><dd>Total Plywood Imports</dd>
+<dt>SW.Imports</dt><dd>Softwood Imports</dd>
+<dt>HW.Imports.Tot</dt><dd>Total Hardwood Imports</dd>
+<dt>HW.Imports.Birch</dt><dd>Birch Imports</dd>
+<dt>HW.Imports.Other</dt><dd>Other Hardwoods Imports</dd>
+<dt>Exports.Tot</dt><dd>Total Plywood Exports</dd>
+<dt>SW.Exports</dt><dd>Softwood Exports</dd>
+<dt>HW.Exports</dt><dd>Hardwood Exports</dd>
+</dl></p>
+    
+    <h2 class="hasAnchor" id="source"><a class="anchor" href="#source"></a>Source</h2>
+
+    <p>US Department of Commerce, Bureau of the Census</p>
     
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
-      <li><a href="#arguments">Arguments</a></li>
       
-      <li><a href="#value">Value</a></li>
+      <li><a href="#format">Format</a></li>
+
+      <li><a href="#source">Source</a></li>
           </ul>
 
   </div>

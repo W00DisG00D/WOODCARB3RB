@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Total carbon placed in use in od tons of wood fiber — calcplacediu • WOODCARB3R</title>
+<title>Total production, productivity, recovered paper utilization, and per capita production — pt_pu • WOODCARB3R</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -77,54 +77,52 @@
       <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Total carbon placed in use in od tons of wood fiber</h1>
+    <h1>Total production, productivity, recovered paper utilization, and per capita production</h1>
     </div>
 
     
-    <p>Corresponds to B3147 column in SW Calc P and SW Calc spreadsheet for Production and Stock Change
-approach respectively.</p>
+    <p>Dataset containing industrial wood and roundwood statistics,
+productivity, recovered paper utilization rate and per capita
+indudustrial wood production.</p>
     
 
-    <pre><span class='fu'>calcplacediu</span>(<span class='kw'>Years</span> <span class='kw'>=</span> <span class='fl'>1900</span>:<span class='fl'>2020</span>, <span class='kw'>approach</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='st'>"Production"</span>, <span class='st'>"Stock Change"</span>),
-  <span class='kw'>total</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>fsp</span> <span class='kw'>=</span> <span class='no'>fsp_1</span>, <span class='kw'>fnsp</span> <span class='kw'>=</span> <span class='no'>fnonsp</span>, <span class='kw'>fsawn</span> <span class='kw'>=</span> <span class='no'>fsw</span>, <span class='no'>swpdata</span>)</pre>
-    
-    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
-    <dl class="dl-horizontal">
-      <dt>Years</dt>
-      <dd>years to calculate carbon placed in use for</dd>
-      <dt>approach</dt>
-      <dd>The approach type to use. Fractions dont change but inflow does</dd>
-      <dt>total</dt>
-      <dd>Whether to return total placed in use or seperate it by end uses.</dd>
-      <dt>fsp</dt>
-      <dd>Fraction of structural panel products that go to each end use.
-Default can be substituted with data with a column for each end use and row for years
-from 1900 to latest year of interest.</dd>
-      <dt>fnsp</dt>
-      <dd>Fraction of non-structural panel products that go to each end use.
-Default can be substituted with data with a column for each end use and row for years
-from 1900 to latest year of interest.</dd>
-      <dt>fsawn</dt>
-      <dd>Fraction of sawnwood products that go to each end use.
-Default can be substituted with data with a column for each end use and row for years
-from 1900 to latest year of interest.</dd>
-      <dt>swpdata</dt>
-      <dd>Optional argument to provide swp production and trade time series
-for purposes of error analysis</dd>
-    </dl>
-    
-    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
+    <pre><span class='no'>pt_pu</span></pre>
+        
+    <h2 class="hasAnchor" id="format"><a class="anchor" href="#format"></a>Format</h2>
 
-    <p>a data frame of carbon placed in use for various end uses</p>
+    <p>A data frame with 151 observations of 15 variables:
+<dl class='dl-horizontal'>
+<dt>Years</dt><dd>Years</dd>
+<dt>Total.Industrial.Wood.Product.Production</dt><dd>Industrial wood production in thousand tons</dd>
+<dt>Roundwood.Equivalents.of.Production.Hardwoods</dt><dd>Hardwood production in million ft&lt;sup&gt;3&lt;/sup&gt;</dd>
+<dt>Roundwood.Equivalents.of.Production.Softwoods</dt><dd>Softwood production in million ft&lt;sup&gt;3&lt;/sup&gt;</dd>
+<dt>Roundwood.Equivalents.of.Production.Totals.millionftcubed</dt><dd>Production totals in million ft&lt;sup&gt;3&lt;/sup&gt;</dd>
+<dt>Roundwood.Equivalents.of.Production.Totals.thousand.short.tons</dt><dd>Production totals in thousand short tons</dd>
+<dt>Roundwood.Equivalents.of.Production.Totals.thousand.metric.tons</dt><dd>Production totals in thousand metric tons</dd>
+<dt>Industrial.Wood.Productivity.lbs.ftsquared</dt><dd>Industrial wood product output per unit of roundwood input in (lbs/ft3)</dd>
+<dt>Industrial.Wood.Productivity</dt><dd>Industrial wood product output per unit of roundwood input in tons/tons</dd>
+<dt>Recovered.Paper.Utilization.Rate(AF&amp;PA)</dt><dd>Recovered paper utilization rate</dd>
+<dt>U.S.Population</dt><dd>United States population in millions</dd>
+<dt>Per.Capita.Industrial.Wood.Product.Production</dt><dd>Per capita industrial wood product production, lbs/capita</dd>
+<dt>HW.Agrifiber</dt><dd>Hardwood Agrifiber (units?)</dd>
+<dt>HW.Roundwood</dt><dd>Hardwood Roundwood (units?)</dd>
+<dt>U.S.Timber.Harvest</dt><dd>United States Timber Harvest</dd>
+<dt>Misc</dt><dd>This is unnamed column in Ince_Table3</dd>
+</dl></p>
+    
+    <h2 class="hasAnchor" id="source"><a class="anchor" href="#source"></a>Source</h2>
+
+    <p>Ince tables</p>
     
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
-      <li><a href="#arguments">Arguments</a></li>
       
-      <li><a href="#value">Value</a></li>
+      <li><a href="#format">Format</a></li>
+
+      <li><a href="#source">Source</a></li>
           </ul>
 
   </div>

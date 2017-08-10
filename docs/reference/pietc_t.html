@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Total carbon placed in use in od tons of wood fiber — calcplacediu • WOODCARB3R</title>
+<title>Production, imports, exports. and consumption of timber products, by major product, 1950-87 — pietc_t • WOODCARB3R</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -77,54 +77,61 @@
       <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Total carbon placed in use in od tons of wood fiber</h1>
+    <h1>Production, imports, exports. and consumption of timber products, by major product, 1950-87</h1>
     </div>
 
     
-    <p>Corresponds to B3147 column in SW Calc P and SW Calc spreadsheet for Production and Stock Change
-approach respectively.</p>
+    <p>Dataset containing statistics for various timber products (hardwood and softwood).
+All units are Million cubic ft (roundwood equivalent) unless otherwise specified.</p>
     
 
-    <pre><span class='fu'>calcplacediu</span>(<span class='kw'>Years</span> <span class='kw'>=</span> <span class='fl'>1900</span>:<span class='fl'>2020</span>, <span class='kw'>approach</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='st'>"Production"</span>, <span class='st'>"Stock Change"</span>),
-  <span class='kw'>total</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>fsp</span> <span class='kw'>=</span> <span class='no'>fsp_1</span>, <span class='kw'>fnsp</span> <span class='kw'>=</span> <span class='no'>fnonsp</span>, <span class='kw'>fsawn</span> <span class='kw'>=</span> <span class='no'>fsw</span>, <span class='no'>swpdata</span>)</pre>
-    
-    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
-    <dl class="dl-horizontal">
-      <dt>Years</dt>
-      <dd>years to calculate carbon placed in use for</dd>
-      <dt>approach</dt>
-      <dd>The approach type to use. Fractions dont change but inflow does</dd>
-      <dt>total</dt>
-      <dd>Whether to return total placed in use or seperate it by end uses.</dd>
-      <dt>fsp</dt>
-      <dd>Fraction of structural panel products that go to each end use.
-Default can be substituted with data with a column for each end use and row for years
-from 1900 to latest year of interest.</dd>
-      <dt>fnsp</dt>
-      <dd>Fraction of non-structural panel products that go to each end use.
-Default can be substituted with data with a column for each end use and row for years
-from 1900 to latest year of interest.</dd>
-      <dt>fsawn</dt>
-      <dd>Fraction of sawnwood products that go to each end use.
-Default can be substituted with data with a column for each end use and row for years
-from 1900 to latest year of interest.</dd>
-      <dt>swpdata</dt>
-      <dd>Optional argument to provide swp production and trade time series
-for purposes of error analysis</dd>
-    </dl>
-    
-    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
+    <pre><span class='no'>pietc_t</span></pre>
+        
+    <h2 class="hasAnchor" id="format"><a class="anchor" href="#format"></a>Format</h2>
 
-    <p>a data frame of carbon placed in use for various end uses</p>
+    <p>A data frame with 38 observations of 24 variables:
+<dl class='dl-horizontal'>
+<dt>Years</dt><dd>Years</dd>
+<dt>AllProducts.Prod</dt><dd>Production for all timber products</dd>
+<dt>AllProducts.Consump</dt><dd>Consumption for all timber products</dd>
+<dt>Tot.Prod</dt><dd>Total Production for major timber products</dd>
+<dt>Tot.Imports</dt><dd>Total Imports for major timber products</dd>
+<dt>Tot.Exports</dt><dd>Total Exports for major timber products</dd>
+<dt>Tot.Consump</dt><dd>Total Consumption for major timber products</dd>
+<dt>Lumber.Prod</dt><dd>Lumber Products Prodcution</dd>
+<dt>Lumber.Imports</dt><dd>Lumber Products Imports</dd>
+<dt>Lumber.Exports</dt><dd>Lumber Products Exports</dd>
+<dt>Lumber.Consump</dt><dd>Lumber Products Consumption</dd>
+<dt>PlywoodVeneer.Prod</dt><dd>Plywood and Veneer Products Production</dd>
+<dt>PlywoodVeneer.Imports</dt><dd>Plywood and Veneer Products Imports</dd>
+<dt>PlywoodVeneer.Exports</dt><dd>Plywood and Veneer Products Exports</dd>
+<dt>PlywoodVeneer.Consump</dt><dd>Plywood and Veneer Products Consumption</dd>
+<dt>PulpProducts.Prod</dt><dd>Pulp Products Production</dd>
+<dt>PulpProducts.Imports</dt><dd>Pulp Products Imports</dd>
+<dt>PulpProducts.Exports</dt><dd>Pulp Products Exports</dd>
+<dt>PulpProducts.Consump</dt><dd>Pulp Products Consumption</dd>
+<dt>OtherIndProducts.ProdandConsump</dt><dd>Production and Consumption for other industrial products</dd>
+<dt>Logs.Imports</dt><dd>Log Imports</dd>
+<dt>Logs.Exports</dt><dd>Log Exports</dd>
+<dt>PulpwoodChip.Exports</dt><dd>Pulpwood-chip Exports</dd>
+<dt>Fuelwood.ProdandConsump</dt><dd>Production and Consumption for fuelwood products</dd>
+<dt>LogChipExports.PercofProduction</dt><dd>Log and Chip exports as a percent of production</dd>
+</dl></p>
+    
+    <h2 class="hasAnchor" id="source"><a class="anchor" href="#source"></a>Source</h2>
+
+    <p>Based on data published by the U.S. Departments of Commerce and Agriculture.
+Data for 1900-49 in &quot;The demand and price situation for forest products 1964&quot;, table 2 (31),</p>
     
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
-      <li><a href="#arguments">Arguments</a></li>
       
-      <li><a href="#value">Value</a></li>
+      <li><a href="#format">Format</a></li>
+
+      <li><a href="#source">Source</a></li>
           </ul>
 
   </div>

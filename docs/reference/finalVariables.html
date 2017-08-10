@@ -85,11 +85,11 @@
     
 
     <pre><span class='fu'>finalVariables</span>(<span class='kw'>Years</span> <span class='kw'>=</span> <span class='fl'>1990</span>:<span class='fl'>2015</span>, <span class='kw'>decaydistribution</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='st'>"Exponential"</span>,
-  <span class='st'>"K=2"</span>, <span class='st'>"K=10"</span>), <span class='kw'>halflives</span> <span class='kw'>=</span> <span class='no'>halfLives</span>, <span class='kw'>paperHL</span> <span class='kw'>=</span> <span class='fl'>2.53087281800454</span>,
-  <span class='kw'>approach</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>fsp</span> <span class='kw'>=</span> <span class='no'>fracstrpanels</span>, <span class='kw'>fnsp</span> <span class='kw'>=</span> <span class='no'>fracnonstrpanels</span>,
-  <span class='kw'>fsawn</span> <span class='kw'>=</span> <span class='no'>fracsawnwood</span>, <span class='kw'>woodToCarbon</span> <span class='kw'>=</span> <span class='fl'>4.535925e-07</span>,
-  <span class='kw'>paperToCarbon</span> <span class='kw'>=</span> <span class='fl'>3.9008955e-07</span>, <span class='kw'>swpSwdsNondegradable</span> <span class='kw'>=</span> <span class='fl'>0.77</span>,
-  <span class='kw'>paperSwdsNondegradable</span> <span class='kw'>=</span> <span class='fl'>0.44</span>, <span class='kw'>swpLandfillDecay</span> <span class='kw'>=</span> <span class='fl'>0.0300063714528115</span>,
+  <span class='st'>"K=2"</span>, <span class='st'>"K=10"</span>), <span class='kw'>halflives</span> <span class='kw'>=</span> <span class='no'>hl</span>, <span class='kw'>paperHL</span> <span class='kw'>=</span> <span class='fl'>2.53087281800454</span>,
+  <span class='kw'>approach</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>fsp</span> <span class='kw'>=</span> <span class='no'>fsp_1</span>, <span class='kw'>fnsp</span> <span class='kw'>=</span> <span class='no'>fnonsp</span>, <span class='kw'>fsawn</span> <span class='kw'>=</span> <span class='no'>fsw</span>,
+  <span class='kw'>woodToCarbon</span> <span class='kw'>=</span> <span class='fl'>4.535925e-07</span>, <span class='kw'>paperToCarbon</span> <span class='kw'>=</span> <span class='fl'>3.9008955e-07</span>,
+  <span class='kw'>swpSwdsNondegradable</span> <span class='kw'>=</span> <span class='fl'>0.77</span>, <span class='kw'>paperSwdsNondegradable</span> <span class='kw'>=</span> <span class='fl'>0.44</span>,
+  <span class='kw'>swpLandfillDecay</span> <span class='kw'>=</span> <span class='fl'>0.0300063714528115</span>,
   <span class='kw'>paperLandfillDecay</span> <span class='kw'>=</span> <span class='fl'>0.0478032538317204</span>,
   <span class='kw'>swpDumpDecay</span> <span class='kw'>=</span> <span class='fl'>0.0420089200339361</span>, <span class='kw'>paperDumpDecay</span> <span class='kw'>=</span> <span class='fl'>0.0840178400678722</span>,
   <span class='no'>swpdata</span>)</pre>
@@ -221,7 +221,7 @@ domestic harvest (from products in use and products in SWDS)</p>
 #&gt; 48  1997 18755.629 17090.104 14740.118 17262.744 17983.122 16876.897 135438.73
 #&gt; 49  1998 19653.677 17769.368 13403.948 17738.355 18994.153 15056.852 134206.11
 #&gt; 50  1999 21444.228 18662.301 14145.556 18358.728 20599.100 15245.335 134192.96
-#&gt; 51  2000 19999.515 18508.292 12840.060 17969.614 21857.503 16184.631 133694.05</div><div class='input'><span class='fu'>finalVariables</span>(<span class='kw'>halflives</span> <span class='kw'>=</span> <span class='no'>halfLives</span> * <span class='fl'>1.25</span>)</div><div class='output co'>#&gt;    Years      Var1A    Var1B       Var2A    Var2B     Var3     Var4      Var5
+#&gt; 51  2000 19999.515 18508.292 12840.060 17969.614 21857.503 16184.631 133694.05</div><div class='input'><span class='fu'>finalVariables</span>(<span class='kw'>halflives</span> <span class='kw'>=</span> <span class='no'>hl</span> * <span class='fl'>1.25</span>)</div><div class='output co'>#&gt;    Years      Var1A    Var1B       Var2A    Var2B     Var3     Var4      Var5
 #&gt; 1   1990 17043.7116 18307.63 17659.33357 18278.36 12679.50 15078.00 142297.14
 #&gt; 2   1991 13128.8249 18601.57 14939.85484 18812.33 11551.75 15667.47 144434.61
 #&gt; 3   1992 15717.7392 17005.52 16334.42946 17426.64 12855.64 16032.21 139388.54

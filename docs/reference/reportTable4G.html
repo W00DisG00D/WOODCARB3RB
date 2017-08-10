@@ -88,22 +88,22 @@ Computes IPCC tables for reporting.
 Corresponds to Table 4.G s1 and Table 4.G s2</p>
     
 
-    <pre><span class='fu'>reportTable4G</span>(<span class='kw'>year</span> <span class='kw'>=</span> <span class='fl'>2013</span>, <span class='kw'>table</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='st'>"s1"</span>, <span class='st'>"s2"</span>))</pre>
+    <pre><span class='fu'>reportTable4G</span>(<span class='kw'>year</span> <span class='kw'>=</span> <span class='fl'>2013</span>, <span class='kw'>table</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='st'>"all"</span>, <span class='st'>"s1"</span>, <span class='st'>"s2"</span>))</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
     <dl class="dl-horizontal">
       <dt>year</dt>
       <dd>years to calculate values for.</dd>
       <dt>table</dt>
-      <dd>table to calculate</dd>
+      <dd>table to calculate
+If table is s1 then returns table corresponding to HWP in use from domestic harvest.
+If table is s2 then returns HWP activity data which includes data for different types of
+wood and paper products.</dd>
     </dl>
     
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>HWP Activity Data table that includes relevant data for reporting.
-If table is s1 then returns table corresponding to HWP in use from domestic harvest.
-If table is s2 then returns HWP activity data which includes data for different types of
-wood and paper products.</p>
+    <p>HWP Activity Data table that includes relevant data for reporting.</p>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>

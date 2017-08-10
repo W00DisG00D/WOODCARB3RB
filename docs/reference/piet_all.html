@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Total carbon placed in use in od tons of wood fiber — calcplacediu • WOODCARB3R</title>
+<title>Timber products: Production, imports, exports, and new supply of lumber in the United States, specified years, 1799-1958 — piet_all • WOODCARB3R</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -77,54 +77,59 @@
       <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Total carbon placed in use in od tons of wood fiber</h1>
+    <h1>Timber products: Production, imports, exports, and new supply of lumber in the United States, specified years, 1799-1958</h1>
     </div>
 
     
-    <p>Corresponds to B3147 column in SW Calc P and SW Calc spreadsheet for Production and Stock Change
-approach respectively.</p>
+    <p>Dataset containing statistics for timber products.
+All units are in Million Board Ft, unless otherwise specified. All vectors are numeric.</p>
     
 
-    <pre><span class='fu'>calcplacediu</span>(<span class='kw'>Years</span> <span class='kw'>=</span> <span class='fl'>1900</span>:<span class='fl'>2020</span>, <span class='kw'>approach</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='st'>"Production"</span>, <span class='st'>"Stock Change"</span>),
-  <span class='kw'>total</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>fsp</span> <span class='kw'>=</span> <span class='no'>fsp_1</span>, <span class='kw'>fnsp</span> <span class='kw'>=</span> <span class='no'>fnonsp</span>, <span class='kw'>fsawn</span> <span class='kw'>=</span> <span class='no'>fsw</span>, <span class='no'>swpdata</span>)</pre>
-    
-    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
-    <dl class="dl-horizontal">
-      <dt>Years</dt>
-      <dd>years to calculate carbon placed in use for</dd>
-      <dt>approach</dt>
-      <dd>The approach type to use. Fractions dont change but inflow does</dd>
-      <dt>total</dt>
-      <dd>Whether to return total placed in use or seperate it by end uses.</dd>
-      <dt>fsp</dt>
-      <dd>Fraction of structural panel products that go to each end use.
-Default can be substituted with data with a column for each end use and row for years
-from 1900 to latest year of interest.</dd>
-      <dt>fnsp</dt>
-      <dd>Fraction of non-structural panel products that go to each end use.
-Default can be substituted with data with a column for each end use and row for years
-from 1900 to latest year of interest.</dd>
-      <dt>fsawn</dt>
-      <dd>Fraction of sawnwood products that go to each end use.
-Default can be substituted with data with a column for each end use and row for years
-from 1900 to latest year of interest.</dd>
-      <dt>swpdata</dt>
-      <dd>Optional argument to provide swp production and trade time series
-for purposes of error analysis</dd>
-    </dl>
-    
-    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
+    <pre><span class='no'>piet_all</span></pre>
+        
+    <h2 class="hasAnchor" id="format"><a class="anchor" href="#format"></a>Format</h2>
 
-    <p>a data frame of carbon placed in use for various end uses</p>
+    <p>A data frame with 58 observations on 23 variables:
+<dl class='dl-horizontal'>
+<dt>Years</dt><dd>Years</dd>
+<dt>Prod.Tot</dt><dd>Production Total</dd>
+<dt>Prod.SW</dt><dd>Production of Softwoods</dd>
+<dt>Prod.HW</dt><dd>Production of Hardwoods</dd>
+<dt>Imports.Tot</dt><dd>Total Imports</dd>
+<dt>Imports.SW</dt><dd>Imports for Softwood</dd>
+<dt>Imports.HW</dt><dd>Imports for Hardwoods</dd>
+<dt>Imports.Mixed</dt><dd>Imports for Mixed Woods</dd>
+<dt>Imports.Mixed.PercOfTot</dt><dd>Mixed Woods Percent of Total Imports</dd>
+<dt>Imports.SW.PercOfTot</dt><dd>Softwoods Percent of Total Imports</dd>
+<dt>Imports.HW.PercOfTot</dt><dd>Hardwoods Percent of Total Imports</dd>
+<dt>Imports.Estimated.SW</dt><dd>Estimated Softwood Imports</dd>
+<dt>Imports.Estimated.HW</dt><dd>Estimated Hardwood Imports</dd>
+<dt>Exports.Tot</dt><dd>Total Exports</dd>
+<dt>Exports.SW</dt><dd>Softwood Exports</dd>
+<dt>Exports.HW</dt><dd>Hardwood Exports</dd>
+<dt>Exports.Mixed</dt><dd>Mixed Woods Exports</dd>
+<dt>Exports.Mixed.PercOfTot</dt><dd>Mixed Woods Percent of Total Exports</dd>
+<dt>Exports.SW.PercOfTot</dt><dd>Softwoods Percent of Total Exports</dd>
+<dt>Exports.HW.PercOfTot</dt><dd>Hardwoods Percent of Total Exports</dd>
+<dt>Exports.Estimated.SW</dt><dd>Estimated Softwood Exports</dd>
+<dt>Exports.Estimated.HW</dt><dd>Estimated Hardwood Exports</dd>
+<dt>NewSupply</dt><dd>New Supply</dd>
+<dt>PerCapita</dt><dd>Per Capita Use, in Board ft.</dd>
+</dl></p>
+    
+    <h2 class="hasAnchor" id="source"><a class="anchor" href="#source"></a>Source</h2>
+
+    <p>USFS Estimations and Bureau of Census Data</p>
     
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
-      <li><a href="#arguments">Arguments</a></li>
       
-      <li><a href="#value">Value</a></li>
+      <li><a href="#format">Format</a></li>
+
+      <li><a href="#source">Source</a></li>
           </ul>
 
   </div>
