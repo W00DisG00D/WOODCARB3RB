@@ -171,9 +171,9 @@ Alternate years, decay distribution, and half lives can be substituted for defau
   Years        EU1       EU2      EU3       EU4       EU5      EU6     EU7
 <span class="dv">1</span>  <span class="dv">1990</span>  <span class="dv">734804621</span> <span class="dv">189317838</span> <span class="dv">66931969</span> <span class="dv">280435281</span> <span class="dv">122734622</span> <span class="dv">34455209</span> <span class="dv">4084601</span>
 <span class="dv">2</span>  <span class="dv">2015</span> <span class="dv">1083412106</span> <span class="dv">176505462</span> <span class="dv">95704267</span> <span class="dv">402401135</span> <span class="dv">180538737</span> <span class="dv">32626590</span> <span class="dv">4612485</span>
-        EU8      EU9      EU10      EU11      EU12      EU13 LumberPre1900
-<span class="dv">1</span> <span class="dv">105397595</span> <span class="dv">36196593</span>  <span class="dv">89312872</span> <span class="dv">191161972</span> <span class="dv">242862404</span> <span class="dv">478162361</span>      <span class="dv">70903425</span>
-<span class="dv">2</span> <span class="dv">167469710</span> <span class="dv">89538881</span> <span class="dv">138831972</span> <span class="dv">234299760</span> <span class="dv">290325693</span> <span class="dv">394777995</span>      <span class="dv">38450600</span>
+        EU8      EU9      EU10      EU11      EU12      EU13   lp1900
+<span class="dv">1</span> <span class="dv">105397595</span> <span class="dv">36196593</span>  <span class="dv">89312872</span> <span class="dv">191161972</span> <span class="dv">242862404</span> <span class="dv">478162361</span> <span class="dv">70903425</span>
+<span class="dv">2</span> <span class="dv">167469710</span> <span class="dv">89538881</span> <span class="dv">138831972</span> <span class="dv">234299760</span> <span class="dv">290325693</span> <span class="dv">394777995</span> <span class="dv">38450600</span>
   Total Carbon
 <span class="dv">1</span>   <span class="dv">2646761363</span>
 <span class="dv">2</span>   <span class="dv">3329495393</span></code></pre></div>
@@ -181,17 +181,17 @@ Alternate years, decay distribution, and half lives can be substituted for defau
 </div>
 <div id="other-arguments" class="section level3">
 <h3 class="hasAnchor"><html><body><a href="#other-arguments" class="anchor"> </a></body></html>Other Arguments</h3>
-<p><code>fsp</code>, <code>fnsp</code>, and <code>fsawn</code> allow for adjusting the product class distributions over the end uses. The default values are provided in the corresponding data frames (<code>fracstrpanels</code>, <code>fracnonstrpanels</code>, <code>fracsawnwood</code>).</p>
+<p><code>fsp</code>, <code>fnsp</code>, and <code>fsawn</code> allow for adjusting the product class distributions over the end uses. The default values are provided in the corresponding data frames (<code>fsp_1</code>, <code>fnonsp</code>, <code>fsw</code>).</p>
 <p>New values can be substitued directly in the function call, or a copy can be made which can then be changed (don&rsquo;t change the original data - or else the package will need to be reloaded). The first example shows using one error term for each column and the second example shows creating an error term for each cell.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">adj &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">13</span>, <span class="dv">1</span>, .<span class="dv">15</span>)
-<span class="kw"><a href="../reference/finalCarbonContribution.html">finalCarbonContribution</a></span>(<span class="dt">fsp =</span> <span class="kw">mapply</span>(<span class="st">`</span><span class="dt">*</span><span class="st">`</span>,fracsawnwood,adj))
- [<span class="dv">1</span>] -<span class="fl">130165.40</span> -<span class="fl">122257.85</span> -<span class="fl">122196.27</span> -<span class="fl">119096.77</span> -<span class="fl">120842.75</span> -<span class="fl">116732.64</span>
- [<span class="dv">7</span>] -<span class="fl">110468.38</span> -<span class="fl">115585.83</span> -<span class="fl">112407.92</span> -<span class="fl">117366.33</span> -<span class="fl">111125.06</span>  -<span class="fl">91702.81</span>
-[<span class="dv">13</span>]  -<span class="fl">96350.49</span>  -<span class="fl">92135.43</span> -<span class="fl">102088.57</span> -<span class="fl">100780.26</span> -<span class="fl">105795.13</span> -<span class="fl">100941.64</span>
-[<span class="dv">19</span>]  -<span class="fl">75190.91</span>  -<span class="fl">52986.74</span>  -<span class="fl">59093.83</span>  -<span class="fl">67503.44</span>  -<span class="fl">66819.42</span>  -<span class="fl">69231.38</span>
-[<span class="dv">25</span>]  -<span class="fl">84947.55</span>  -<span class="fl">89635.95</span>
+<span class="kw"><a href="../reference/finalCarbonContribution.html">finalCarbonContribution</a></span>(<span class="dt">fsp =</span> <span class="kw">mapply</span>(<span class="st">`</span><span class="dt">*</span><span class="st">`</span>,fsw,adj))
+ [<span class="dv">1</span>] -<span class="fl">131771.55</span> -<span class="fl">123758.01</span> -<span class="fl">123790.61</span> -<span class="fl">120707.52</span> -<span class="fl">122498.31</span> -<span class="fl">118411.13</span>
+ [<span class="dv">7</span>] -<span class="fl">112219.10</span> -<span class="fl">117343.83</span> -<span class="fl">114188.45</span> -<span class="fl">119182.37</span> -<span class="fl">112968.80</span>  -<span class="fl">93478.73</span>
+[<span class="dv">13</span>]  -<span class="fl">98188.13</span>  -<span class="fl">93967.40</span> -<span class="fl">103967.46</span> -<span class="fl">102683.17</span> -<span class="fl">107666.14</span> -<span class="fl">102762.70</span>
+[<span class="dv">19</span>]  -<span class="fl">76830.26</span>  -<span class="fl">54360.98</span>  -<span class="fl">60549.58</span>  -<span class="fl">68943.22</span>  -<span class="fl">68312.97</span>  -<span class="fl">70814.78</span>
+[<span class="dv">25</span>]  -<span class="fl">86538.26</span>  -<span class="fl">91250.87</span>
 
-fsawncopy &lt;-<span class="st"> </span>fracsawnwood
+fsawncopy &lt;-<span class="st"> </span>fsw
 for (i in <span class="kw">seq</span>(fsawncopy)) {
   fsawncopy[,i] &lt;-<span class="st"> </span>fsawncopy[,i] *<span class="st"> </span><span class="kw">rnorm</span>(<span class="kw">nrow</span>(fsawncopy),<span class="dv">1</span>,.<span class="dv">1</span>)
 }

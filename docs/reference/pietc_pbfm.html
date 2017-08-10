@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Total carbon placed in use in od tons of wood fiber — calcplacediu • WOODCARB3R</title>
+<title>Paper and board production and fibrous materials consumed in the manufacture of paper and board, 1965-1999 — pietc_pbfm • WOODCARB3R</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -77,54 +77,49 @@
       <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Total carbon placed in use in od tons of wood fiber</h1>
+    <h1>Paper and board production and fibrous materials consumed in the manufacture of paper and board, 1965-1999</h1>
     </div>
 
     
-    <p>Corresponds to B3147 column in SW Calc P and SW Calc spreadsheet for Production and Stock Change
-approach respectively.</p>
+    <p>Dataset containing consumption and production statistics for various board and paper products.
+Units are specified below.</p>
     
 
-    <pre><span class='fu'>calcplacediu</span>(<span class='kw'>Years</span> <span class='kw'>=</span> <span class='fl'>1900</span>:<span class='fl'>2020</span>, <span class='kw'>approach</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='st'>"Production"</span>, <span class='st'>"Stock Change"</span>),
-  <span class='kw'>total</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>fsp</span> <span class='kw'>=</span> <span class='no'>fsp_1</span>, <span class='kw'>fnsp</span> <span class='kw'>=</span> <span class='no'>fnonsp</span>, <span class='kw'>fsawn</span> <span class='kw'>=</span> <span class='no'>fsw</span>, <span class='no'>swpdata</span>)</pre>
-    
-    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
-    <dl class="dl-horizontal">
-      <dt>Years</dt>
-      <dd>years to calculate carbon placed in use for</dd>
-      <dt>approach</dt>
-      <dd>The approach type to use. Fractions dont change but inflow does</dd>
-      <dt>total</dt>
-      <dd>Whether to return total placed in use or seperate it by end uses.</dd>
-      <dt>fsp</dt>
-      <dd>Fraction of structural panel products that go to each end use.
-Default can be substituted with data with a column for each end use and row for years
-from 1900 to latest year of interest.</dd>
-      <dt>fnsp</dt>
-      <dd>Fraction of non-structural panel products that go to each end use.
-Default can be substituted with data with a column for each end use and row for years
-from 1900 to latest year of interest.</dd>
-      <dt>fsawn</dt>
-      <dd>Fraction of sawnwood products that go to each end use.
-Default can be substituted with data with a column for each end use and row for years
-from 1900 to latest year of interest.</dd>
-      <dt>swpdata</dt>
-      <dd>Optional argument to provide swp production and trade time series
-for purposes of error analysis</dd>
-    </dl>
-    
-    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
+    <pre><span class='no'>pietc_pbfm</span></pre>
+        
+    <h2 class="hasAnchor" id="format"><a class="anchor" href="#format"></a>Format</h2>
 
-    <p>a data frame of carbon placed in use for various end uses</p>
+    <p>A data frame with 56 observations of 19 variables:
+<dl class='dl-horizontal'>
+<dt>Years</dt><dd>Years</dd>
+<dt>Prod.PaperBoard</dt><dd>Prod.PaperBoard. Paper and Paperboard Production, in 1000 Tons</dd>
+<dt>Consump.Tot</dt><dd>Total Consumption of Fibrous Materials, in 1000 Tons</dd>
+<dt>Consump.WoodPulp</dt><dd>Consumption of Woodpulp, in 1000 Tons</dd>
+<dt>Consump.RecPaper</dt><dd>Consumption of Recovered Paper, in 1000 Tons</dd>
+<dt>Consump.Other</dt><dd>Consumption of Other Fibrous Materials, in 1000 Tons</dd>
+<dt>Consump.PerTonProd.Tot</dt><dd>Total Consumption of Fibrous Material per ton of Paper and Board Produced, in Tons</dd>
+<dt>Consump.PerTonProd.WoodPulp</dt><dd>Consumption of Wood pulp per ton of Paper and Board Produced, in Tons</dd>
+<dt>Consump.PerTonProd.RecPaper</dt><dd>Consumption of Recovered Paper per ton of Paper and Board Produced, in Tons</dd>
+<dt>Consump.PerTonProd.Other</dt><dd>Consumption of Other Fibrous Materials per ton of Paper and Board Produced, in Tons</dd>
+<dt>RagsOther.RecPaperUtiRatePerc</dt><dd>Rags and Other: Recovered Paper Utilization Rate Percent</dd>
+<dt>RagsOther.Prod.Estimated</dt><dd>Rags and Other: Estimated Production, in Thousand Tons</dd>
+<dt>RagsOther.Imports.Estimated</dt><dd>Rags and Other: Estimated Imports, in Thousand Tons</dd>
+<dt>RagsOther.Exports.Estimated</dt><dd>Rags and Other: Estimated Exports, in Thousand Tons</dd>
+</dl></p>
+    
+    <h2 class="hasAnchor" id="source"><a class="anchor" href="#source"></a>Source</h2>
+
+    <p>American Paper Institute, American Forest &amp; Paper Association: Statistics of Paper, Paperboard &amp; Wood Pulp</p>
     
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
-      <li><a href="#arguments">Arguments</a></li>
       
-      <li><a href="#value">Value</a></li>
+      <li><a href="#format">Format</a></li>
+
+      <li><a href="#source">Source</a></li>
           </ul>
 
   </div>

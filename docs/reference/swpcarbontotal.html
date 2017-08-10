@@ -87,8 +87,8 @@ calculating carbon totals with different approaches, halflives, and decay distri
 
     <pre><span class='fu'>swpcarbontotal</span>(<span class='kw'>Yrs</span> <span class='kw'>=</span> <span class='fl'>1990</span>:<span class='fl'>2015</span>, <span class='kw'>decaydistribution</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='st'>"Exponential"</span>, <span class='st'>"K=2"</span>,
   <span class='st'>"K=10"</span>), <span class='kw'>onlytotal</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>lumberpre</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>approach</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='st'>"Production"</span>,
-  <span class='st'>"Stock Change"</span>), <span class='kw'>halflives</span> <span class='kw'>=</span> <span class='no'>halfLives</span>, <span class='kw'>fsp</span> <span class='kw'>=</span> <span class='no'>fracstrpanels</span>,
-  <span class='kw'>fnsp</span> <span class='kw'>=</span> <span class='no'>fracnonstrpanels</span>, <span class='kw'>fsawn</span> <span class='kw'>=</span> <span class='no'>fracsawnwood</span>, <span class='no'>swpdata</span>)</pre>
+  <span class='st'>"Stock Change"</span>), <span class='kw'>halflives</span> <span class='kw'>=</span> <span class='no'>hl</span>, <span class='kw'>fsp_function</span> <span class='kw'>=</span> <span class='no'>fsp_1</span>, <span class='kw'>fnsp</span> <span class='kw'>=</span> <span class='no'>fnonsp</span>,
+  <span class='kw'>fsawn</span> <span class='kw'>=</span> <span class='no'>fsw</span>, <span class='no'>swpdata</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
     <dl class="dl-horizontal">
@@ -110,7 +110,7 @@ For stock change approach, the data returned corresponds to the `SWCalc$H4389` c
       <dt>halflives</dt>
       <dd>data frame of half lives for end uses. Default half lives are used but
 a data frame with 13 columns with half lives for the appropriate years can be used.</dd>
-      <dt>fsp</dt>
+      <dt>fsp_function</dt>
       <dd>Fraction of structural panel products that go to each end use.
 Default can be substituted with data with a column for each end use and row for years
 from 1900 to latest year of interest.</dd>
@@ -141,10 +141,10 @@ for purposes of error analysis</dd>
 #&gt; 1  1990 706414309 182866038 63065693 258801895 116211294 32956528 3874448
 #&gt; 2  2000 836196543 176074498 74824810 316329446 138929063 32171235 4066189
 #&gt; 3  2010 940141701 168801706 82205622 342217459 154428853 30651352 4137418
-#&gt;         EU8      EU9      EU10      EU11      EU12      EU13 LumberPre1900
-#&gt; 1  97501711 32435774  83160265 180886699 231453156 478162361      70903425
-#&gt; 2 120999083 52418301 102787989 196832870 245974176 447244425      55508766
-#&gt; 3 138693102 68985296 116424536 206107483 256716678 411340193      43456619
+#&gt;         EU8      EU9      EU10      EU11      EU12      EU13   lp1900
+#&gt; 1  97501711 32435774  83160265 180886699 231453156 478162361 70903425
+#&gt; 2 120999083 52418301 102787989 196832870 245974176 447244425 55508766
+#&gt; 3 138693102 68985296 116424536 206107483 256716678 411340193 43456619
 #&gt;   Total Carbon
 #&gt; 1   2538693597
 #&gt; 2   2800357395
