@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Function reference • WOODCARB3R</title>
+<title>Function reference • WOODCARB3RB</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -23,20 +23,23 @@
 <link href="../pkgdown.css" rel="stylesheet">
 <script src="../jquery.sticky-kit.min.js"></script>
 <script src="../pkgdown.js"></script>
-
+  
+  
 <!-- mathjax -->
-<script src='https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
+<script src='https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
 
 <!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
 <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 <![endif]-->
+
+
   </head>
 
   <body>
     <div class="container template-reference-index">
       <header>
-      <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
@@ -44,28 +47,38 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="../index.html">WOODCARB3R</a>
+      <a class="navbar-brand" href="../index.html">WOODCARB3RB</a>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
-  <a href="../index.html">Home</a>
+  <a href="..//index.html">
+    <span class="fa fa-home fa-lg"></span>
+     
+  </a>
 </li>
 <li>
   <a href="../reference/index.html">Reference</a>
 </li>
-<li>
-  <a href="../articles/index.html">Articles</a>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Articles
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="../articles/WOODCARB3Rguide.html">Guide to WOODCARB3RB</a>
+    </li>
+    <li>
+      <a href="../articles/WOODCARB3RVignette.html">WOODCARB3RB Vignette</a>
+    </li>
+  </ul>
 </li>
       </ul>
       
       <ul class="nav navbar-nav navbar-right">
-        <li>
-  <a href="https://github.com/benjones2/WOODCARB3R/">
-    <span class="fa fa-github fa-lg"></span>
-     
-  </a>
-</li>
+        
       </ul>
     </div><!--/.nav-collapse -->
   </div><!--/.container -->
@@ -77,46 +90,383 @@
       <div class="row">
   <div class="col-md-9">
     <div class="page-header">
-      <h1>Function reference</h1>
-      <h4>version&nbsp;0.1.4</h4>
+      <h1>
+        Reference
+        <small>version&nbsp;0.1.5</small>
+      </h1>
     </div>
 
     <div class="contents">
-      <h2 id="section-functions" class="hasAnchor"><a href="#section-functions" class="anchor"></a>Functions</h2>
-      <p class="section-desc"><p>Functions for calculating intermediate carbon statistics and final CO2 removal contributions</p></p>
+      <table class="ref-index">
 
-      
-      <p><a href="finalCarbonContribution.html">Estimates U.S. HWP contribution to annual greenhouse gas removals.</a></p>
-      <ul>
-        <li><code><a href="finalCarbonContribution.html">finalCarbonContribution</a></code></li>
-      </ul>
-      
-      <p><a href="finalVariables.html">Calculates the 7 HWP Variables.</a></p>
-      <ul>
-        <li><code><a href="finalVariables.html">finalVariables</a></code></li>
-      </ul>
-      
-      <p><a href="swpcarbontotal.html">Calculate total carbon in solidwood products.</a></p>
-      <ul>
-        <li><code><a href="swpcarbontotal.html">swpcarbontotal</a></code></li>
-      </ul>
-          <h2 id="section-data-sheets" class="hasAnchor"><a href="#section-data-sheets" class="anchor"></a>Data Sheets</h2>
-      <p class="section-desc"><p>Input data sheets for carbon calculations</p></p>
+      <colgroup>
+        <col class="alias" />
+        <col class="title" />
+      </colgroup>
 
-      
-      <p><a href="IncePaper.html">U.S. Paper &amp; Paperboard, Production, Imports, Exports, Apparent Consumption, 1900 - 2050.</a></p>
-      <ul>
-        <li><code><a href="IncePaper.html">IncePaper</a></code></li>
-      </ul>
-    
+      <tbody>
+        <tr>
+          <th colspan="2">
+            <h2 id="section-all-functions" class="hasAnchor"><a href="#section-all-functions" class="anchor"></a>All functions</h2>
+            <p class="section-desc"></p>
+          </th>
+        </tr>
+        <tr>
+          <!--  -->
+          <td>
+            <p><code><a href="annualDomesticHarvest.html">annualDomesticHarvest</a></code> </p>
+          </td>
+          <td><p>Annual Domestic Harvest</p></td>
+        </tr><tr>
+          <!--  -->
+          <td>
+            <p><code><a href="c_pb.html">c_pb</a></code> </p>
+          </td>
+          <td><p>Consumption of Fibrous Materials in Paper and Board Manufacture in the United States
+from 1900 to 1974.</p></td>
+        </tr><tr>
+          <!--  -->
+          <td>
+            <p><code><a href="calcP_EX.html">calcP_EX</a></code> </p>
+          </td>
+          <td><p>Statistics for variable 4</p></td>
+        </tr><tr>
+          <!--  -->
+          <td>
+            <p><code><a href="calcP_IM.html">calcP_IM</a></code> </p>
+          </td>
+          <td><p>Annual Imports of Wood, and paper products + wood fuel,
+pulp, recovered paper, roundwood/chips.</p></td>
+        </tr><tr>
+          <!--  -->
+          <td>
+            <p><code><a href="calcplacediu.html">calcplacediu</a></code> </p>
+          </td>
+          <td><p>Total carbon placed in use in od tons of wood fiber</p></td>
+        </tr><tr>
+          <!--  -->
+          <td>
+            <p><code><a href="calculatedumpcarbonproduction.html">calculatedumpcarbonproduction</a></code> </p>
+          </td>
+          <td><p>Calculate carbon in SWDS for the Production Method</p></td>
+        </tr><tr>
+          <!--  -->
+          <td>
+            <p><code><a href="calculatedumpcarbonstockchange.html">calculatedumpcarbonstockchange</a></code> </p>
+          </td>
+          <td><p>Calculate carbon in SWDS for the Stock Change Method</p></td>
+        </tr><tr>
+          <!--  -->
+          <td>
+            <p><code><a href="calculateswpdata.html">calculateswpdata</a></code> </p>
+          </td>
+          <td><p>Solidwood products statistics
+Various production, imports and export data for different wood product types.
+21 columns in SWPcalcdata that are used to calculate production and stock change approach.</p></td>
+        </tr><tr>
+          <!--  -->
+          <td>
+            <p><code><a href="calcUSApaper.html">calcUSApaper</a></code> </p>
+          </td>
+          <td><p>Calculates paper statistics</p></td>
+        </tr><tr>
+          <!--  -->
+          <td>
+            <p><code><a href="carbonfromdumps.html">carbonfromdumps</a></code> </p>
+          </td>
+          <td><p>Calculates carbon in landfills and dumps.</p></td>
+        </tr><tr>
+          <!--  -->
+          <td>
+            <p><code><a href="finalCarbonContribution.html">finalCarbonContribution</a></code> </p>
+          </td>
+          <td><p>Estimates U.S. HWP contribution to annual greenhouse gas removals.</p></td>
+        </tr><tr>
+          <!--  -->
+          <td>
+            <p><code><a href="finalVariables.html">finalVariables</a></code> </p>
+          </td>
+          <td><p>Calculates the 7 HWP Variables.</p></td>
+        </tr><tr>
+          <!--  -->
+          <td>
+            <p><code><a href="fnonsp.html">fnonsp</a></code> </p>
+          </td>
+          <td><p>Fractions of Non-Structural Panel production used in various end uses</p></td>
+        </tr><tr>
+          <!--  -->
+          <td>
+            <p><code><a href="fsp_1.html">fsp_1</a></code> </p>
+          </td>
+          <td><p>Fractions of Structural Panel production used in various end uses</p></td>
+        </tr><tr>
+          <!--  -->
+          <td>
+            <p><code><a href="fsw.html">fsw</a></code> </p>
+          </td>
+          <td><p>Fractions of Sawnwood production used in various end uses</p></td>
+        </tr><tr>
+          <!--  -->
+          <td>
+            <p><code><a href="hl.html">hl</a></code> </p>
+          </td>
+          <td><p>Half lives for each end use.</p></td>
+        </tr><tr>
+          <!--  -->
+          <td>
+            <p><code><a href="ie_pw.html">ie_pw</a></code> </p>
+          </td>
+          <td><p>United States imports and exports of plywood, by softwoods and hardwoods, 1935-62 (with estimates of 1927-34)</p></td>
+        </tr><tr>
+          <!--  -->
+          <td>
+            <p><code><a href="ie_veneer.html">ie_veneer</a></code> </p>
+          </td>
+          <td><p>Imports and exports of veneer, by kind, in the US 1935-1962 (estimates of 1927-34).</p></td>
+        </tr><tr>
+          <!--  -->
+          <td>
+            <p><code><a href="IncePaper.html">IncePaper</a></code> </p>
+          </td>
+          <td><p>U.S. Paper &amp; Paperboard, Production, Imports, Exports, Apparent Consumption, 1900 - 2050.</p></td>
+        </tr><tr>
+          <!--  -->
+          <td>
+            <p><code><a href="lp1900.html">lp1900</a></code> </p>
+          </td>
+          <td><p>Lumber wood in single and multifamily houses build 1800 to 1900</p></td>
+        </tr><tr>
+          <!--  -->
+          <td>
+            <p><code><a href="p_wfw.html">p_wfw</a></code> </p>
+          </td>
+          <td><p>U.S. Annual industrial wood product in conventional units of measure.</p></td>
+        </tr><tr>
+          <!--  -->
+          <td>
+            <p><code><a href="paper_carbon_stockchange.html">paper_carbon_stockchange</a></code> </p>
+          </td>
+          <td><p>Calculates changes in carbon stock from paper.
+Units are in Tg Carbon.
+For production approach, values correspond to `Calculation$CC` in the spreadsheet.
+For stock change approach, values correspond to `Calculation$L` in the spreadsheet.</p></td>
+        </tr><tr>
+          <!--  -->
+          <td>
+            <p><code><a href="piet_all.html">piet_all</a></code> </p>
+          </td>
+          <td><p>Timber products: Production, imports, exports, and new supply of lumber in the United States, specified years, 1799-1958</p></td>
+        </tr><tr>
+          <!--  -->
+          <td>
+            <p><code><a href="piet_irw.html">piet_irw</a></code> </p>
+          </td>
+          <td><p>Estimated production, net imports, and apparent consumption of timber products in the US, 1900-1962</p></td>
+        </tr><tr>
+          <!--  -->
+          <td>
+            <p><code><a href="pietc_hb.html">pietc_hb</a></code> </p>
+          </td>
+          <td><p>Production, imports, exports and consumption of insulating board, 1950-1987
+Also includes historical production and exports data from 1925-1950.</p></td>
+        </tr><tr>
+          <!--  -->
+          <td>
+            <p><code><a href="pietc_hw2.html">pietc_hw2</a></code> </p>
+          </td>
+          <td><p>Insulating board production, imports, exports, and consumption, 1965-1999.</p></td>
+        </tr><tr>
+          <!--  -->
+          <td>
+            <p><code><a href="pietc_hwt.html">pietc_hwt</a></code> </p>
+          </td>
+          <td><p>Production, imports, exports, and consumption of hardwood timber products, by major product, 1950-87</p></td>
+        </tr><tr>
+          <!--  -->
+          <td>
+            <p><code><a href="pietc_hwt2.html">pietc_hwt2</a></code> </p>
+          </td>
+          <td><p>Production, imports, exports, and consumption of hardwood products, by major product, 1965-1999.</p></td>
+        </tr><tr>
+          <!--  -->
+          <td>
+            <p><code><a href="pietc_ib.html">pietc_ib</a></code> </p>
+          </td>
+          <td><p>Insulating board production, imports, exports, and consumption, 1950-87</p></td>
+        </tr><tr>
+          <!--  -->
+          <td>
+            <p><code><a href="pietc_ib2.html">pietc_ib2</a></code> </p>
+          </td>
+          <td><p>Hardboard production, imports, exports and consumption, 1965-1999.</p></td>
+        </tr><tr>
+          <!--  -->
+          <td>
+            <p><code><a href="pietc_l.html">pietc_l</a></code> </p>
+          </td>
+          <td><p>Lumber production, imports, exports, and consumption, by softwoods and hardwoods, 1950-87</p></td>
+        </tr><tr>
+          <!--  -->
+          <td>
+            <p><code><a href="pietc_l2.html">pietc_l2</a></code> </p>
+          </td>
+          <td><p>Lumber production, imports, exports, and consumption, by softwoods and hardwoods, 1965-1999.</p></td>
+        </tr><tr>
+          <!--  -->
+          <td>
+            <p><code><a href="pietc_liu.html">pietc_liu</a></code> </p>
+          </td>
+          <td><p>Fraction of wood lost when placed in use from various end uses.</p></td>
+        </tr><tr>
+          <!--  -->
+          <td>
+            <p><code><a href="pietc_parbfb.html">pietc_parbfb</a></code> </p>
+          </td>
+          <td><p>Particleboard and medium density fiberboard production, imports, exports, and consumption, 1950-87</p></td>
+        </tr><tr>
+          <!--  -->
+          <td>
+            <p><code><a href="pietc_parbfb2.html">pietc_parbfb2</a></code> </p>
+          </td>
+          <td><p>Particleboard and medium-density fiberboard production, imports,</p></td>
+        </tr><tr>
+          <!--  -->
+          <td>
+            <p><code><a href="pietc_pbfm.html">pietc_pbfm</a></code> </p>
+          </td>
+          <td><p>Paper and board production and fibrous materials consumed in the manufacture of paper and board, 1965-1999</p></td>
+        </tr><tr>
+          <!--  -->
+          <td>
+            <p><code><a href="pietc_pbrp.html">pietc_pbrp</a></code> </p>
+          </td>
+          <td><p>Paper and board new supply and recyclable paper consumption, exports, imports and total recovered, 1965-1999</p></td>
+        </tr><tr>
+          <!--  -->
+          <td>
+            <p><code><a href="pietc_pw.html">pietc_pw</a></code> </p>
+          </td>
+          <td><p>Plywood production, imports, exports, and consumption, by softwoods and hardwoods, 1950-87</p></td>
+        </tr><tr>
+          <!--  -->
+          <td>
+            <p><code><a href="pietc_pw2.html">pietc_pw2</a></code> </p>
+          </td>
+          <td><p>Plywood production, imports, exports, and consumption, by softwoods and hardwoods, 1965-1999</p></td>
+        </tr><tr>
+          <!--  -->
+          <td>
+            <p><code><a href="pietc_sp.html">pietc_sp</a></code> </p>
+          </td>
+          <td><p>Production, imports, exports, and consumption of structural panel products, by type, 1980-1999</p></td>
+        </tr><tr>
+          <!--  -->
+          <td>
+            <p><code><a href="pietc_swt.html">pietc_swt</a></code> </p>
+          </td>
+          <td><p>Production, imports, exports, and consumption of softwood timber products, by major product, 1950-87</p></td>
+        </tr><tr>
+          <!--  -->
+          <td>
+            <p><code><a href="pietc_swt2.html">pietc_swt2</a></code> </p>
+          </td>
+          <td><p>Production, imports, exports, and consumption of softwood products, by major product, 1965-1999.</p></td>
+        </tr><tr>
+          <!--  -->
+          <td>
+            <p><code><a href="pietc_t.html">pietc_t</a></code> </p>
+          </td>
+          <td><p>Production, imports, exports. and consumption of timber products, by major product, 1950-87</p></td>
+        </tr><tr>
+          <!--  -->
+          <td>
+            <p><code><a href="pietc_t2.html">pietc_t2</a></code> </p>
+          </td>
+          <td><p>Production, imports, exports, and consumption of timber products, by major product, 1965-1999</p></td>
+        </tr><tr>
+          <!--  -->
+          <td>
+            <p><code><a href="pietc_wp2.html">pietc_wp2</a></code> </p>
+          </td>
+          <td><p>Wood pulp production, imports, exports, and consumption, 1965-1999</p></td>
+        </tr><tr>
+          <!--  -->
+          <td>
+            <p><code><a href="plf_percent.html">plf_percent</a></code> </p>
+          </td>
+          <td><p>Percent of paper that goes to landfills.</p></td>
+        </tr><tr>
+          <!--  -->
+          <td>
+            <p><code><a href="pt_pu.html">pt_pu</a></code> </p>
+          </td>
+          <td><p>Total production, productivity, recovered paper utilization, and per capita production</p></td>
+        </tr><tr>
+          <!--  -->
+          <td>
+            <p><code><a href="reportTable4G.html">reportTable4G</a></code> </p>
+          </td>
+          <td><p>Sectoral background data for land-use, land-use change and forestry.
+Computes IPCC tables for reporting.
+Corresponds to Table 4.G s1 and Table 4.G s2</p></td>
+        </tr><tr>
+          <!--  -->
+          <td>
+            <p><code><a href="returnData.html">returnData</a></code> </p>
+          </td>
+          <td><p>Get import, export, production data for all product types.</p></td>
+        </tr><tr>
+          <!--  -->
+          <td>
+            <p><code><a href="swp_carbon_stockchange.html">swp_carbon_stockchange</a></code> </p>
+          </td>
+          <td><p>Calculates changes in carbon stock from solid wood products.
+Units are in Tg Carbon.
+For production approach, values correspond to `Calculation$BY` in the spreadsheet.
+For stock change approach, values correspond to `Calculation$H` in the spreadsheet.</p></td>
+        </tr><tr>
+          <!--  -->
+          <td>
+            <p><code><a href="swpcarbontotal.html">swpcarbontotal</a></code> </p>
+          </td>
+          <td><p>Calculate total carbon in solidwood products.</p></td>
+        </tr><tr>
+          <!--  -->
+          <td>
+            <p><code><a href="twp.html">twp</a></code> </p>
+          </td>
+          <td><p>Summary of Total Wood Pulp Statistics in the United States
+from 1899 to 1972 with necessary statistics from 1869, 1879, 1889.</p></td>
+        </tr><tr>
+          <!--  -->
+          <td>
+            <p><code><a href="usafp.html">usafp</a></code> </p>
+          </td>
+          <td><p>Recovered Fibre Pulp in the United States from 1998 to 2013</p></td>
+        </tr><tr>
+          <!--  -->
+          <td>
+            <p><code><a href="wd_percent.html">wd_percent</a></code> </p>
+          </td>
+          <td><p>Percent of wood to dumps</p></td>
+        </tr><tr>
+          <!--  -->
+          <td>
+            <p><code><a href="wlf_percent.html">wlf_percent</a></code> </p>
+          </td>
+          <td><p>Percentage of wood to landfills.
+Corresponds to colum U20 in Param + Results Sheet.
+Gives percentage of all wood that goes to landfills.</p></td>
+        </tr>
+      </tbody>
+      </table>
     </div>
   </div>
 
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
-      <li><a href="#section-functions">Functions</a></li>
-      <li><a href="#section-data-sheets">Data Sheets</a></li>
+      <li><a href="#section-all-functions">All functions</a></li>
     </ul>
   </div>
 </div>

@@ -1,14 +1,14 @@
 ---
-title: "Guide to WOODCARB3R"
+title: "Guide to WOODCARB3RB"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Guide to WOODCARB3R}
+  %\VignetteIndexEntry{Guide to WOODCARB3RB}
   %\VignetteEngine{knitr::rmarkdown}
   \usepackage[utf8]{inputenc}
 ---
 ```{r,echo=FALSE, message=FALSE}
 knitr::opts_chunk$set(collapse = T, comment = NA)
-library(WOODCARB3R)
+library(WOODCARB3RB)
 ```
 
 This package is designed to calculate the carbon sequestration in harvested wood products in the United States. Functions estimate carbon in wood products, solid-waste disposal sites, and paper. A collection of production, import and export data from various sources is used to calculate intermediate statistics which is then used to calulate the 5 HWP variables and the final carbon contribution.  
@@ -73,7 +73,7 @@ swpcarbontotal(c(1990,2015), onlytotal = FALSE, lumberpre = FALSE,
 
 New values can be substitued directly in the function call, or a copy can be made which can then be changed (don't change the original data - or else the package will need to be reloaded). The first example shows using one error term for each column and the second example shows creating an error term for each cell. 
 
-```{r}
+```{r, eval = FALSE}
 adj <- rnorm(13, 1, .15)
 finalCarbonContribution(fsp = mapply(`*`,fsw,adj))
 

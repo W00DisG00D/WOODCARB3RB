@@ -7,7 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Calculates changes in carbon stock from solid wood products.
- — swp_carbon_stockchange • WOODCARB3R</title>
+Units are in Tg Carbon.
+For production approach, values correspond to `Calculation$BY` in the spreadsheet.
+For stock change approach, values correspond to `Calculation$H` in the spreadsheet. — swp_carbon_stockchange • WOODCARB3RB</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -24,20 +26,23 @@
 <link href="../pkgdown.css" rel="stylesheet">
 <script src="../jquery.sticky-kit.min.js"></script>
 <script src="../pkgdown.js"></script>
-
+  
+  
 <!-- mathjax -->
-<script src='https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
+<script src='https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
 
 <!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
 <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 <![endif]-->
+
+
   </head>
 
   <body>
     <div class="container template-reference-topic">
       <header>
-      <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
@@ -45,28 +50,38 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="../index.html">WOODCARB3R</a>
+      <a class="navbar-brand" href="../index.html">WOODCARB3RB</a>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
-  <a href="../index.html">Home</a>
+  <a href="..//index.html">
+    <span class="fa fa-home fa-lg"></span>
+     
+  </a>
 </li>
 <li>
   <a href="../reference/index.html">Reference</a>
 </li>
-<li>
-  <a href="../articles/index.html">Articles</a>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Articles
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="../articles/WOODCARB3Rguide.html">Guide to WOODCARB3RB</a>
+    </li>
+    <li>
+      <a href="../articles/WOODCARB3RVignette.html">WOODCARB3RB Vignette</a>
+    </li>
+  </ul>
 </li>
       </ul>
       
       <ul class="nav navbar-nav navbar-right">
-        <li>
-  <a href="https://github.com/benjones2/WOODCARB3R/">
-    <span class="fa fa-github fa-lg"></span>
-     
-  </a>
-</li>
+        
       </ul>
     </div><!--/.nav-collapse -->
   </div><!--/.container -->
@@ -79,7 +94,9 @@
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Calculates changes in carbon stock from solid wood products.
-</h1>
+Units are in Tg Carbon.
+For production approach, values correspond to `Calculation$BY` in the spreadsheet.
+For stock change approach, values correspond to `Calculation$H` in the spreadsheet.</h1>
     </div>
 
     
@@ -89,41 +106,60 @@ For production approach, values correspond to `Calculation$BY` in the spreadshee
 For stock change approach, values correspond to `Calculation$H` in the spreadsheet.</p>
     
 
-    <pre><span class='fu'>swp_carbon_stockchange</span>(<span class='no'>years</span>, <span class='kw'>approach</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='st'>"Production"</span>, <span class='st'>"Stock Change"</span>),
+    <pre class="usage"><span class='fu'>swp_carbon_stockchange</span>(<span class='no'>years</span>, <span class='kw'>approach</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='st'>"Production"</span>, <span class='st'>"Stock Change"</span>),
   <span class='kw'>decaydistribution</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='st'>"Exponential"</span>, <span class='st'>"K=2"</span>, <span class='st'>"K=10"</span>), <span class='kw'>halflives</span> <span class='kw'>=</span> <span class='no'>hl</span>,
   <span class='kw'>fsp</span> <span class='kw'>=</span> <span class='no'>fsp_1</span>, <span class='kw'>fnsp</span> <span class='kw'>=</span> <span class='no'>fnonsp</span>, <span class='kw'>fsawn</span> <span class='kw'>=</span> <span class='no'>fsw</span>, <span class='no'>swpdata</span>,
   <span class='kw'>woodToCarbon</span> <span class='kw'>=</span> <span class='fl'>4.535925e-07</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
-    <dl class="dl-horizontal">
-      <dt>years</dt>
-      <dd>years to return carbon totals for</dd>
-      <dt>approach</dt>
-      <dd>approach type used to calculate</dd>
-      <dt>decaydistribution</dt>
-      <dd>type of decay distribution to use</dd>
-      <dt>halflives</dt>
-      <dd>data frame of half lives to use. Must have a column associated with each
-one of 13 end uses and half life values for 1900 until the maximum year of interest.</dd>
-      <dt>fsp</dt>
-      <dd>Fraction of structural panel products that go to each end use.
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>years</th>
+      <td><p>years to return carbon totals for</p></td>
+    </tr>
+    <tr>
+      <th>approach</th>
+      <td><p>approach type used to calculate</p></td>
+    </tr>
+    <tr>
+      <th>decaydistribution</th>
+      <td><p>type of decay distribution to use</p></td>
+    </tr>
+    <tr>
+      <th>halflives</th>
+      <td><p>data frame of half lives to use. Must have a column associated with each
+one of 13 end uses and half life values for 1900 until the maximum year of interest.</p></td>
+    </tr>
+    <tr>
+      <th>fsp</th>
+      <td><p>Fraction of structural panel products that go to each end use.
 Default can be substituted with data with a column for each end use and row for years
-from 1900 to latest year of interest.</dd>
-      <dt>fnsp</dt>
-      <dd>Fraction of non-structural panel products that go to each end use.
+from 1900 to latest year of interest.</p></td>
+    </tr>
+    <tr>
+      <th>fnsp</th>
+      <td><p>Fraction of non-structural panel products that go to each end use.
 Default can be substituted with data with a column for each end use and row for years
-from 1900 to latest year of interest.</dd>
-      <dt>fsawn</dt>
-      <dd>Fraction of sawnwood products that go to each end use.
+from 1900 to latest year of interest.</p></td>
+    </tr>
+    <tr>
+      <th>fsawn</th>
+      <td><p>Fraction of sawnwood products that go to each end use.
 Default can be substituted with data with a column for each end use and row for years
-from 1900 to latest year of interest.</dd>
-      <dt>swpdata</dt>
-      <dd>Optional argument to provide swp production and trade time series
-for purposes of error analysis</dd>
-      <dt>woodToCarbon</dt>
-      <dd>Conversion factor to convert oven-dry tons of solid wood to
-Tg of Carbon.</dd>
-    </dl>
+from 1900 to latest year of interest.</p></td>
+    </tr>
+    <tr>
+      <th>swpdata</th>
+      <td><p>Optional argument to provide swp production and trade time series
+for purposes of error analysis</p></td>
+    </tr>
+    <tr>
+      <th>woodToCarbon</th>
+      <td><p>Conversion factor to convert oven-dry tons of solid wood to
+Tg of Carbon.</p></td>
+    </tr>
+    </table>
     
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
@@ -132,10 +168,10 @@ Tg of Carbon.</dd>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'>
-<span class='co'>## Not run: ------------------------------------</span>
-<span class='co'># swp_carbon_stockchange(1990:2000)</span>
-<span class='co'># swp_carbon_stockchange(1950:1975, approach = "Stock Change", decaydistribution = "K=2")</span>
-<span class='co'>## ---------------------------------------------</span></div></pre>
+</div><span class='co'># NOT RUN {</span>
+<span class='fu'>swp_carbon_stockchange</span>(<span class='fl'>1990</span>:<span class='fl'>2000</span>)
+<span class='fu'>swp_carbon_stockchange</span>(<span class='fl'>1950</span>:<span class='fl'>1975</span>, <span class='kw'>approach</span> <span class='kw'>=</span> <span class='st'>"Stock Change"</span>, <span class='kw'>decaydistribution</span> <span class='kw'>=</span> <span class='st'>"K=2"</span>)
+<span class='co'># }</span></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>

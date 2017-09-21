@@ -4,7 +4,7 @@
 Authors: Ben Jones, Sami Hlebak, Hannah Laws, Kelly Loucks, Andrew Sullivan, Eric Marland, and Alan Arnholt 
  
 
-## WOODCARB3RB Version 0.1.4
+## WOODCARB3RB Version 0.1.5
 
 [![Travis-CI Build Status](https://travis-ci.org/benjones2/WOODCARB3RB.svg?branch=master)](https://travis-ci.org/benjones2/WOODCARB3RB)
 

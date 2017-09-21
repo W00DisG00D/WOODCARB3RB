@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Summary of Total Wood Pulp Statistics in the United States
- — twp • WOODCARB3R</title>
+from 1899 to 1972 with necessary statistics from 1869, 1879, 1889. — twp • WOODCARB3RB</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -24,20 +24,23 @@
 <link href="../pkgdown.css" rel="stylesheet">
 <script src="../jquery.sticky-kit.min.js"></script>
 <script src="../pkgdown.js"></script>
-
+  
+  
 <!-- mathjax -->
-<script src='https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
+<script src='https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
 
 <!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
 <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 <![endif]-->
+
+
   </head>
 
   <body>
     <div class="container template-reference-topic">
       <header>
-      <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
@@ -45,28 +48,38 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="../index.html">WOODCARB3R</a>
+      <a class="navbar-brand" href="../index.html">WOODCARB3RB</a>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
-  <a href="../index.html">Home</a>
+  <a href="..//index.html">
+    <span class="fa fa-home fa-lg"></span>
+     
+  </a>
 </li>
 <li>
   <a href="../reference/index.html">Reference</a>
 </li>
-<li>
-  <a href="../articles/index.html">Articles</a>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Articles
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="../articles/WOODCARB3Rguide.html">Guide to WOODCARB3RB</a>
+    </li>
+    <li>
+      <a href="../articles/WOODCARB3RVignette.html">WOODCARB3RB Vignette</a>
+    </li>
+  </ul>
 </li>
       </ul>
       
       <ul class="nav navbar-nav navbar-right">
-        <li>
-  <a href="https://github.com/benjones2/WOODCARB3R/">
-    <span class="fa fa-github fa-lg"></span>
-     
-  </a>
-</li>
+        
       </ul>
     </div><!--/.nav-collapse -->
   </div><!--/.container -->
@@ -79,7 +92,7 @@
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Summary of Total Wood Pulp Statistics in the United States
-</h1>
+from 1899 to 1972 with necessary statistics from 1869, 1879, 1889.</h1>
     </div>
 
     
@@ -88,25 +101,24 @@ All units are in tons of 2000 pounds, air dry weight.
 All vectors are numeric.</p>
     
 
-    <pre><span class='no'>twp</span></pre>
+    <pre class="usage"><span class='no'>twp</span></pre>
         
     <h2 class="hasAnchor" id="format"><a class="anchor" href="#format"></a>Format</h2>
 
-    <p>A data frame with 77 observations of 11 variables:
-<dl class='dl-horizontal'>
-<dt>Years</dt><dd>Years</dd>
-<dt>Woodpulp.Prod</dt><dd>Production of Wood Pulp</dd>
-<dt>Woodpulp.Imports</dt><dd>Imports of Wood Pulp</dd>
-<dt>Woodpulp.Exports</dt><dd>Exports of Wood Pulp</dd>
-<dt>Woodpulp.NewSupply</dt><dd>New Supply of Wood Pulp</dd>
-<dt>Consump.Paper.Board</dt><dd>Consumption in Paper &amp; Board</dd>
-<dt>WastePaper.Estimated.Prod</dt><dd>Estimated Production of Waste Paper</dd>
-<dt>WastePaper.Estimated.Imports</dt><dd>Estimated Imports of Waste Paper</dd>
-<dt>WastePaper.Estimated.Exports</dt><dd>Estimated Exports of Waste Paper</dd>
-<dt>Rags.Estimated.Prod</dt><dd>Estimated Production of Rags and Other</dd>
-<dt>Rags.Estimated.Imports</dt><dd>Estimated Imports of Rags and Other</dd>
-<dt>Rags.Estimated.Exports</dt><dd>Estimated Exports of Rags and Other</dd>
-</dl></p>
+    <p>A data frame with 77 observations of 11 variables:</p><dl class='dl-horizontal'>
+<dt>Years</dt><dd><p>Years</p></dd>
+<dt>Woodpulp.Prod</dt><dd><p>Production of Wood Pulp</p></dd>
+<dt>Woodpulp.Imports</dt><dd><p>Imports of Wood Pulp</p></dd>
+<dt>Woodpulp.Exports</dt><dd><p>Exports of Wood Pulp</p></dd>
+<dt>Woodpulp.NewSupply</dt><dd><p>New Supply of Wood Pulp</p></dd>
+<dt>Consump.Paper.Board</dt><dd><p>Consumption in Paper &amp; Board</p></dd>
+<dt>WastePaper.Estimated.Prod</dt><dd><p>Estimated Production of Waste Paper</p></dd>
+<dt>WastePaper.Estimated.Imports</dt><dd><p>Estimated Imports of Waste Paper</p></dd>
+<dt>WastePaper.Estimated.Exports</dt><dd><p>Estimated Exports of Waste Paper</p></dd>
+<dt>Rags.Estimated.Prod</dt><dd><p>Estimated Production of Rags and Other</p></dd>
+<dt>Rags.Estimated.Imports</dt><dd><p>Estimated Imports of Rags and Other</p></dd>
+<dt>Rags.Estimated.Exports</dt><dd><p>Estimated Exports of Rags and Other</p></dd>
+</dl>
     
     <h2 class="hasAnchor" id="source"><a class="anchor" href="#source"></a>Source</h2>
 

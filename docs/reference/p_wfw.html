@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>U.S. Annual industrial wood product in conventional units of measure. — p_wfw • WOODCARB3R</title>
+<title>U.S. Annual industrial wood product in conventional units of measure. — p_wfw • WOODCARB3RB</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -23,20 +23,23 @@
 <link href="../pkgdown.css" rel="stylesheet">
 <script src="../jquery.sticky-kit.min.js"></script>
 <script src="../pkgdown.js"></script>
-
+  
+  
 <!-- mathjax -->
-<script src='https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
+<script src='https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
 
 <!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
 <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 <![endif]-->
+
+
   </head>
 
   <body>
     <div class="container template-reference-topic">
       <header>
-      <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
@@ -44,28 +47,38 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="../index.html">WOODCARB3R</a>
+      <a class="navbar-brand" href="../index.html">WOODCARB3RB</a>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
-  <a href="../index.html">Home</a>
+  <a href="..//index.html">
+    <span class="fa fa-home fa-lg"></span>
+     
+  </a>
 </li>
 <li>
   <a href="../reference/index.html">Reference</a>
 </li>
-<li>
-  <a href="../articles/index.html">Articles</a>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Articles
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="../articles/WOODCARB3Rguide.html">Guide to WOODCARB3RB</a>
+    </li>
+    <li>
+      <a href="../articles/WOODCARB3RVignette.html">WOODCARB3RB Vignette</a>
+    </li>
+  </ul>
 </li>
       </ul>
       
       <ul class="nav navbar-nav navbar-right">
-        <li>
-  <a href="https://github.com/benjones2/WOODCARB3R/">
-    <span class="fa fa-github fa-lg"></span>
-     
-  </a>
-</li>
+        
       </ul>
     </div><!--/.nav-collapse -->
   </div><!--/.container -->
@@ -81,55 +94,54 @@
     </div>
 
     
-    <p>&quot;Lumber made at pallet plants&quot; is a Forest Service estimate of lumber cut from roundwood at pallet plants.
+    <p>"Lumber made at pallet plants" is a Forest Service estimate of lumber cut from roundwood at pallet plants.
 Other lumber (e.g., purchased lumber) used by pallet makers is accounted for under hardwood and softwood lumber production.
-Paper and paperboard production includes &quot;Total Paper&quot;, &quot;Total Paperboard&quot;, and &quot;Building Paper&quot; production.
+Paper and paperboard production includes "Total Paper", "Total Paperboard", and "Building Paper" production.
 Total production of pulp, paper and paperboard includes market pulp produced for export.
 Fuelwood estimates are shown for comparison only and are not included in industrial wood products.</p>
     
 
-    <pre><span class='no'>p_wfw</span></pre>
+    <pre class="usage"><span class='no'>p_wfw</span></pre>
         
     <h2 class="hasAnchor" id="format"><a class="anchor" href="#format"></a>Format</h2>
 
-    <p>A data frame with 151 observations of  25 variables:
-<dl class='dl-horizontal'>
-<dt>Years</dt><dd>Years</dd>
-<dt>SW.Ply</dt><dd>Softwood Plywood units: million ft^2, 3/8 in.</dd>
-<dt>OSB.Wafer.board</dt><dd>OSB/ Wafer board units: million ft^2, 3/8 in.</dd>
-<dt>Lam.Ven.Lumb</dt><dd>Laminated Veneer lumber units: million ft^3</dd>
-<dt>HW.Ply.Ven</dt><dd>Hardwood, Plywood and veneer units: million ft^2, 3/8 in.</dd>
-<dt>SW.Lumb</dt><dd>Softwood lumber units: million bd. ft.</dd>
-<dt>HW.Lumb</dt><dd>Hardwood lumber units: million bd. ft.</dd>
-<dt>Lumb.Pallet.Plant</dt><dd>Lumber made at Pallet plants units: million bd. ft.</dd>
-<dt>PartBoard.Prod</dt><dd>Particleboard production units: million ft^2, 3/4 in.</dd>
-<dt>Hardboard.Prod</dt><dd>Hardboard production units: million ft^2, 1/8 in.</dd>
-<dt>MDF.Prod</dt><dd>MDF production units: million ft^2, 3/4 in.</dd>
-<dt>Pulp.Paper.Board</dt><dd>Pulp, paper and board production units: Thousand tons</dd>
-<dt>Other.Products</dt><dd>Other industrial products units: million ft^3</dd>
-<dt>InsulatingBoard</dt><dd>Insulating board units: million ft^2, 1/2 in.</dd>
-<dt>Fuelwood</dt><dd>Fuelwood units: million ft^3</dd>
-<dt>Fuelwood.Tons</dt><dd>Fuelwood units: Thousand short tons</dd>
-<dt>Log.Chip.Exports</dt><dd>Log and Chip exports units: Thousand short tons</dd>
-<dt>RW.Dom.Prod</dt><dd>Roundwood Equivalent of Domestic Product Output units: Thousand short tons</dd>
-<dt>Estimated.Tot.Dom.Timber</dt><dd>Estimated Total Domestic Timber Harvest units: Thousand short tons</dd>
-</dl></p>
+    <p>A data frame with 151 observations of  25 variables:</p><dl class='dl-horizontal'>
+<dt>Years</dt><dd><p>Years</p></dd>
+<dt>SW.Ply</dt><dd><p>Softwood Plywood units: million ft^2, 3/8 in.</p></dd>
+<dt>OSB.Wafer.board</dt><dd><p>OSB/ Wafer board units: million ft^2, 3/8 in.</p></dd>
+<dt>Lam.Ven.Lumb</dt><dd><p>Laminated Veneer lumber units: million ft^3</p></dd>
+<dt>HW.Ply.Ven</dt><dd><p>Hardwood, Plywood and veneer units: million ft^2, 3/8 in.</p></dd>
+<dt>SW.Lumb</dt><dd><p>Softwood lumber units: million bd. ft.</p></dd>
+<dt>HW.Lumb</dt><dd><p>Hardwood lumber units: million bd. ft.</p></dd>
+<dt>Lumb.Pallet.Plant</dt><dd><p>Lumber made at Pallet plants units: million bd. ft.</p></dd>
+<dt>PartBoard.Prod</dt><dd><p>Particleboard production units: million ft^2, 3/4 in.</p></dd>
+<dt>Hardboard.Prod</dt><dd><p>Hardboard production units: million ft^2, 1/8 in.</p></dd>
+<dt>MDF.Prod</dt><dd><p>MDF production units: million ft^2, 3/4 in.</p></dd>
+<dt>Pulp.Paper.Board</dt><dd><p>Pulp, paper and board production units: Thousand tons</p></dd>
+<dt>Other.Products</dt><dd><p>Other industrial products units: million ft^3</p></dd>
+<dt>InsulatingBoard</dt><dd><p>Insulating board units: million ft^2, 1/2 in.</p></dd>
+<dt>Fuelwood</dt><dd><p>Fuelwood units: million ft^3</p></dd>
+<dt>Fuelwood.Tons</dt><dd><p>Fuelwood units: Thousand short tons</p></dd>
+<dt>Log.Chip.Exports</dt><dd><p>Log and Chip exports units: Thousand short tons</p></dd>
+<dt>RW.Dom.Prod</dt><dd><p>Roundwood Equivalent of Domestic Product Output units: Thousand short tons</p></dd>
+<dt>Estimated.Tot.Dom.Timber</dt><dd><p>Estimated Total Domestic Timber Harvest units: Thousand short tons</p></dd>
+</dl>
     
     <h2 class="hasAnchor" id="source"><a class="anchor" href="#source"></a>Source</h2>
 
     <p>Softwood plywood, OSB, and LVL production data (1960-1998) from APA--The Engineered Wood Association (formerly American Plywood Assoc.); see APA Economics Report E-65 (1999).</p>
-    <p>Hardwood plywood production data from Dept. of Commerce (to 1988); 1989-1990 data from Hardwood Plywood &amp; Veneer Association;
+<p>Hardwood plywood production data from Dept. of Commerce (to 1988); 1989-1990 data from Hardwood Plywood &amp; Veneer Association;
 later estimates based on trends in value of shipments (Dept. of Commerce); hardwood veneer based on Census of Manufactures data and trend in value of shipments.</p>
-    <p>Lumber production 1900-1946 based on H.B. Steer (USDA Forest Service, 1948, Table 1, &quot;Estimated Production&quot;)</p>
-    <p>Lumber production 1947-1976 based on Commerce Department data and Forest Service estimates.  Lumber production 1976-1998 from American Forest &amp; Paper Association (AF&amp;PA) Statistical Roundup report (1996 hardwood estimated by Forest Service; 1997-1998 hardwood estimate from Miller Freeman).</p>
-    <p>[Note that Commerce Dept. reported hardwood lumber production is understood to underestimate actual production as reflected in Forest Service estimates since 1900.]</p>
-    <p>Particleboard and MDF production data from Composite Panel Association (based on production data 1959-1977, and 1995-1997; otherwise based on shipments; 1998 data are estimated).</p>
-    <p>Hardboard production based on shipments data from American Hardboard Association (1964-1997) and as reported by Miller Freeman (1998); 1998 figure is estimated.</p>
-    <p>Pulp, paper, and paperboard production data are from AF&amp;PA, formerly API (Statistics of Paper, Paperboard &amp; Woodpulp).</p>
-    <p>Miscellaneous wood product production data through 1988 were obtained from U.S. Timber Production, Trade, Consumption, and Price Statistics reports (USDA Forest Service).
+<p>Lumber production 1900-1946 based on H.B. Steer (USDA Forest Service, 1948, Table 1, "Estimated Production")</p>
+<p>Lumber production 1947-1976 based on Commerce Department data and Forest Service estimates.  Lumber production 1976-1998 from American Forest &amp; Paper Association (AF&amp;PA) Statistical Roundup report (1996 hardwood estimated by Forest Service; 1997-1998 hardwood estimate from Miller Freeman).</p>
+<p>[Note that Commerce Dept. reported hardwood lumber production is understood to underestimate actual production as reflected in Forest Service estimates since 1900.]</p>
+<p>Particleboard and MDF production data from Composite Panel Association (based on production data 1959-1977, and 1995-1997; otherwise based on shipments; 1998 data are estimated).</p>
+<p>Hardboard production based on shipments data from American Hardboard Association (1964-1997) and as reported by Miller Freeman (1998); 1998 figure is estimated.</p>
+<p>Pulp, paper, and paperboard production data are from AF&amp;PA, formerly API (Statistics of Paper, Paperboard &amp; Woodpulp).</p>
+<p>Miscellaneous wood product production data through 1988 were obtained from U.S. Timber Production, Trade, Consumption, and Price Statistics reports (USDA Forest Service).
 Miscellaneous wood product production for 1996 based on timber product output tables in (draft) 1997 RPA Inventory Data Tables; intervening and subsequent data are extrapolated.</p>
-    <p>Insulating board production data are derived using earlier data from Commerce Department MA26A reports (in square feet of product output) to convert tonnage reported in AF&amp;PA and earlier API reports (Statistics of Paper, Paperboard &amp; Woodpulp).</p>
-    <p>Fuelwood data are Forest Service estimates (Skog and others, FPL).</p>
+<p>Insulating board production data are derived using earlier data from Commerce Department MA26A reports (in square feet of product output) to convert tonnage reported in AF&amp;PA and earlier API reports (Statistics of Paper, Paperboard &amp; Woodpulp).</p>
+<p>Fuelwood data are Forest Service estimates (Skog and others, FPL).</p>
     
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
