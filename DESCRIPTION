@@ -5,7 +5,9 @@ Version: 0.1.5
 Authors@R: c(person("Ben", "Jones", email = "jonesb@appstate.edu", role = c("aut", "cre")),
              person("Sami", "Hlebak", email = "hlebaksm@appstate.edu", role = c("aut")),
              person("Alan", "Arnholt", email = "arnholtat@appstate.edu", role = "aut"),
-             person("Eric", "Marland", email = "marlandes@appstate.edu", role = "aut")
+             person("Eric", "Marland", email = "marlandes@appstate.edu", role = "aut"),
+             person("Hannah", "Laws", email = "lawshx@appstate.edu", role = "aut"),
+             person("Kelly", "Loucks", email = "louckskm@appstate.edu", role = "aut")
              )
 Description: Calculations for carbon removal contributions due to wood products.
 License: GPL-2
