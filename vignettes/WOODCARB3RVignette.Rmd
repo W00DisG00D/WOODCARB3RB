@@ -8,7 +8,7 @@ output:
 vignette: >
   %\VignetteIndexEntry{Vignette Title} 
   %\VignetteEngine{knitr::rmarkdown} 
-  \VignetteEncoding{UTF-8}
+  %\VignetteEncoding{UTF-8}
 ---
 
 This package calculates estimates of the U.S. HWP contribution to annual greenhouse gas removals in the agriculture, forestry, land use, and land use change sector. The calculations are based on WOODCARB II as described in @skog_sequestration_2008. 
