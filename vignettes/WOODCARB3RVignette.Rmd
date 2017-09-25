@@ -3,7 +3,8 @@ title: "WOODCARB3RB Vignette"
 author: "Ben Jones"
 date: "`r Sys.Date()`"
 bibliography: carb2.bib
-output: bookdown::html_document2
+output: 
+    bookdown::html_document2
 vignette: >
   %\VignetteIndexEntry{Vignette Title} 
   %\VignetteEngine{knitr::rmarkdown} 
