@@ -6,7 +6,10 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Calculate carbon in SWDS for the Production Method — calculatedumpcarbonproduction • WOODCARB3RB</title>
+<title>Calculates changes in carbon stock from solid wood products.
+Units are in Tg Carbon.
+For production approach, values correspond to `Calculation$BY` in the spreadsheet.
+For stock change approach, values correspond to `Calculation$H` in the spreadsheet. — swp_carbon_stockchange • WOODCARB3RB</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -72,75 +75,85 @@
       <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Calculate carbon in SWDS for the Production Method</h1>
+    <h1>Calculates changes in carbon stock from solid wood products.
+Units are in Tg Carbon.
+For production approach, values correspond to `Calculation$BY` in the spreadsheet.
+For stock change approach, values correspond to `Calculation$H` in the spreadsheet.</h1>
     </div>
 
     
-    <p>Column names with only letters come from Calc sheet, otherwise sheet is specified (need to change names)</p>
+    <p>Calculates changes in carbon stock from solid wood products.
+Units are in Tg Carbon.
+For production approach, values correspond to `Calculation$BY` in the spreadsheet.
+For stock change approach, values correspond to `Calculation$H` in the spreadsheet.</p>
     
 
-    <pre class="usage"><span class='fu'>calculatedumpcarbonproduction</span>(<span class='no'>years</span>, <span class='kw'>totalcarbonstockchange</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-  <span class='kw'>swpSwdsNondegradable</span> <span class='kw'>=</span> <span class='fl'>0.77</span>, <span class='kw'>paperSwdsNondegradable</span> <span class='kw'>=</span> <span class='fl'>0.44</span>,
-  <span class='kw'>paperLandfillDecay</span> <span class='kw'>=</span> <span class='fl'>0.0478032538317204</span>,
-  <span class='kw'>swpLandfillDecay</span> <span class='kw'>=</span> <span class='fl'>0.0300063714528115</span>, <span class='kw'>swpDumpDecay</span> <span class='kw'>=</span> <span class='fl'>0.0420089200339361</span>,
-  <span class='kw'>paperDumpDecay</span> <span class='kw'>=</span> <span class='fl'>0.0840178400678722</span>, <span class='kw'>woodToCarbon</span> <span class='kw'>=</span> <span class='fl'>4.535925e-07</span>,
-  <span class='kw'>paperToCarbon</span> <span class='kw'>=</span> <span class='fl'>3.9008955e-07</span>)</pre>
+    <pre class="usage"><span class='fu'>swp_carbon_stockchange</span>(<span class='no'>years</span>, <span class='kw'>approach</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='st'>"Production"</span>, <span class='st'>"Stock Change"</span>),
+  <span class='kw'>decaydistribution</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='st'>"Exponential"</span>, <span class='st'>"K=2"</span>, <span class='st'>"K=10"</span>), <span class='kw'>halflives</span> <span class='kw'>=</span> <span class='no'>hl</span>,
+  <span class='kw'>fsp</span> <span class='kw'>=</span> <span class='no'>fsp_1</span>, <span class='kw'>fnsp</span> <span class='kw'>=</span> <span class='no'>fnonsp</span>, <span class='kw'>fsawn</span> <span class='kw'>=</span> <span class='no'>fsw</span>, <span class='no'>swpdata</span>,
+  <span class='kw'>woodToCarbon</span> <span class='kw'>=</span> <span class='fl'>4.535925e-07</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>years</th>
-      <td><p>years to calculate</p></td>
+      <td><p>years to return carbon totals for</p></td>
     </tr>
     <tr>
-      <th>totalcarbonstockchange</th>
-      <td><p>If true, returns carbon stock change, or returns data
-frame of intermediate calculations</p></td>
+      <th>approach</th>
+      <td><p>approach type used to calculate</p></td>
     </tr>
     <tr>
-      <th>swpSwdsNondegradable</th>
-      <td><p>Percent of solid-wood products in landfills and dumps
-that are not subject to decay.</p></td>
+      <th>decaydistribution</th>
+      <td><p>type of decay distribution to use</p></td>
     </tr>
     <tr>
-      <th>paperSwdsNondegradable</th>
-      <td><p>Percent of paper products in landfills and dumps that
-are not subject to decay.</p></td>
+      <th>halflives</th>
+      <td><p>data frame of half lives to use. Must have a column associated with each
+one of 13 end uses and half life values for 1900 until the maximum year of interest.</p></td>
     </tr>
     <tr>
-      <th>paperLandfillDecay</th>
-      <td><p>Decay rate of paper products in landfills as a half-life in years.</p></td>
+      <th>fsp</th>
+      <td><p>Fraction of structural panel products that go to each end use.
+Default can be substituted with data with a column for each end use and row for years
+from 1900 to latest year of interest.</p></td>
     </tr>
     <tr>
-      <th>swpLandfillDecay</th>
-      <td><p>Decay rate of solid-wood products in landfills as a half-life in years.</p></td>
+      <th>fnsp</th>
+      <td><p>Fraction of non-structural panel products that go to each end use.
+Default can be substituted with data with a column for each end use and row for years
+from 1900 to latest year of interest.</p></td>
     </tr>
     <tr>
-      <th>swpDumpDecay</th>
-      <td><p>Decay rate of solid-wood products in dumps as a half-life in years.</p></td>
+      <th>fsawn</th>
+      <td><p>Fraction of sawnwood products that go to each end use.
+Default can be substituted with data with a column for each end use and row for years
+from 1900 to latest year of interest.</p></td>
     </tr>
     <tr>
-      <th>paperDumpDecay</th>
-      <td><p>Decay rate of paper products in dumps as a half-life in years.</p></td>
+      <th>swpdata</th>
+      <td><p>Optional argument to provide swp production and trade time series
+for purposes of error analysis</p></td>
     </tr>
     <tr>
       <th>woodToCarbon</th>
       <td><p>Conversion factor to convert oven-dry tons of solid wood to
 Tg of Carbon.</p></td>
     </tr>
-    <tr>
-      <th>paperToCarbon</th>
-      <td><p>Conversion factor to convert oven-dry tons of paper to
-Tg of Carbon.</p></td>
-    </tr>
     </table>
     
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>Either a data frame of values from Calculation spreadsheet or total carbon output</p>
+    <p>A vector of swp carbon stock changes for `years`</p>
     
 
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'>
+<span class='fu'>not_run</span>({
+  <span class='fu'>swp_carbon_stockchange</span>(<span class='fl'>1990</span>:<span class='fl'>2000</span>)
+  <span class='fu'>swp_carbon_stockchange</span>(<span class='fl'>1950</span>:<span class='fl'>1975</span>, <span class='kw'>approach</span> <span class='kw'>=</span> <span class='st'>"Stock Change"</span>, <span class='kw'>decaydistribution</span> <span class='kw'>=</span> <span class='st'>"K=2"</span>)
+})</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
@@ -148,7 +161,9 @@ Tg of Carbon.</p></td>
       <li><a href="#arguments">Arguments</a></li>
       
       <li><a href="#value">Value</a></li>
-          </ul>
+      
+      <li><a href="#examples">Examples</a></li>
+    </ul>
 
   </div>
 </div>

@@ -6,7 +6,10 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Fractions of Structural Panel production used in various end uses — fsp_1 • WOODCARB3RB</title>
+<title>Calculates changes in carbon stock from paper.
+Units are in Tg Carbon.
+For production approach, values correspond to `Calculation$CC` in the spreadsheet.
+For stock change approach, values correspond to `Calculation$L` in the spreadsheet. — paper_carbon_stockchange • WOODCARB3RB</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -72,47 +75,54 @@
       <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Fractions of Structural Panel production used in various end uses</h1>
+    <h1>Calculates changes in carbon stock from paper.
+Units are in Tg Carbon.
+For production approach, values correspond to `Calculation$CC` in the spreadsheet.
+For stock change approach, values correspond to `Calculation$L` in the spreadsheet.</h1>
     </div>
 
     
-    <p>All units are percentages and all vectors are numeric.</p>
+    <p>Calculates changes in carbon stock from paper.
+Units are in Tg Carbon.
+For production approach, values correspond to `Calculation$CC` in the spreadsheet.
+For stock change approach, values correspond to `Calculation$L` in the spreadsheet.</p>
     
 
-    <pre class="usage"><span class='no'>fsp_1</span></pre>
-        
-    <h2 class="hasAnchor" id="format"><a class="anchor" href="#format"></a>Format</h2>
-
-    <p>A data frame with 151 observations of 16 variables:</p><dl class='dl-horizontal'>
-<dt>House.SingFam</dt><dd><p>Fraction of structural panel production in Single Family Homes</p></dd>
-<dt>House.Multifam</dt><dd><p>Fraction of structural panel production in Multi Family Homes</p></dd>
-<dt>House.MobHom</dt><dd><p>Fraction of structural panel production in Mobile Homes</p></dd>
-<dt>Res.Upkeep</dt><dd><p>Fraction of structural panel production in Total Residential Upkeep and Improvement</p></dd>
-<dt>New.Nonres.AllRR</dt><dd><p>Fraction of structural panel production in All Railroads</p></dd>
-<dt>New.Nonres.Rties</dt><dd><p>Fraction of structural panel production in Railroad Ties</p></dd>
-<dt>New.Nonres.Rcar.Repair</dt><dd><p>Fraction of structural panel production in Railcar Repair</p></dd>
-<dt>Manu.HouseFurniture</dt><dd><p>Fraction of structural panel production in Household Furniture</p></dd>
-<dt>Manu.CommFurniture</dt><dd><p>Fraction of structural panel production in Commercial Furniture</p></dd>
-<dt>Manu.OtherProducts</dt><dd><p>Fraction of structural panel production in Manufacturing and Other Products</p></dd>
-<dt>Shipping.Tot</dt><dd><p>Fraction of structural panel production in Shipping</p></dd>
-<dt>Other.Uses.Tot</dt><dd><p>Fraction of structural panel production in Other Uses</p></dd>
-<dt>Other.Industrial.Tot</dt><dd><p>Fraction of structural panel production in Uses For Other Industrial Products</p></dd>
-</dl>
+    <pre class="usage"><span class='fu'>paper_carbon_stockchange</span>(<span class='no'>years</span>, <span class='kw'>approach</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='st'>"Production"</span>, <span class='st'>"Stock Change"</span>))</pre>
     
-    <h2 class="hasAnchor" id="source"><a class="anchor" href="#source"></a>Source</h2>
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>years</th>
+      <td><p>years to return carbon totals for</p></td>
+    </tr>
+    <tr>
+      <th>approach</th>
+      <td><p>The approach used to calculate carbon contribution.</p></td>
+    </tr>
+    </table>
+    
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>Check spreadsheet - values entered in</p>
+    <p>A vector of paper carbon stock changes for `years`</p>
     
 
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'><span class='fu'>not_run</span>({
+  <span class='fu'>paper_carbon_stockchange</span>(<span class='fl'>1990</span>:<span class='fl'>2000</span>)
+  <span class='fu'>paper_carbon_stockchange</span>(<span class='fl'>1950</span>:<span class='fl'>1975</span>, <span class='kw'>approach</span> <span class='kw'>=</span> <span class='st'>"Stock Change"</span>)
+})</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
+      <li><a href="#arguments">Arguments</a></li>
       
-      <li><a href="#format">Format</a></li>
-
-      <li><a href="#source">Source</a></li>
-          </ul>
+      <li><a href="#value">Value</a></li>
+      
+      <li><a href="#examples">Examples</a></li>
+    </ul>
 
   </div>
 </div>
