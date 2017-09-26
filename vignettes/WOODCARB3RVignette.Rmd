@@ -53,28 +53,25 @@ The HWP Variables 3, 4, and 5 are estimates of annual product imports and export
 
 
 Estimate the change in carbon in products IU as:
-$$
+
 \begin{equation}
 C_{IU \: T_{i \: j}}(t)  = e^{-k_{T_j}(t-1900)}\times \text{Inflow}_{T_i}\times F_{T_{i \: j}}
 (\#eq:one)
 \end{equation}
-$$
 
-$$
+
 \begin{equation}
 C_{IU}(t)  =  \sum\limits_{T=1900}^t \sum\limits_{i=1}^n \sum\limits_{j=1}^m C_{IU \: T_{i \: j}}(t)
 (\#eq:two)
 \end{equation}
-$$
-
 
 Estimate the change in carbon in products IU as:
-$$
+
 \begin{equation}
 \Delta C_{IU}(t)  =  C_{IU}(t) - C_{IU}(t-1)
 (\#eq:three)
 \end{equation}
-$$
+
 
 Where:  
 
@@ -124,23 +121,19 @@ The annual carbon inflow variables for solidwood and paper products are estimate
 
 
 For solidwood products: 
-$$
+
 \begin{equation}
 \text{Inflow}_{T i} = P_{T  i} \:x \: \left[\frac{(SL_p - SL_{IM} + SL_{EX})}{SL_p}\right]
+(\#eq:four)
 \end{equation}
-$$
-
 
 For paper and paperboard products:
-$$
+
 \begin{align}
 \text{Inflow}_T &= P_T \times (1-F_{nonwood\:fiber})\times(1-F_{woodpulp\:imp})\times\left[ \frac{(PW_p - PW_{IM} + PW_{EX})}{PW_p}\right]\\ 
 &+ EX_{rec\:fiber\:pulp} + EX_{rec\:paper} + EX_{woodpulp}
+(\#eq:five)
 \end{align}
-$$
-
-
-
     
 
 Where:
@@ -188,7 +181,6 @@ Estimates of annual change in carbon in "products in SWDS" for current year t fo
 
 Solid-waste disposal sites include dumps, where oxygen is available to decompose all wood and paper over time, and landfills, where a covering is placed over waste periodically and oxygen is sealed out. With limited oxygen, a portion of wood and paper does not decay and will stay permanently in the landfill, and a portion is temporary and will be emitted as $CO_{2}$ to or $CH_{4}$ over time.
 
-$
 \begin{equation}
 C_{SWDS\:PERM}(t)  =  \sum\limits_{T=1900}^t [D_{SWP}(T)] \times (1-F_{TO \: DUMPS}(T))
 \times F_{SWP\:to \: SWDS}(T) \times (1- DOC_{F \: SWP}\times)
@@ -196,9 +188,8 @@ C_{SWDS\:PERM}(t)  =  \sum\limits_{T=1900}^t [D_{SWP}(T)] \times (1-F_{TO \: DUM
 \times F_{PAPER \: to \: SWDS}(T) \times (1-DOC_{F \: PAPER})]
 (\#eq:six)
 \end{equation}
-$
 
-$$
+
 \begin{equation}
 C_{SWDS\:TEMP}(t)  =  \sum\limits_{T=1900}^t e^{-k_{SWP \: DUMPS} \times (t-T)}
 \times [D_{SWP}(T)\times F_{SWP \: to \: SWDS}(T)
@@ -212,29 +203,23 @@ C_{SWDS\:TEMP}(t)  =  \sum\limits_{T=1900}^t e^{-k_{SWP \: DUMPS} \times (t-T)}
 \times (1- F_{TO \: DUMPS}(T)) \times DOC_{F \: PAPER}]
 (\#eq:seven)
 \end{equation}
-$$
 
-$$
+
 \begin{equation}
 C_{SWDS}(t)  = C_{SWDS \: PERM}(t) + C_{SWDS \: TEMP}(t)
 
 (\#eq:eight)
 \end{equation}
-$$
 
-$$
 \begin{equation}
 \Delta C_{SWDS}(t) = C_{SWDS}(t)-C_{SWDS}(t-1)
 (\#eq:nine)
 \end{equation}
-$$
 
-$$
 \begin{equation}
 F_{X \: to \: SWDS}= 1- F_{X \: BURNED} - F_{X \: REC}- F_{X \: COMPOST},
 (\#eq:ten)
 \end{equation}
-$$
 
 Where X is either SWP or PAPER.
 
