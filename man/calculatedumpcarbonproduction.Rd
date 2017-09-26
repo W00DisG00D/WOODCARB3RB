@@ -43,4 +43,3 @@ Either a data frame of values from Calculation spreadsheet or total carbon outpu
 \description{
 Column names with only letters come from Calc sheet, otherwise sheet is specified (need to change names)
 }
-

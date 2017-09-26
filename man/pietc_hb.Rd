@@ -27,4 +27,3 @@ Dataset contains statistics for insulating board.
 All units are in million square ft unless otherwise specified. All vectors are numeric.
 }
 \keyword{datasets}
-

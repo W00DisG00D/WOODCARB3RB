@@ -22,4 +22,3 @@ of values for Annual Domestic Harvest
 Various statistics and intermediate calculations to solve for
 Variable 5, Annual Domestic Harvest (H)
 }
-

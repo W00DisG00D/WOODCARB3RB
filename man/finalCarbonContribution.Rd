@@ -93,4 +93,3 @@ finalCarbonContribution(approach = "Stock Change")
 finalCarbonContribution(approach = "Production",
                          decaydistribution ="Exponential")
 }
-

@@ -36,4 +36,3 @@ a data frame of carbon placed in use for various end uses
 Corresponds to B3147 column in SW Calc P and SW Calc spreadsheet for Production and Stock Change
 approach respectively.
 }
-

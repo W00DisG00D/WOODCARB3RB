@@ -17,4 +17,3 @@ total carbon from solid waste disposal sites
 \description{
 Calculates carbon in landfills and dumps.
 }
-

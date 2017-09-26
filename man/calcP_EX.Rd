@@ -23,4 +23,3 @@ if var = FALSE, necessary calculations for Variable 4 for selected years
 \description{
 Statistics for variable 4
 }
-

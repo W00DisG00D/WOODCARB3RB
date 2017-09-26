@@ -22,4 +22,3 @@ Corresponds with necessary columns from the `USA` sheet in the WOODCARB spreadsh
 \description{
 Uses anonymous functions to calculate columns from `USA` sheet in WOODCARB spreadsheet.
 }
-

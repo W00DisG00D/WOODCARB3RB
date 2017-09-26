@@ -44,4 +44,3 @@ Prior to 1989, pulpwood chips are not included in total production.
 All units are in million cubic ft.
 }
 \keyword{datasets}
-

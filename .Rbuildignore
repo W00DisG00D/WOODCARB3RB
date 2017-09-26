@@ -5,3 +5,5 @@ README.Rmd
 README.html
 ^docs$
 ^_pkgdown\.yml$
+data-raw
+devtools::use_data_raw()

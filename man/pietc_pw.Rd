@@ -34,4 +34,3 @@ All units are in Million Square ft unless otherwise specified.
 Year 1987 includes small volumes of mixed species (not classified as softwoods or hardwoods).
 }
 \keyword{datasets}
-

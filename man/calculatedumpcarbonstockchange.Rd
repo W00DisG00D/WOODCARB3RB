@@ -45,4 +45,3 @@ If totalcarbonstockchange is false: a data frame of intermediate
 \description{
 Calculate carbon in SWDS for the Stock Change Method
 }
-

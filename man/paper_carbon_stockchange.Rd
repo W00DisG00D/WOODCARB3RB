@@ -29,4 +29,3 @@ paper_carbon_stockchange(1990:2000)
 paper_carbon_stockchange(1950:1975, approach = "Stock Change")
 }
 }
-

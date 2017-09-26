@@ -23,4 +23,3 @@ pietc_ib
 All units in millions square feet except when specified otherwise
 }
 \keyword{datasets}
-

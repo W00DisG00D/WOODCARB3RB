@@ -42,4 +42,3 @@ Dataset containing statistics for timber products.
 All units are in Million Board Ft, unless otherwise specified. All vectors are numeric.
 }
 \keyword{piet_all}
-

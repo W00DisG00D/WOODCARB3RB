@@ -31,4 +31,3 @@ All units are in thousand tons unless otherwise specified.
 Recovery rate is the ratio of total recovered paper collected to new supply of paper and paperboard.
 }
 \keyword{datasets}
-

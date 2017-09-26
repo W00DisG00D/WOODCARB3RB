@@ -99,4 +99,3 @@ domestic harvest (from products in use and products in SWDS)
 finalVariables(Years = 1950:2000)
 finalVariables(halflives = hl * 1.25)
 }
-

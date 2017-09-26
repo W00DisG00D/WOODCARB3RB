@@ -41,4 +41,3 @@ late 1970's and early 1980's by the Bureau of the Census and some major softwood
 will be reported in future issues of U.S. timber production, trade, consumption, and price statistics.
 }
 \keyword{datasets}
-

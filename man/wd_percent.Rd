@@ -20,4 +20,3 @@ wd_percent
 Gives percentage of all wood that goes to dumps.
 }
 \keyword{datasets}
-

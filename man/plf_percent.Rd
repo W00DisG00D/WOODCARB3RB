@@ -19,4 +19,3 @@ plf_percent
 Units are percentages and the vector is numeric.
 }
 \keyword{datasets}
-

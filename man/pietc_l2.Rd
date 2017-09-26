@@ -34,4 +34,3 @@ Dataset containing statistics for lumber products.
 All units are in Billion Board ft. unless otherwise specified. All vectors are numeric.
 }
 \keyword{pietc_l2}
-

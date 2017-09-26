@@ -27,4 +27,3 @@ Data set containing statistics for paper and paperboard in the U.S.
 Data are in thousands of short tons per year.
 }
 \keyword{datasets}
-

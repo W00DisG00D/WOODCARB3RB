@@ -10,7 +10,7 @@ returnData(years = 1950:2015)
 \item{years}{years to return data for}
 }
 \value{
-data frame of intermediate calculations corresponding to those in
+Data frame of intermediate calculations corresponding to those in
 Woodcarb2.
 }
 \description{
@@ -20,4 +20,3 @@ to sheets in Woodcarb2. Includes relevant SWP and paper production and
 trade time series for calculating final carbon contributions for
 various approaches.
 }
-

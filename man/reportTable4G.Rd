@@ -27,4 +27,3 @@ Corresponds to Table 4.G s1 and Table 4.G s2
 \examples{
 reportTable4G(table = "s2")
 }
-

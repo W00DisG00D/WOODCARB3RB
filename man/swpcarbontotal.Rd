@@ -57,4 +57,3 @@ All units returned are in od tons of wood fiber.
 swpcarbontotal(c(1990,2000,2010), onlytotal=FALSE)
 swpcarbontotal(1950:1960, approach = "Stock Change")
 }
-

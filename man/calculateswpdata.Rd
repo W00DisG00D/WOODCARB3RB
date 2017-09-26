@@ -20,4 +20,3 @@ Solidwood products statistics
 Various production, imports and export data for different wood product types.
 21 columns in SWPcalcdata that are used to calculate production and stock change approach.
 }
-

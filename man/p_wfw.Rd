@@ -65,4 +65,3 @@ Fuelwood estimates are shown for comparison only and are not included in industr
 Units are in Million feet squared 3/8in.
 }
 \keyword{datasets}
-

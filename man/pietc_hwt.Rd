@@ -42,4 +42,3 @@ Dataset containing statistics for hardwood timber products.
 All units are in million cubic ft.
 }
 \keyword{datasets}
-

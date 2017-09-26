@@ -33,4 +33,3 @@ All units are in thousand pounds unless otherwise specified.
 Consumption = Production + Imports - Exports
 }
 \keyword{datasets}
-

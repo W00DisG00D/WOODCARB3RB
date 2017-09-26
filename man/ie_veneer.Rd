@@ -25,4 +25,3 @@ Dataset containing import and export statistics for veneer products.
 All units are in 1000 Sq. Ft. All vectors are numeric.
 }
 \keyword{ie_veneer}
-
