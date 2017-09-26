@@ -7,11 +7,10 @@
 finalCarbonContribution(Years = 1990:2015, approach = c("Production",
   "Stock Change", "Atmospheric Flow", "Annual Harvest", "Annual CO2 Release",
   "Total Contribution"), decaydistribution = c("Exponential", "K=2", "K=10"),
-  plot = FALSE, halflives = hl, paperHL = 2.53087281800454,
-  fsp_function = fsp_1, fnsp = fnonsp, fsawn = fsw, swpdata,
-  woodToCarbon = 4.535925e-07, paperToCarbon = 3.9008955e-07,
-  swpSwdsNondegradable = 0.77, paperSwdsNondegradable = 0.44,
-  swpLandfillDecay = 0.0300063714528115,
+  plot = FALSE, halflives = hl, paperHL = 2.53087281800454, fsp = fsp_1,
+  fnsp = fnonsp, fsawn = fsw, swpdata, woodToCarbon = 4.535925e-07,
+  paperToCarbon = 3.9008955e-07, swpSwdsNondegradable = 0.77,
+  paperSwdsNondegradable = 0.44, swpLandfillDecay = 0.0300063714528115,
   paperLandfillDecay = 0.0478032538317204,
   swpDumpDecay = 0.0420089200339361, paperDumpDecay = 0.0840178400678722)
 }
@@ -31,6 +30,10 @@ finalCarbonContribution(Years = 1990:2015, approach = c("Production",
 one of 13 end uses and half life values for 1900 until the maximum year of interest.}
 
 \item{paperHL}{half life value for paper}
+
+\item{fsp}{Fraction of structural panel products that go to each end use.
+Default can be substituted with data with a column for each end use and row for years
+from 1900 to latest year of interest.}
 
 \item{fnsp}{Fraction of non-structural panel products that go to each end use.
 Default can be substituted with data with a column for each end use and row for years
@@ -62,10 +65,6 @@ are not subject to decay.}
 \item{swpDumpDecay}{Decay rate of solid-wood products in dumps as a half-life in years.}
 
 \item{paperDumpDecay}{Decay rate of paper products in dumps as a half-life in years.}
-
-\item{fsp}{Fraction of structural panel products that go to each end use.
-Default can be substituted with data with a column for each end use and row for years
-from 1900 to latest year of interest.}
 }
 \value{
 A vector of carbon contributions for all Years. Plot returned is optional

@@ -58,13 +58,13 @@
 #' finalCarbonContribution(approach = "Production",
 #'                          decaydistribution ="Exponential")
 finalCarbonContribution <- function(Years = 1990:2015, approach = c("Production",
-                                                                   "Stock Change",
-                                                                   "Atmospheric Flow",
-                                                                   "Annual Harvest",
-                                                                   "Annual CO2 Release",
-                                                                   "Total Contribution"),
+                                                                    "Stock Change",
+                                                                    "Atmospheric Flow",
+                                                                    "Annual Harvest",
+                                                                    "Annual CO2 Release",
+                                                                    "Total Contribution"),
                                     decaydistribution = c("Exponential",
-                                                  "K=2", "K=10"), plot = FALSE,
+                                                          "K=2", "K=10"), plot = FALSE,
                                     halflives = hl, paperHL = 2.53087281800454, fsp = fsp_1,
                                     fnsp = fnonsp,
                                     fsawn = fsw,
@@ -73,45 +73,45 @@ finalCarbonContribution <- function(Years = 1990:2015, approach = c("Production"
                                     swpSwdsNondegradable = 0.77, paperSwdsNondegradable = 0.44,
                                     swpLandfillDecay = 0.0300063714528115 , paperLandfillDecay = 0.0478032538317204,
                                     swpDumpDecay = 0.0420089200339361 , paperDumpDecay = 0.0840178400678722){
-  if (missing(approach)){
-    approach = "Production"
-  }
-  approachtype <- match.arg(approach)
-  decay<- match.arg(decaydistribution)
-
-  fvs <- finalVariables(Years, decay, halflives, paperHL = paperHL, approach = approachtype, fsp = fsp_1,
-                        fnsp = fnsp,
-                        fsawn = fsawn, woodToCarbon = woodToCarbon, paperToCarbon = paperToCarbon,
-                        swpSwdsNondegradable = swpSwdsNondegradable, paperSwdsNondegradable = paperSwdsNondegradable,
-                        swpLandfillDecay = swpLandfillDecay, paperLandfillDecay = paperLandfillDecay,
-                        swpDumpDecay = swpDumpDecay, paperDumpDecay = paperDumpDecay, swpdata = swpdata)
-  if (approachtype == "Atmospheric Flow") {
-    contrib <- ((-1*fvs[,"Var1A"]-fvs[,"Var1B"])*44/12)+(fvs[,"Var3"]-fvs[,"Var4"])*44/12
-  }
-  if (approachtype == "Annual Harvest") {
-    contrib <- -1 * fvs[,"Var5"] * 44 / 12
-  }
-  if (approachtype == "Annual CO2 Release") {
-    contrib <- fvs[,"Var7"] * 44/12
-  }
-  if (approachtype == "Total Contribution") {
-    contrib <- (-1 * fvs[,"Var5"] * 44 / 12) + fvs[,"Var7"] * 44/12
-  }
-  else {
-    #First column is 1A/2A for Stock change and production respectively,
-    #and second column is 1B/2B for stock change and production respectively.
-    contrib <- (-1*fvs[,names(fvs)[grep("A", names(fvs))]]-
-                  fvs[,names(fvs)[grep("B", names(fvs))]])*44/12
-  }
-  r <- list(contrib)
-  if (plot == TRUE) {
-    #add smoothed line to data w/ ggplot
-    p <- plot(Years, contrib, xlab="Years", ylab="Total CO2 Contribution",
-              main = "Total Carbon Removals", type="l")
-    r <- c(r, p)
-  }
-
-  return(unlist(r))
+    if (missing(approach)){
+        approach = "Production"
+    }
+    approachtype <- match.arg(approach)
+    decay<- match.arg(decaydistribution)
+    
+    fvs <- finalVariables(Years, decay, halflives, paperHL = paperHL, approach = approachtype, fsp = fsp_1,
+                          fnsp = fnsp,
+                          fsawn = fsawn, woodToCarbon = woodToCarbon, paperToCarbon = paperToCarbon,
+                          swpSwdsNondegradable = swpSwdsNondegradable, paperSwdsNondegradable = paperSwdsNondegradable,
+                          swpLandfillDecay = swpLandfillDecay, paperLandfillDecay = paperLandfillDecay,
+                          swpDumpDecay = swpDumpDecay, paperDumpDecay = paperDumpDecay, swpdata = swpdata)
+    if (approachtype == "Atmospheric Flow") {
+        contrib <- ((-1*fvs[,"Var1A"]-fvs[,"Var1B"])*44/12)+(fvs[,"Var3"]-fvs[,"Var4"])*44/12
+    }
+    if (approachtype == "Annual Harvest") {
+        contrib <- -1 * fvs[,"Var5"] * 44 / 12
+    }
+    if (approachtype == "Annual CO2 Release") {
+        contrib <- fvs[,"Var7"] * 44/12
+    }
+    if (approachtype == "Total Contribution") {
+        contrib <- (-1 * fvs[,"Var5"] * 44 / 12) + fvs[,"Var7"] * 44/12
+    }
+    else {
+        #First column is 1A/2A for Stock change and production respectively,
+        #and second column is 1B/2B for stock change and production respectively.
+        contrib <- (-1*fvs[,names(fvs)[grep("A", names(fvs))]]-
+                        fvs[,names(fvs)[grep("B", names(fvs))]])*44/12
+    }
+    r <- list(contrib)
+    if (plot == TRUE) {
+        #add smoothed line to data w/ ggplot
+        p <- plot(Years, contrib, xlab="Years", ylab="Total CO2 Contribution",
+                  main = "Total Carbon Removals", type="l")
+        r <- c(r, p)
+    }
+    
+    return(unlist(r))
 }
 
 #' Calculates the 7 HWP Variables.
@@ -190,91 +190,91 @@ finalVariables <- function(Years = 1990:2015,
                            swpLandfillDecay = 0.0300063714528115 , paperLandfillDecay = 0.0478032538317204,
                            swpDumpDecay = 0.0420089200339361 , paperDumpDecay = 0.0840178400678722,
                            swpdata){
-
-  decay <- match.arg(decaydistribution)
-
-  if (missing(swpdata))
-  {
-    swpdata <- calculateswpdata()
-  }
-
-  environment(swp_carbon_stockchange) <- environment()
-  environment(paper_carbon_stockchange) <- environment()
-  environment(carbonfromdumps) <- environment()
-  environment(calcP_IM) <- environment()
-  environment(calcP_EX) <- environment()
-  environment(annualDomesticHarvest) <- environment()
-
-  Var1A <- function(){
-    (swp_carbon_stockchange(Years, approach = "Stock Change",
-                            decaydistribution = decay,
-                            halflives = hl, fsp = fsp_1,
-                            fnsp = fnsp,
-                            fsawn = fsawn, swpdata = swpdata) +
-       paper_carbon_stockchange(Years,
-                                approach = "Stock Change")) * 1000
-  }
-  Var1B <- function(){
-    carbonfromdumps(Years, approach = "Stock Change")  * 1000
-  }
-  Var2A <- function(){
-    (swp_carbon_stockchange(Years, approach = "Production",
-                            decaydistribution = decay,
-                            halflives = hl, fsp = fsp_1,
-                            fnsp = fnsp,
-                            fsawn = fsawn, swpdata = swpdata) +
-       paper_carbon_stockchange(Years,
-                                approach = "Production")) * 1000
-  }
-  Var2B <- function(){
-    carbonfromdumps(Years, approach = "Production") *  1000
-  }
-  Var3 <- function(){
-    calcP_IM(Years, var = TRUE)
-  }
-
-  Var4  <- function(){
-    calcP_EX(Years, var = TRUE)
-  }
-
-  Var5 <- function(){
-    annualDomesticHarvest(Years, onlyvar = TRUE)
-  }
-  Var6 <- function(){
-    Var5() + Var3() - Var4() - Var1A() - Var1B()
-  }
-  Var7 <- function(){
-    Var5() - Var2A() - Var2B()
-  }
-  if (is.null(approach)) {
-
-    df <- data.frame(Years, Var1A = Var1A(), Var1B = Var1B(),
-                     Var2A = Var2A(), Var2B = Var2B(),
-                     Var3 = Var3(), Var4 = Var4(),
-                     Var5 = Var5())
+    
+    decay <- match.arg(decaydistribution)
+    
+    if (missing(swpdata))
+    {
+        swpdata <- calculateswpdata()
+    }
+    
+    environment(swp_carbon_stockchange) <- environment()
+    environment(paper_carbon_stockchange) <- environment()
+    environment(carbonfromdumps) <- environment()
+    environment(calcP_IM) <- environment()
+    environment(calcP_EX) <- environment()
+    environment(annualDomesticHarvest) <- environment()
+    
+    Var1A <- function(){
+        (swp_carbon_stockchange(Years, approach = "Stock Change",
+                                decaydistribution = decay,
+                                halflives = hl, fsp = fsp_1,
+                                fnsp = fnsp,
+                                fsawn = fsawn, swpdata = swpdata) +
+             paper_carbon_stockchange(Years,
+                                      approach = "Stock Change")) * 1000
+    }
+    Var1B <- function(){
+        carbonfromdumps(Years, approach = "Stock Change")  * 1000
+    }
+    Var2A <- function(){
+        (swp_carbon_stockchange(Years, approach = "Production",
+                                decaydistribution = decay,
+                                halflives = hl, fsp = fsp_1,
+                                fnsp = fnsp,
+                                fsawn = fsawn, swpdata = swpdata) +
+             paper_carbon_stockchange(Years,
+                                      approach = "Production")) * 1000
+    }
+    Var2B <- function(){
+        carbonfromdumps(Years, approach = "Production") *  1000
+    }
+    Var3 <- function(){
+        calcP_IM(Years, var = TRUE)
+    }
+    
+    Var4  <- function(){
+        calcP_EX(Years, var = TRUE)
+    }
+    
+    Var5 <- function(){
+        annualDomesticHarvest(Years, onlyvar = TRUE)
+    }
+    Var6 <- function(){
+        Var5() + Var3() - Var4() - Var1A() - Var1B()
+    }
+    Var7 <- function(){
+        Var5() - Var2A() - Var2B()
+    }
+    if (is.null(approach)) {
+        
+        df <- data.frame(Years, Var1A = Var1A(), Var1B = Var1B(),
+                         Var2A = Var2A(), Var2B = Var2B(),
+                         Var3 = Var3(), Var4 = Var4(),
+                         Var5 = Var5())
+        return(df)
+    }
+    
+    if (approach == "Production") {
+        df <- data.frame(Years, Var2A = Var2A(),
+                         Var2B = Var2B())
+        return(df)
+    }
+    
+    if (approach == "Stock Change") {
+        df <- data.frame(Years, Var1A = Var1A(),
+                         Var1B = Var1B())
+        return(df)
+    }
+    
+    if (approach == "Atmospheric Flow") {
+        df <- data.frame(Years, Var1A = Var1A(),
+                         Var1B = Var1B(),
+                         Var3  = Var3(),
+                         Var4  = Var4())
+        return(df)
+    }
     return(df)
-  }
-
-  if (approach == "Production") {
-    df <- data.frame(Years, Var2A = Var2A(),
-                     Var2B = Var2B())
-    return(df)
-  }
-
-  if (approach == "Stock Change") {
-    df <- data.frame(Years, Var1A = Var1A(),
-                     Var1B = Var1B())
-    return(df)
-  }
-
-  if (approach == "Atmospheric Flow") {
-    df <- data.frame(Years, Var1A = Var1A(),
-                     Var1B = Var1B(),
-                     Var3  = Var3(),
-                     Var4  = Var4())
-    return(df)
-  }
-  return(df)
 }
 
 #' Calculates changes in carbon stock from solid wood products.
@@ -314,19 +314,19 @@ swp_carbon_stockchange <- function(years, approach = c("Production", "Stock Chan
                                    fnsp = fnonsp,
                                    fsawn = fsw, swpdata,
                                    woodToCarbon = 4.535925e-07){
-  approach <- match.arg(approach)
-  decay <- match.arg(decaydistribution)
-
-  yearss <- (min(years)-1):max(years)
-
-  totals <- data.frame(yearss, carbon = swpcarbontotal(Yrs = yearss, approach = approach, decaydistribution = decay,
-                           halflives = hl, fsp = fsp_1,
-                           fnsp = fnsp,
-                           fsawn = fsawn, swpdata = swpdata))
-  totals[2:length(yearss),"diffs"] <- diff(totals$carbon)
-  stockchange <- woodToCarbon * totals[totals$yearss %in% years,"diffs"]
-  return(stockchange)
-
+    approach <- match.arg(approach)
+    decay <- match.arg(decaydistribution)
+    
+    yearss <- (min(years)-1):max(years)
+    
+    totals <- data.frame(yearss, carbon = swpcarbontotal(Yrs = yearss, approach = approach, decaydistribution = decay,
+                                                         halflives = hl, fsp = fsp_1,
+                                                         fnsp = fnsp,
+                                                         fsawn = fsawn, swpdata = swpdata))
+    totals[2:length(yearss),"diffs"] <- diff(totals$carbon)
+    stockchange <- woodToCarbon * totals[totals$yearss %in% years,"diffs"]
+    return(stockchange)
+    
 }
 
 #' Calculates changes in carbon stock from paper.
@@ -343,39 +343,38 @@ swp_carbon_stockchange <- function(years, approach = c("Production", "Stock Chan
 #' paper_carbon_stockchange(1950:1975, approach = "Stock Change")
 #' }
 paper_carbon_stockchange <- function(years, approach = c("Production", "Stock Change")){
-  environment(calcUSApaper) <- environment()
-  USA <- calcUSApaper(yrs)
-  approach = match.arg(approach)
-  calcpaper <- function(years, CarbonInputFlowFromPaper){
-
-    papercarbon <- numeric(length(minyr:max(years)))
-    for(year in minyr:max(years)){ #Total carbon in paper for year y in Tg C/yr
-      if(year == minyr){
-        papercarbon[year-(minyr-1)] <- exp(-log(2)/paperHL)*CarbonInputFlowFromPaper[year-(minyr-1)]
-      }
-      else{
-        papercarbon[year-(minyr-1)] <- exp(-log(2)/paperHL)*(CarbonInputFlowFromPaper[year-(minyr-1)]+
-                                                             papercarbon[year-minyr])
-      }
+    environment(calcUSApaper) <- environment()
+    USA <- calcUSApaper(yrs)
+    approach = match.arg(approach)
+    calcpaper <- function(years, CarbonInputFlowFromPaper){
+        
+        papercarbon <- numeric(length(minyr:max(years)))
+        for(year in minyr:max(years)){ #Total carbon in paper for year y in Tg C/yr
+            if(year == minyr){
+                papercarbon[year-(minyr-1)] <- exp(-log(2)/paperHL)*CarbonInputFlowFromPaper[year-(minyr-1)]
+            }
+            else{
+                papercarbon[year-(minyr-1)] <- exp(-log(2)/paperHL)*(CarbonInputFlowFromPaper[year-(minyr-1)]+
+                                                                         papercarbon[year-minyr])
+            }
+        }
+        if(min(years) == minyr){
+            index <- minyr:max(years)
+        }
+        else{
+            index <- (min(years)-1):max(years)
+        }
+        
+        totals <- papercarbon[index-(minyr-1)]
+        
+        return(totals[2:length(totals)] - totals[1:length(totals)-1])
     }
-    if(min(years) == minyr){
-      index <- minyr:max(years)
+    
+    if (approach == "Production"){
+        return(calcpaper(years, USA$`Production Approach-C Input from Paper Products(Calc BU)`)[years-(min(years-1))])
     }
-    else{
-      index <- (min(years)-1):max(years)
+    
+    if (approach == "Stock Change"){
+        return(calcpaper(years, USA$CarbonInputFlowPaperStockChange)[years-(min(years-1))])
     }
-
-    totals <- papercarbon[index-(minyr-1)]
-
-    return(totals[2:length(totals)] - totals[1:length(totals)-1])
-  }
-
-  if (approach == "Production"){
-    return(calcpaper(years, USA$`Production Approach-C Input from Paper Products(Calc BU)`)[years-(min(years-1))])
-  }
-
-  if (approach == "Stock Change"){
-    return(calcpaper(years, USA$CarbonInputFlowPaperStockChange)[years-(min(years-1))])
-  }
 }
-
