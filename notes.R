@@ -1,4 +1,4 @@
-##how to clone (with github, may need a walkthrough)
+ ##how to clone (with github, may need a walkthrough)
 ##we can do it :D
 #fix years (use max instead of manually fixing)
 #plot more than one thing on the same graph
