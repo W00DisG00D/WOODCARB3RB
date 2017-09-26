@@ -4,7 +4,7 @@
 #finalvars <- finalVariables()
 
 #read in correct table to test against
-# check <- system.file("extdata/CopyOfData",
+# check <- system.file("extdata/ModifiedData",
 #                      "testIpccReport2.csv", package="WOODCARB3R")
 # check <- read.csv(check)
 
