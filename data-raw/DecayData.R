@@ -1,4 +1,4 @@
-hl <- halfLives <- read.xlsx("../inst/extdata/ModifiedData/halfLives.xlsx", 1,header=FALSE,
+hl <- halfLives <- read.xlsx("../inst/extdata/CopyOfData/halfLives.xlsx", 1,header=FALSE,
                              colIndex = c(1,2,3,5,6,7,8,10,11,12,14,15,16,17))#halflives data load will need speific location and formatting
 
 ## BUILDING DECAY ARRAY BASED ON HALFLIVES DATA

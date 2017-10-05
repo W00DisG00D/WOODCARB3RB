@@ -5,7 +5,7 @@ context("Test final variables.")
 finalvars <- finalVariables()
 
 #read in correct table to test against
-check <- system.file("extdata/ModifiedData",
+check <- system.file("extdata/CopyOfData",
                      "finalVariablesCheck.csv",package="WOODCARB3RB")
 check <- read.csv(check)
 
