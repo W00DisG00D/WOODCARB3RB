@@ -320,7 +320,7 @@ swp_carbon_stockchange <- function(years, approach = c("Production", "Stock Chan
     yearss <- (min(years)-1):max(years)
     
     totals <- data.frame(yearss, carbon = swpcarbontotal(Yrs = yearss, approach = approach, decaydistribution = decay,
-                                                         halflives = hl, fsp = fsp_1,
+                                                         halflives = hl, fsp_function = fsp_1,
                                                          fnsp = fnsp,
                                                          fsawn = fsawn, swpdata = swpdata))
     totals[2:length(yearss),"diffs"] <- diff(totals$carbon)
