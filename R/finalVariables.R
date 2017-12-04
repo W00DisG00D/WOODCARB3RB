@@ -106,7 +106,7 @@ finalCarbonContribution <- function(Years = 1990:2015, approach = c("Production"
     r <- list(contrib)
     if (plot == TRUE) {
         #add smoothed line to data w/ ggplot
-        p <- plot(Years, contrib, xlab="Years", ylab="Total CO2 Contribution",
+        p <- plot(Years, contrib, xlab="Years", ylab="Total CO2 Contribution (Thousand Metric Tons)",
                   main = "Total Carbon Removals", type="l")
         r <- c(r, p)
     }
