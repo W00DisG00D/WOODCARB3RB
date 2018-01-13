@@ -1,0 +1,48 @@
+title: WOODCARB3RB
+
+template:
+  bootswatch: cosmo
+
+navbar:
+  type: inverse
+  left:
+  - text: Home
+    href: index.html
+  - text: Reference
+    href: reference/index.html
+  - text: Articles
+    href: articles/index.html
+  right:
+    - icon: fa-github fa-lg
+      href: https://github.com/benjones2/WOODCARB3RB/
+
+reference:
+  - title: "Functions"
+    desc: >
+      Functions for calculating intermediate carbon statistics
+      and final CO2 removal contributions
+    contents:
+      - finalCarbonContribution
+      - finalVariables
+      - swpcarbontotal
+  - title: "Data Sheets"
+    desc: "Input data sheets for carbon calculations"
+    contents:
+      - starts_with("piet")
+      - starts_with("ie")
+      - starts_with("pietc")
+      - wd_percent
+      - wlf_percent
+      - plf_percent
+      - fsw
+      - starts_with("fsp")
+      - fnonsp
+      - hl
+      - lp1900
+      - liu
+      - usafp
+      - twp
+      - c_pb
+      - cp_pb
+      - p_wfw
+      - pt_pu
